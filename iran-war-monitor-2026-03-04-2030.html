@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伊朗战争监控报告 | {{DATE}}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e4e4e4; line-height: 1.6; padding: 20px; min-height: 100vh;
+        }
+        .container {
+            max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.05);
+            border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        .header {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            color: white; padding: 40px 30px; text-align: center;
+        }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+        .header .meta { font-size: 14px; opacity: 0.9; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .section { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .section:last-child { border-bottom: none; }
+        .section-title {
+            font-size: 20px; font-weight: 600; color: #e74c3c;
+            margin-bottom: 25px; display: flex; align-items: center; gap: 10px;
+            padding-bottom: 15px; border-bottom: 2px solid #e74c3c;
+        }
+        .news-card {
+            background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px;
+            margin-bottom: 20px; border-left: 3px solid #e74c3c;
+            transition: all 0.2s;
+        }
+        .news-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+        }
+        .news-title {
+            font-size: 16px; font-weight: 600; color: #fff;
+            margin-bottom: 10px; line-height: 1.4;
+        }
+        .news-title-en {
+            display: block; margin-bottom: 8px;
+        }
+        .news-title-zh {
+            display: block;
+            color: #3498db;
+            font-weight: 500;
+            font-size: 15px;
+            padding-left: 15px;
+            border-left: 2px solid #3498db;
+        }
+        .news-content {
+            font-size: 14px; color: #b0b0b0;
+            margin-bottom: 12px; line-height: 1.6;
+        }
+        .news-content-en {
+            margin-bottom: 10px;
+        }
+        .news-content-zh {
+            color: #95a5a6;
+            padding-left: 15px;
+            border-left: 2px solid #3498db;
+            font-style: italic;
+        }
+        .news-meta {
+            display: flex; gap: 15px; font-size: 12px; color: #888;
+        }
+        .news-source {
+            color: #e74c3c; font-weight: 500;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, rgba(231,76,60,0.2) 0%, rgba(192,57,43,0.2) 100%);
+            border: 1px solid rgba(231,76,60,0.3);
+            border-radius: 10px; padding: 25px; margin-bottom: 25px;
+        }
+        .summary-title {
+            font-size: 18px; font-weight: 600; color: #e74c3c;
+            margin-bottom: 15px; display: flex; align-items: center; gap: 10px;
+        }
+        .summary-content {
+            font-size: 14px; color: #d0d0d0;
+            line-height: 1.8;
+        }
+        .summary-content ul {
+            margin-left: 20px; margin-top: 10px;
+        }
+        .summary-content li {
+            margin-bottom: 8px;
+        }
+        .prediction-box {
+            background: linear-gradient(135deg, rgba(52,152,219,0.2) 0%, rgba(41,128,185,0.2) 100%);
+            border: 1px solid rgba(52,152,219,0.3);
+            border-radius: 10px; padding: 25px;
+        }
+        .prediction-title {
+            font-size: 18px; font-weight: 600; color: #3498db;
+            margin-bottom: 15px; display: flex; align-items: center; gap: 10px;
+        }
+        .prediction-content {
+            font-size: 14px; color: #d0d0d0;
+            line-height: 1.8;
+        }
+        .tag {
+            display: inline-block; background: rgba(231,76,60,0.3);
+            color: #e74c3c; padding: 3px 10px; border-radius: 12px;
+            font-size: 12px; font-weight: 500; margin-right: 8px;
+        }
+        .tag.twitter { background: rgba(29,161,242,0.3); color: #1da1f2; }
+        .tag.chinese { background: rgba(241,196,15,0.3); color: #f1c40f; }
+        .tag.international { background: rgba(52,152,219,0.3); color: #3498db; }
+        .footer {
+            background: rgba(0,0,0,0.3); padding: 20px 30px; text-align: center;
+            font-size: 13px; color: #888;
+        }
+        .status-badge {
+            display: inline-block; background: #e74c3c; color: white;
+            padding: 4px 12px; border-radius: 12px; font-size: 12px;
+            font-weight: 600; margin-left: 10px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 22px; }
+            .section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌍 伊朗战争监控报告</h1>
+            <div class="meta">
+                <span>📅 2026 年 3 月 4 日</span>
+                <span>⏰ 20:00 (Asia/Shanghai)</span>
+                <span>🔴 战争第 3 天</span>
+            </div>
+        </div>
+        
+        <!-- Section 1: 国际媒体报道 -->
+        <div class="section">
+            <div class="section-title">
+                <span>📰 国际媒体报道</span>
+                <span class="tag international">International</span>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag">CNN</span>
+                    <span class="news-title-en">US Increases Middle East Forces as Iran-Israel Conflict Enters Day 3</span>
+                    <span class="news-title-zh">美国增兵中东，伊朗以色列冲突进入第 3 天</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-content-en">
+                        The United States is deploying additional military assets to the Middle East as the Iran-Israel conflict enters its third day. Pentagon officials confirmed the movement of fighter jets and naval assets to the region. Regional tensions have reached the highest point in months, with both sides exchanging fire across borders.
+                    </div>
+                    <div class="news-content-zh">
+                        随着伊朗以色列冲突进入第 3 天，美国正在向中东部署更多军事资产。五角大楼官员证实，战斗机和海军资产已调往该地区。地区紧张局势达到数月来最高点，双方跨境交火。
+                    </div>
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 CNN International</span>
+                    <span>2 hours ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag">Reuters</span>
+                    <span class="news-title-en">Trump Suggests Extended War Timeline, Markets React</span>
+                    <span class="news-title-zh">特朗普暗示战争时间延长，市场反应</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-content-en">
+                        President Trump suggested the conflict with Iran could last 4-5 weeks, indicating a prolonged military engagement rather than quick strikes. Oil prices surged 3% on the news, while defense stocks gained ground. European markets showed mixed reactions amid uncertainty.
+                    </div>
+                    <div class="news-content-zh">
+                        特朗普总统暗示与伊朗的冲突可能持续 4-5 周，表明是长期军事行动而非快速打击。油价因此上涨 3%，国防股票上涨。欧洲市场在不确定性中表现不一。
+                    </div>
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 Reuters</span>
+                    <span>1 hour ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag">BBC</span>
+                    <span class="news-title-en">Diplomatic Efforts Intensify as UN Calls for Ceasefire</span>
+                    <span class="news-title-zh">联合国呼吁停火，外交努力加强</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-content-en">
+                        The United Nations Security Council held an emergency session calling for an immediate ceasefire. European leaders are pushing for diplomatic solutions, while regional powers express concern over the escalating conflict's impact on global stability.
+                    </div>
+                    <div class="news-content-zh">
+                        联合国安理会召开紧急会议，呼吁立即停火。欧洲领导人推动外交解决方案，地区大国对冲突升级影响全球稳定表示关切。
+                    </div>
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 BBC News</span>
+                    <span>3 hours ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 2: 国内媒体报道 -->
+        <div class="section">
+            <div class="section-title">
+                <span>📰 国内媒体报道</span>
+                <span class="tag chinese">Chinese Media</span>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag">新华社</span>
+                    中方呼吁各方保持克制 通过对话解决争端
+                </div>
+                <div class="news-content">
+                    中国外交部发言人表示，中方对中东局势升级表示关切，呼吁有关各方保持克制，避免采取可能导致局势进一步升级的行动。中方支持通过对话和外交途径解决争端，维护地区和平稳定。
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 新华社</span>
+                    <span>4 小时前</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag">央视</span>
+                    国际油价上涨 专家：短期内或持续波动
+                </div>
+                <div class="news-content">
+                    受中东局势影响，国际油价今日上涨超过 3%。能源专家表示，如果冲突持续，油价可能继续波动。国内成品油价格或将受到影响，建议车主关注油价变化。
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 央视新闻</span>
+                    <span>5 小时前</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag">环球时报</span>
+                    美伊谈判破裂细节曝光 伊方拒绝"十年零浓缩铀"方案
+                </div>
+                <div class="news-content">
+                    据媒体报道，美国特使披露对伊动武前谈判破裂细节。伊方拒绝了美方提出的"十年零浓缩铀"方案，认为这严重损害伊朗的主权和核能发展权利。谈判破裂后，美方随即采取军事行动。
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 环球时报</span>
+                    <span>6 小时前</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 3: Twitter 最新消息 -->
+        <div class="section">
+            <div class="section-title">
+                <span>🐦 Twitter 最新消息</span>
+                <span class="tag twitter">Twitter/X</span>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag twitter">Twitter</span>
+                    Breaking: Israeli airstrikes reported in Tehran and Beirut simultaneously
+                </div>
+                <div class="news-content">
+                    Multiple reports of explosions in both capitals. IDF confirms coordinated operations. This marks a significant escalation in the ongoing conflict. #Iran #Israel #Breaking
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 @BreakingNews</span>
+                    <span>30 minutes ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag twitter">Twitter</span>
+                    Iran claims to have hit US base in Bahrain
+                </div>
+                <div class="news-content">
+                    Iranian state media claims successful strike on US military facility. Pentagon has not yet commented on the claim. Regional tensions continue to escalate. #MiddleEast
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 @Reuters</span>
+                    <span>1 hour ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-title">
+                    <span class="tag twitter">Twitter</span>
+                    Oil prices surge 3% on Middle East supply concerns
+                </div>
+                <div class="news-content">
+                    Brent crude tops $82/barrel as traders worry about potential disruption to oil shipments through Strait of Hormuz. Energy stocks rallying across global markets. #Oil #Energy
+                </div>
+                <div class="news-meta">
+                    <span class="news-source">📎 @Bloomberg</span>
+                    <span>2 hours ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: 目前情况总结 -->
+        <div class="section">
+            <div class="section-title">
+                <span>📊 目前情况总结</span>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-title">🔴 当前局势</div>
+                <div class="summary-content">
+                    <ul>
+                        <li><strong>战争持续时间：</strong> 第 3 天（2026 年 3 月 2 日爆发）</li>
+                        <li><strong>主要战场：</strong> 伊朗（德黑兰）、以色列、黎巴嫩（贝鲁特）</li>
+                        <li><strong>美国立场：</strong> 军事支持以色列，增兵中东</li>
+                        <li><strong>国际反应：</strong> 联合国呼吁停火，欧盟推动外交解决</li>
+                        <li><strong>中方立场：</strong> 呼吁克制，支持对话解决争端</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-title">⚠️ 关键动态</div>
+                <div class="summary-content">
+                    <ul>
+                        <li>以军同时空袭伊朗德黑兰和黎巴嫩贝鲁特，显示冲突范围扩大</li>
+                        <li>伊朗声称击中美军巴林基地，但美方尚未证实</li>
+                        <li>特朗普表示战争可能持续 4-5 周，暗示长期军事行动</li>
+                        <li>国际油价上涨 3%，市场担忧霍尔木兹海峡封锁风险</li>
+                        <li>联合国安理会召开紧急会议，呼吁立即停火</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="summary-box">
+                <div class="summary-title">📈 市场影响</div>
+                <div class="summary-content">
+                    <ul>
+                        <li><strong>原油：</strong> Brent 原油突破 82 美元/桶，上涨 3%</li>
+                        <li><strong>国防股：</strong> 全球国防股票普遍上涨</li>
+                        <li><strong>金价：</strong> 避险情绪推动金价上涨 1.29%</li>
+                        <li><strong>亚洲股市：</strong> 日韩股市下跌，担忧地区安全</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 5: 未来发展预判 -->
+        <div class="section">
+            <div class="section-title">
+                <span>🔮 未来发展预判</span>
+            </div>
+            
+            <div class="prediction-box">
+                <div class="prediction-title">📅 短期预判（1-7 天）</div>
+                <div class="prediction-content">
+                    <ul>
+                        <li><strong>军事行动升级：</strong> 预计以美联军将继续对伊朗境内目标进行空袭，伊朗可能加大报复力度</li>
+                        <li><strong>外交斡旋加强：</strong> 欧盟、中国、俄罗斯等将加大外交努力，推动停火谈判</li>
+                        <li><strong>油价波动持续：</strong> 如果冲突持续，油价可能突破 85 美元/桶</li>
+                        <li><strong>地区扩散风险：</strong> 需关注真主党、胡塞武装等代理人势力是否介入</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="prediction-box">
+                <div class="prediction-title">📅 中期预判（2-4 周）</div>
+                <div class="prediction-content">
+                    <ul>
+                        <li><strong>特朗普 4-5 周时间表：</strong> 如总统所言，军事行动可能持续至 4 月初</li>
+                        <li><strong>谈判窗口可能出现：</strong> 在军事压力达到峰值后，双方可能重返谈判桌</li>
+                        <li><strong>伊朗核问题再议：</strong> 战后可能重启伊朗核协议谈判，但条件将更加苛刻</li>
+                        <li><strong>地区格局重塑：</strong> 无论结果如何，中东力量平衡将被打破</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="prediction-box">
+                <div class="prediction-title">⚠️ 风险因素</div>
+                <div class="prediction-content">
+                    <ul>
+                        <li><strong>霍尔木兹海峡封锁：</strong> 最坏情况下，伊朗可能封锁海峡，导致全球油价飙升</li>
+                        <li><strong>代理人战争扩大：</strong> 真主党、胡塞武装等可能加大袭击力度</li>
+                        <li><strong>美国国内政治压力：</strong> 随着时间推移，美国国内反战情绪可能上升</li>
+                        <li><strong>全球经济影响：</strong> 长期冲突将推高能源成本，影响全球经济复苏</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>🤖 由麦麦自动生成 · 数据来源：CNN、Reuters、BBC、新华社、央视、Twitter</p>
+            <p style="margin-top: 10px;">
+                <span>📅 生成时间：2026-03-04 20:00</span> · 
+                <span>🔄 更新频率：每 12 小时</span> · 
+                <span>🔴 战争第 3 天</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 12px; color: #666;">
+                ⚠️ 免责声明：本报告仅供参考，不构成投资建议。战争局势变化快速，请以官方消息为准。
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damien 应该关注的每日动态 | 2026 年 3 月 4 日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa; color: #2c3e50; line-height: 1.5; padding: 15px;
+        }
+        .container {
+            max-width: 700px; margin: 0 auto; background: white;
+            border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 25px 25px 20px; text-align: center;
+        }
+        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
+        .header .meta {
+            font-size: 13px; opacity: 0.95; display: flex; justify-content: center;
+            gap: 15px; align-items: center; flex-wrap: wrap;
+        }
+        .header .meta span { display: flex; align-items: center; gap: 4px; }
+        .weather {
+            background: rgba(255,255,255,0.2); padding: 4px 12px;
+            border-radius: 12px; display: inline-flex; align-items: center; gap: 5px;
+        }
+        /* Market Data - Highlight */
+        .market-top {
+            background: #fafbfc; border-bottom: 2px solid #eaeaea; padding: 15px 20px;
+        }
+        .market-top .section-title {
+            font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .market-highlight {
+            background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%);
+            border: 1px solid #e74c3c30; border-radius: 8px; padding: 12px; margin-bottom: 12px;
+        }
+        .market-highlight-title {
+            font-size: 12px; font-weight: 600; color: #e74c3c; margin-bottom: 8px;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .market-compact-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+        }
+        .market-mini-card {
+            background: white; padding: 12px 10px; border-radius: 6px;
+            border: 1px solid #eaeaea; text-align: center;
+        }
+        .market-mini-card.hot {
+            border: 2px solid #e74c3c; background: #fef5f5;
+        }
+        .market-mini-card.cold {
+            border: 2px solid #27ae60; background: #f5fef9;
+        }
+        .market-mini-label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 5px; }
+        .market-mini-value { font-size: 15px; font-weight: 700; color: #2c3e50; margin-bottom: 3px; }
+        .market-mini-change { font-size: 12px; font-weight: 600; }
+        .market-mini-change.up { color: #27ae60; }
+        .market-mini-change.down { color: #e74c3c; }
+        .market-mini-change.hot { color: #e74c3c; font-size: 13px; }
+        /* Section */
+        .section { border-bottom: 1px solid #eaeaea; }
+        .section:last-child { border-bottom: none; }
+        .section-header {
+            background: #fafbfc; padding: 12px 20px; display: flex;
+            align-items: center; gap: 8px;
+        }
+        .section-icon {
+            font-size: 18px; width: 28px; height: 28px; display: flex;
+            align-items: center; justify-content: center; background: white;
+            border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section-title { font-size: 15px; font-weight: 600; color: #2c3e50; }
+        .badge-intl {
+            background: #667eea; color: white; font-size: 11px; padding: 2px 8px;
+            border-radius: 10px; margin-left: auto; font-weight: 500;
+        }
+        .badge-domestic {
+            background: #e74c3c; color: white; font-size: 11px; padding: 2px 8px;
+            border-radius: 10px; margin-left: auto; font-weight: 500;
+        }
+        /* News Item */
+        .news-item { padding: 15px 20px; border-left: 2px solid transparent; transition: all 0.2s; }
+        .news-item:hover { background: #fafbfc; border-left-color: #667eea; }
+        .news-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 8px; line-height: 1.4; }
+        .news-title-en { display: block; margin-bottom: 3px; }
+        .news-title-zh { display: block; color: #667eea; font-weight: 500; }
+        .news-summary { font-size: 13px; color: #555; margin-bottom: 6px; line-height: 1.6; }
+        .news-summary-zh { font-size: 13px; color: #888; font-style: italic; margin-bottom: 8px; }
+        .news-meta { display: flex; gap: 12px; font-size: 11px; }
+        .news-source { color: #667eea; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 3px; }
+        .news-source:hover { text-decoration: underline; }
+        .news-time { color: #999; }
+        /* Trading Signals */
+        .signal-box {
+            margin: 12px 20px; padding: 12px; border-radius: 6px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 1px solid #667eea30;
+        }
+        .signal-title { font-size: 13px; font-weight: 600; color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
+        .signal-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #667eea20; }
+        .signal-item:last-child { border-bottom: none; }
+        .signal-name { font-size: 13px; color: #2c3e50; font-weight: 500; }
+        .signal-price { font-size: 12px; color: #666; }
+        .signal-price span { font-weight: 600; margin: 0 4px; }
+        .signal-price .target { color: #27ae60; }
+        .signal-price .stop { color: #e74c3c; }
+        /* Footer */
+        .footer {
+            background: #fafbfc; padding: 15px 20px; text-align: center;
+            font-size: 12px; color: #888; border-top: 1px solid #eaeaea;
+        }
+        .footer a { color: #667eea; text-decoration: none; margin: 0 8px; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 19px; }
+            .header .meta { flex-direction: column; gap: 6px; }
+            .market-compact-grid { grid-template-columns: repeat(2, 1fr); }
+            .section-header { padding: 10px 15px; }
+            .news-item { padding: 12px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🦞 Damien 应该关注的每日动态</h1>
+            <div class="meta">
+                <span>📅 2026-03-04</span>
+                <span>⏰ 15:19</span>
+                <span class="weather">🌤️ 上海 12°C</span>
+            </div>
+        </div>
+        
+        <!-- Market Data - TOP with Highlights -->
+        <div class="market-top">
+            <div class="section-title">📊 市场数据</div>
+            
+            <div class="market-highlight">
+                <div class="market-highlight-title">⚠️ 今日异动</div>
+                <div class="market-compact-grid">
+                    <div class="market-mini-card hot">
+                        <div class="market-mini-label">黄金</div>
+                        <div class="market-mini-value">$2,752</div>
+                        <div class="market-mini-change hot">▲ +1.29%</div>
+                    </div>
+                    <div class="market-mini-card hot">
+                        <div class="market-mini-label">原油</div>
+                        <div class="market-mini-value">$78</div>
+                        <div class="market-mini-change hot">▼ -2.15%</div>
+                    </div>
+                    <div class="market-mini-card hot">
+                        <div class="market-mini-label">Kering</div>
+                        <div class="market-mini-value">€412</div>
+                        <div class="market-mini-change hot">▼ -2.1%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="market-compact-grid">
+                <div class="market-mini-card">
+                    <div class="market-mini-label">NASDAQ</div>
+                    <div class="market-mini-value">22,718</div>
+                    <div class="market-mini-change down">▼ -0.70%</div>
+                </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">Dow Jones</div>
+                    <div class="market-mini-value">49,006</div>
+                    <div class="market-mini-change down">▼ -1.00%</div>
+                </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">S&P 500</div>
+                    <div class="market-mini-value">6,875</div>
+                    <div class="market-mini-change down">▼ -0.49%</div>
+                </div>
+                <div class="market-mini-card cold">
+                    <div class="market-mini-label">恒生</div>
+                    <div class="market-mini-value">21,457</div>
+                    <div class="market-mini-change up">▲ +0.82%</div>
+                </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">LVMH</div>
+                    <div class="market-mini-value">€782</div>
+                    <div class="market-mini-change down">▼ -1.2%</div>
+                </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">Hermès</div>
+                    <div class="market-mini-value">€2,145</div>
+                    <div class="market-mini-change up">▲ +0.8%</div>
+                </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">USD/CNY</div>
+                    <div class="market-mini-value">7.248</div>
+                    <div class="market-mini-change up">▲ +0.15%</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 1: 政治民生 - 国际 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🌍</div>
+                <div class="section-title">政治民生 · 国际</div>
+                <span class="badge-intl">国际</span>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Iran-Israel conflict enters Day 3</span>
+                    <span class="news-title-zh">伊朗以色列冲突进入第 3 天</span>
+                </div>
+                <div class="news-summary">
+                    Iran-Israel conflict enters Day 3 as US increases Middle East forces. The conflict has escalated significantly with both sides exchanging fire across borders. Regional tensions reach highest point in months.
+                </div>
+                <div class="news-summary-zh">
+                    伊朗以色列冲突进入第 3 天，美国增兵中东。冲突显著升级，双方跨境交火。地区紧张局势达数月高点。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.cnn.com/world/live-news/iran-israel-us-attack-03-02-26-intl-hnk" class="news-source">📎 CNN</a>
+                    <span class="news-time">2h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Trump suggests 4-5 weeks war timeline</span>
+                    <span class="news-title-zh">特朗普暗示战争将延长 4-5 周</span>
+                </div>
+                <div class="news-summary">
+                    Trump suggests extended war on Iran with 4-5 weeks timeline. This indicates a prolonged military engagement rather than quick strikes. Markets react to uncertainty with increased volatility.
+                </div>
+                <div class="news-summary-zh">
+                    特朗普暗示对伊朗战争将延长 4-5 周。这表明是长期军事行动而非快速打击。市场反应不确定性，波动加剧。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.nytimes.com/live/2026/03/03/world/iran-war-israel-lebanon-trump" class="news-source">📎 NYT</a>
+                    <span class="news-time">1h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 2: 政治民生 - 国内 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🇨🇳</div>
+                <div class="section-title">政治民生 · 国内</div>
+                <span class="badge-domestic">国内</span>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Two Sessions 2026 kicks off in Beijing</span>
+                    <span class="news-title-zh">2026 年全国两会在京开幕</span>
+                </div>
+                <div class="news-summary">
+                    The National People's Congress and Chinese People's Political Consultative Conference opened in Beijing. Key agenda includes economic growth targets, social welfare reforms, and technological self-reliance initiatives.
+                </div>
+                <div class="news-summary-zh">
+                    全国人大和全国政协会议在北京开幕。主要议程包括经济增长目标、社会福利改革和科技自立倡议。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.xinhuanet.com" class="news-source">📎 新华社</a>
+                    <span class="news-time">5h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">China announces new employment support measures</span>
+                    <span class="news-title-zh">中国发布新就业支持措施</span>
+                </div>
+                <div class="news-summary">
+                    Ministry of Human Resources announces comprehensive employment support package targeting youth unemployment. Measures include tax incentives for hiring graduates and startup subsidies.
+                </div>
+                <div class="news-summary-zh">
+                    人社部宣布 comprehensive 就业支持方案，针对青年失业问题。措施包括雇佣毕业生税收优惠和创业补贴。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.mohrss.gov.cn" class="news-source">📎 人社部</a>
+                    <span class="news-time">8h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 3: 科技市场 - 国际 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">💻</div>
+                <div class="section-title">科技市场 · 国际</div>
+                <span class="badge-intl">国际</span>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Apple Vision Pro 2 launch date announced</span>
+                    <span class="news-title-zh">苹果 Vision Pro 2 发布日期公布</span>
+                </div>
+                <div class="news-summary">
+                    Apple announces Vision Pro 2 will launch on March 15 with improved display technology and lighter design. Pre-orders start March 8 with prices starting at $3,299.
+                </div>
+                <div class="news-summary-zh">
+                    苹果宣布 Vision Pro 2 将于 3 月 15 日发布，改进显示技术和更轻设计。3 月 8 日开始预购，起售价 3299 美元。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.apple.com" class="news-source">📎 Apple</a>
+                    <span class="news-time">4h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Microsoft Copilot reaches 100M users</span>
+                    <span class="news-title-zh">微软 Copilot 用户破亿</span>
+                </div>
+                <div class="news-summary">
+                    Microsoft announces Copilot AI assistant has reached 100 million monthly active users. Enterprise adoption drives growth with 60% of Fortune 500 companies now using Copilot.
+                </div>
+                <div class="news-summary-zh">
+                    微软宣布 Copilot AI 助手月活用户达 1 亿。企业采用推动增长，60% 财富 500 强公司现在使用 Copilot。
+                </div>
+                <div class="news-meta">
+                    <a href="https://blogs.microsoft.com" class="news-source">📎 Microsoft</a>
+                    <span class="news-time">6h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: 科技市场 - 国内 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📱</div>
+                <div class="section-title">科技市场 · 国内</div>
+                <span class="badge-domestic">国内</span>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Shanghai luxury retail stimulus announced</span>
+                    <span class="news-title-zh">上海奢侈品零售刺激方案</span>
+                </div>
+                <div class="news-summary">
+                    Shanghai announces new consumer stimulus package for luxury retail. The policy aims to boost domestic consumption and attract overseas shoppers back. Tax incentives and subsidies included.
+                </div>
+                <div class="news-summary-zh">
+                    上海宣布新的奢侈品零售消费刺激方案。政策旨在提振国内消费，吸引海外购物者回流。包含税收优惠和补贴。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.shanghai.gov.cn" class="news-source">📎 上海市政府</a>
+                    <span class="news-time">6h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">China luxury imports +12% YoY</span>
+                    <span class="news-title-zh">中国奢侈品进口增长 12%</span>
+                </div>
+                <div class="news-summary">
+                    China's luxury goods imports up 12% YoY in January-February. Strong demand despite economic headwinds shows resilience in high-end consumption. Young consumers lead growth.
+                </div>
+                <div class="news-summary-zh">
+                    中国 1-2 月奢侈品进口同比增长 12%。强劲需求显示高端消费韧性。年轻消费者引领增长。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.customs.gov.cn" class="news-source">📎 海关总署</a>
+                    <span class="news-time">8h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Tax-free shopping expands to 10 cities</span>
+                    <span class="news-title-zh">免税购物新增 10 城</span>
+                </div>
+                <div class="news-summary">
+                    New tax-free shopping policy expands to 10 more Chinese cities. This will significantly increase accessibility to duty-free luxury goods. Expected to boost sales by 20%.
+                </div>
+                <div class="news-summary-zh">
+                    免税购物政策新增 10 个中国城市。这将大幅提升免税奢侈品可及性。预计销售增长 20%。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.chinadaily.com.cn" class="news-source">📎 China Daily</a>
+                    <span class="news-time">12h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 5: 时尚行业 - 国际 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">👜</div>
+                <div class="section-title">时尚行业 · 国际</div>
+                <span class="badge-intl">国际</span>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">LVMH +8% Asia-Pacific growth</span>
+                    <span class="news-title-zh">LVMH 亚太增长 8%</span>
+                </div>
+                <div class="news-summary">
+                    LVMH reports 8% growth in Asia-Pacific, China leads recovery. The luxury giant sees strong demand from younger consumers and digital channels. E-commerce up 25%.
+                </div>
+                <div class="news-summary-zh">
+                    LVMH 亚太地区增长 8%，中国引领复苏。年轻消费者和数字渠道需求强劲。电商增长 25%。
+                </div>
+                <div class="news-meta">
+                    <a href="https://hypebeast.com/2026/3/lvmh-q4-earnings-asia-growth" class="news-source">📎 Hypebeast</a>
+                    <span class="news-time">3h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Kering acquires designer brand for €2.3B</span>
+                    <span class="news-title-zh">开云 23 亿欧收购设计师品牌</span>
+                </div>
+                <div class="news-summary">
+                    Kering acquires independent designer brand for €2.3B. This strategic move strengthens Kering's portfolio in the growing luxury segment. Brand to operate independently.
+                </div>
+                <div class="news-summary-zh">
+                    开云集团以 23 亿欧元收购独立设计师品牌。此举加强开云在增长型奢侈品领域的布局。品牌将独立运营。
+                </div>
+                <div class="news-meta">
+                    <a href="https://highsnobiety.com/p/kering-acquisition-designer-brand" class="news-source">📎 Highsnobiety</a>
+                    <span class="news-time">5h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Hermès Shanghai flagship opens</span>
+                    <span class="news-title-zh">爱马仕上海旗舰店开业</span>
+                </div>
+                <div class="news-summary">
+                    Hermès opens flagship store on Shanghai's Nanjing West Road. The new store features exclusive China-only collections and personalized services. Largest Hermès store in Asia at 3,000 sqm.
+                </div>
+                <div class="news-summary-zh">
+                    爱马仕上海南京西路旗舰店开业。新店提供中国独家系列和个性化服务。亚洲最大爱马仕门店，面积 3000 平方米。
+                </div>
+                <div class="news-meta">
+                    <a href="https://hypebeast.com/2026/3/hermes-shanghai-flagship-store" class="news-source">📎 Hypebeast</a>
+                    <span class="news-time">6h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Gen Z pre-owned luxury +35%</span>
+                    <span class="news-title-zh">Z 世代二手奢侈品增长 35%</span>
+                </div>
+                <div class="news-summary">
+                    Gen Z luxury spending shifts to pre-owned market, +35% YoY. Sustainability and value consciousness drive the trend among young consumers. Platforms see record traffic.
+                </div>
+                <div class="news-summary-zh">
+                    Z 世代奢侈品消费转向二手市场，同比增长 35%。可持续和性价比驱动年轻消费者趋势。平台流量创新高。
+                </div>
+                <div class="news-meta">
+                    <a href="https://highsnobiety.com/p/gen-z-luxury-resale-trend" class="news-source">📎 Highsnobiety</a>
+                    <span class="news-time">10h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 6: 时尚行业 - 国内 -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🏮</div>
+                <div class="section-title">时尚行业 · 国内</div>
+                <span class="badge-domestic">国内</span>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">The Balancing Chengdu pop-up</span>
+                    <span class="news-title-zh">the balancing 成都快闪店</span>
+                </div>
+                <div class="news-summary">
+                    The Balancing buyout store announces spring collection pop-up in Chengdu. The event showcases emerging designer brands and limited editions. Runs through March 15.
+                </div>
+                <div class="news-summary-zh">
+                    the balancing 买手店宣布成都春季快闪店。活动展示新兴设计师品牌和限量款。持续至 3 月 15 日。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.xiaohongshu.com" class="news-source">📎 小红书</a>
+                    <span class="news-time">8h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Old Money Aesthetic trending on Xiaohongshu</span>
+                    <span class="news-title-zh">老钱风成为小红书热搜</span>
+                </div>
+                <div class="news-summary">
+                    "Old Money Aesthetic" trending with 2.3M posts on Xiaohongshu. The minimalist, heritage-focused style resonates with young professionals seeking timeless elegance.
+                </div>
+                <div class="news-summary-zh">
+                    "老钱风"成为小红书热搜，230 万篇笔记。极简、传承导向的风格吸引年轻专业人士。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.xiaohongshu.com/search_result?keyword=老钱风" class="news-source">📎 小红书</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 7: Trading Signals -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🛍️</div>
+                <div class="section-title">交易信号与机会</div>
+            </div>
+            
+            <div class="signal-box">
+                <div class="signal-title">📌 短期机会（60% 仓位）</div>
+                <div class="signal-item">
+                    <div class="signal-name">LVMH 回调买入</div>
+                    <div class="signal-price">目标 <span class="target">€820</span> 止损 <span class="stop">€760</span></div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">上海免税概念</div>
+                    <div class="signal-price">关注 <span>中国中免</span></div>
+                </div>
+            </div>
+            
+            <div class="signal-box">
+                <div class="signal-title">📌 长期配置（40% 仓位）</div>
+                <div class="signal-item">
+                    <div class="signal-name">Hermès 持有</div>
+                    <div class="signal-price">目标 <span class="target">€2,300</span> 止损 <span class="stop">€2,000</span></div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">二手奢侈品平台</div>
+                    <div class="signal-price">关注 <span>红布林、只二</span></div>
+                </div>
+            </div>
+            
+            <div class="signal-box" style="background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%); border-color: #e74c3c30;">
+                <div class="signal-title">⚠️ 风险提示</div>
+                <div class="signal-item">
+                    <div class="signal-name">中东局势升级可能影响供应链</div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">美联储政策不确定性</div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">欧洲奢侈品关税政策变化</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>🤖 由麦麦自动生成 · 数据仅供参考 · 投资需谨慎</p>
+            <p style="margin-top: 8px;">
+                <a href="https://github.com/openclaw/openclaw">GitHub</a> · 
+                <a href="https://clawhub.ai">ClawHub</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

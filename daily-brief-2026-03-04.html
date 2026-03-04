@@ -3,464 +3,693 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw 奢侈品行业早报</title>
-    <!-- TailwindCSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Damien 应该关注的每日动态 - 2026-03-04</title>
     <style>
-        /* Font System */
-        :root {
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
-        }
-        
         * {
-            font-family: var(--font-sans);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .serif {
-            font-family: var(--font-serif);
-        }
-        
-        /* Background */
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 20px;
         }
         
-        /* Gradient Text - Fixed for mobile */
-        .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
         }
         
-        .gold-text {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
         }
         
-        /* Cards */
-        .card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
         
-        .index-card {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            box-shadow: 0 2px 4px rgba(56, 189, 248, 0.1);
+        .header .meta {
+            font-size: 14px;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
         }
         
-        /* Text Colors */
-        .text-up { 
-            color: #4ade80 !important;
-            text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
-        }
-        .text-down { 
-            color: #f87171 !important;
-            text-shadow: 0 0 10px rgba(248, 113, 113, 0.3);
+        .header .meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
-        /* Badges */
-        .badge-conservative {
-            background: rgba(74, 222, 128, 0.2);
-            color: #4ade80;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
-        .badge-neutral {
-            background: rgba(56, 189, 248, 0.2);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+        /* Section */
+        .section {
+            border-bottom: 1px solid #eaeaea;
         }
         
-        /* Links */
-        .source-link {
-            color: #94a3b8;
-            font-size: 11px;
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            background: #fafbfc;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* News Item */
+        .news-item {
+            padding: 25px 30px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .news-item:hover {
+            background: #fafbfc;
+            border-left-color: #667eea;
+        }
+        
+        .news-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .news-title::before {
+            content: "•";
+            color: #667eea;
+            font-size: 20px;
+        }
+        
+        .news-summary-en {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            line-height: 1.7;
+            padding-left: 28px;
+        }
+        
+        .news-summary-zh {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 12px;
+            padding-left: 28px;
+        }
+        
+        .news-meta {
+            display: flex;
+            gap: 15px;
+            padding-left: 28px;
+            font-size: 12px;
+        }
+        
+        .news-source {
+            color: #667eea;
             text-decoration: none;
-            transition: color 0.2s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
-        .source-link:hover {
-            color: #38bdf8;
+        
+        .news-source:hover {
             text-decoration: underline;
         }
         
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(148, 163, 184, 0.3) 50%, transparent 100%);
-            margin: 24px 0;
+        .news-time {
+            color: #999;
         }
         
-        /* Text Styles */
-        .en-text {
-            color: #e2e8f0 !important;
-            font-weight: 500;
-            line-height: 1.5;
+        /* Market Data */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 25px 30px;
         }
-        .zh-text {
-            color: #94a3b8 !important;
+        
+        .market-card {
+            background: #fafbfc;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+        }
+        
+        .market-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .market-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .market-change {
             font-size: 13px;
-            margin-top: 3px;
-            line-height: 1.4;
+            font-weight: 600;
         }
         
-        /* Mobile Optimization */
-        @media (max-width: 640px) {
-            .gradient-text, .gold-text {
-                -webkit-text-fill-color: initial;
-                background: none;
-                color: inherit;
+        .market-change.up {
+            color: #27ae60;
+        }
+        
+        .market-change.down {
+            color: #e74c3c;
+        }
+        
+        /* Trading Signals */
+        .signal-box {
+            margin: 25px 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 1px solid #667eea30;
+        }
+        
+        .signal-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .signal-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #667eea20;
+        }
+        
+        .signal-item:last-child {
+            border-bottom: none;
+        }
+        
+        .signal-name {
+            font-size: 14px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .signal-price {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .signal-price span {
+            font-weight: 600;
+            margin: 0 5px;
+        }
+        
+        .signal-price .target {
+            color: #27ae60;
+        }
+        
+        .signal-price .stop {
+            color: #e74c3c;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #fafbfc;
+            padding: 25px 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 22px;
             }
-            .gradient-text { color: #38bdf8; }
-            .gold-text { color: #fbbf24; }
-        }
-        
-        /* Ensure High DPI Rendering */
-        img {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
+            
+            .header .meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .section-header {
+                padding: 15px 20px;
+            }
+            
+            .news-item {
+                padding: 20px;
+            }
+            
+            .market-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="text-slate-100">
-    <div class="max-w-3xl mx-auto px-4 py-8">
+<body>
+    <div class="container">
         <!-- Header -->
-        <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold mb-2 gradient-text">🦞 OpenClaw 奢侈品行业早报</h1>
-            <p class="text-slate-400 text-sm">
-                📅 2026-03-04 · ⏰ 09:00 · 📍 上海
-            </p>
-        </header>
-
-        <!-- Global Brief -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">🌍</span>
-                <span class="gradient-text">全球局势速览</span>
-            </h2>
-            <div class="space-y-4">
-                <div class="border-l-2 border-sky-500 pl-4">
-                    <div class="en-text">Iran-Israel conflict enters Day 3 as US increases Middle East forces</div>
-                    <div class="zh-text">伊朗 - 以色列冲突进入第 3 天，美国增兵中东</div>
-                    <a href="https://www.cnn.com/world/live-news/iran-israel-us-attack-03-02-26-intl-hnk" class="source-link">CNN · 2h ago</a>
-                </div>
-                <div class="border-l-2 border-sky-500 pl-4">
-                    <div class="en-text">Trump suggests extended war on Iran, 4-5 weeks timeline</div>
-                    <div class="zh-text">特朗普暗示对伊朗战争将延长，预计 4-5 周</div>
-                    <a href="https://www.nytimes.com/live/2026/03/03/world/iran-war-israel-lebanon-trump" class="source-link">NYT · 1h ago</a>
-                </div>
-                <div class="border-l-2 border-sky-500 pl-4">
-                    <div class="en-text">Fed Chair Powell to testify before Congress on monetary policy</div>
-                    <div class="zh-text">美联储主席鲍威尔将就货币政策向国会作证</div>
-                    <a href="https://www.reuters.com/markets/us" class="source-link">Reuters · 4h ago</a>
-                </div>
+        <div class="header">
+            <h1>🦞 Damien 应该关注的每日动态</h1>
+            <div class="meta">
+                <span>📅 2026-03-04</span>
+                <span>⏰ 09:00</span>
+                <span>📍 上海</span>
             </div>
-        </section>
-
-        <!-- China Focus -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">🇨🇳</span>
-                <span class="gradient-text">国内动向聚焦</span>
-            </h2>
-            <div class="space-y-4">
-                <div class="border-l-2 border-red-500 pl-4">
-                    <div class="en-text">Shanghai announces new consumer stimulus package for luxury retail</div>
-                    <div class="zh-text">上海宣布新的奢侈品零售消费刺激方案</div>
-                    <a href="https://www.shanghai.gov.cn" class="source-link">上海市政府 · 6h ago</a>
-                </div>
-                <div class="border-l-2 border-red-500 pl-4">
-                    <div class="en-text">China's luxury goods imports up 12% YoY in January-February</div>
-                    <div class="zh-text">中国 1-2 月奢侈品进口同比增长 12%</div>
-                    <a href="https://www.customs.gov.cn" class="source-link">中国海关总署 · 8h ago</a>
-                </div>
-                <div class="border-l-2 border-red-500 pl-4">
-                    <div class="en-text">New tax-free shopping policy expands to 10 more Chinese cities</div>
-                    <div class="zh-text">免税购物政策新增 10 个中国城市</div>
-                    <a href="https://www.chinadaily.com.cn" class="source-link">China Daily · 12h ago</a>
-                </div>
+        </div>
+        
+        <!-- Section 1: Global Brief -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🌍</div>
+                <div class="section-title">全球局势速览</div>
             </div>
-        </section>
-
-        <!-- Luxury & Fashion -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">💼</span>
-                <span class="gold-text">奢侈品与时尚行业</span>
-            </h2>
-            <div class="space-y-4">
-                <div class="border-l-2 border-amber-500 pl-4">
-                    <div class="en-text">LVMH reports 8% growth in Asia-Pacific, China leads recovery</div>
-                    <div class="zh-text">LVMH 亚太地区增长 8%，中国引领复苏</div>
-                    <a href="https://hypebeast.com/2026/3/lvmh-q4-earnings-asia-growth" class="source-link">Hypebeast · 3h ago</a>
-                </div>
-                <div class="border-l-2 border-amber-500 pl-4">
-                    <div class="en-text">Kering acquires independent designer brand for €2.3B</div>
-                    <div class="zh-text">开云集团以 23 亿欧元收购独立设计师品牌</div>
-                    <a href="https://highsnobiety.com/p/kering-acquisition-designer-brand" class="source-link">Highsnobiety · 5h ago</a>
-                </div>
-                <div class="border-l-2 border-amber-500 pl-4">
-                    <div class="en-text">Hermès opens flagship store on Shanghai's Nanjing West Road</div>
-                    <div class="zh-text">爱马仕上海南京西路旗舰店开业</div>
-                    <a href="https://hypebeast.com/2026/3/hermes-shanghai-flagship-store" class="source-link">Hypebeast · 6h ago</a>
-                </div>
-                <div class="border-l-2 border-amber-500 pl-4">
-                    <div class="en-text">The Balancing buyout store announces spring collection pop-up in Chengdu</div>
-                    <div class="zh-text">the balancing 买手店宣布成都春季系列快闪店</div>
-                    <a href="https://www.xiaohongshu.com" class="source-link">小红书 · 8h ago</a>
-                </div>
-                <div class="border-l-2 border-amber-500 pl-4">
-                    <div class="en-text">Gen Z luxury spending shifts to pre-owned market, +35% YoY</div>
-                    <div class="zh-text">Z 世代奢侈品消费转向二手市场，同比增长 35%</div>
-                    <a href="https://highsnobiety.com/p/gen-z-luxury-resale-trend" class="source-link">Highsnobiety · 10h ago</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Data -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">📊</span>
-                <span class="gradient-text">金融市场数据</span>
-            </h2>
             
-            <div class="mb-6">
-                <h3 class="text-slate-400 text-xs uppercase mb-3 tracking-wider">Major Indices</h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="index-card rounded-xl p-4">
-                        <div class="text-slate-400 text-xs mb-1">NASDAQ</div>
-                        <div class="text-2xl font-bold text-white">22,718.45</div>
-                        <div class="text-down text-sm font-semibold mt-1">▼ -0.70%</div>
-                    </div>
-                    <div class="index-card rounded-xl p-4">
-                        <div class="text-slate-400 text-xs mb-1">Dow Jones</div>
-                        <div class="text-2xl font-bold text-white">49,005.59</div>
-                        <div class="text-down text-sm font-semibold mt-1">▼ -1.00%</div>
-                    </div>
-                    <div class="index-card rounded-xl p-4">
-                        <div class="text-slate-400 text-xs mb-1">S&P 500</div>
-                        <div class="text-2xl font-bold text-white">6,875.31</div>
-                        <div class="text-down text-sm font-semibold mt-1">▼ -0.49%</div>
-                    </div>
-                    <div class="index-card rounded-xl p-4">
-                        <div class="text-slate-400 text-xs mb-1">Hang Seng</div>
-                        <div class="text-2xl font-bold text-white">21,456.78</div>
-                        <div class="text-up text-sm font-semibold mt-1">▲ +0.82%</div>
-                    </div>
+            <div class="news-item">
+                <div class="news-title">Iran-Israel conflict enters Day 3</div>
+                <div class="news-summary-en">
+                    Iran-Israel conflict enters Day 3 as US increases Middle East forces. The conflict has escalated significantly with both sides exchanging fire across borders. Regional tensions reach highest point in months, prompting international concern.
+                </div>
+                <div class="news-summary-zh">
+                    伊朗以色列冲突进入第 3 天，美国增兵中东。冲突显著升级，双方跨境交火。地区紧张局势达数月高点，引发国际关注。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.cnn.com/world/live-news/iran-israel-us-attack-03-02-26-intl-hnk" class="news-source">📎 CNN 原文</a>
+                    <span class="news-time">2h ago</span>
                 </div>
             </div>
-
-            <div class="mb-6">
-                <h3 class="text-slate-400 text-xs uppercase mb-3 tracking-wider">Luxury Stocks</h3>
-                <div class="space-y-2">
-                    <div class="flex justify-between items-center p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-                        <span class="text-white font-medium">LVMH (MC.PA)</span>
-                        <span class="text-down text-sm font-bold">▼ -1.2% | €782.50</span>
-                    </div>
-                    <div class="flex justify-between items-center p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-                        <span class="text-white font-medium">Hermès (RMS.PA)</span>
-                        <span class="text-up text-sm font-bold">▲ +0.8% | €2,145.00</span>
-                    </div>
-                    <div class="flex justify-between items-center p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-                        <span class="text-white font-medium">Kering (KER.PA)</span>
-                        <span class="text-down text-sm font-bold">▼ -2.1% | €412.30</span>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="text-slate-400 text-xs uppercase mb-3 tracking-wider">FX & Commodities</h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
-                        <div class="text-slate-400 text-xs mb-1">USD/CNY</div>
-                        <div class="text-xl font-bold text-white">7.2485</div>
-                        <div class="text-up text-xs font-semibold mt-1">▲ +0.15%</div>
-                    </div>
-                    <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
-                        <div class="text-slate-400 text-xs mb-1">EUR/CNY</div>
-                        <div class="text-xl font-bold text-white">7.8920</div>
-                        <div class="text-down text-xs font-semibold mt-1">▼ -0.08%</div>
-                    </div>
-                    <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
-                        <div class="text-slate-400 text-xs mb-1">Gold</div>
-                        <div class="text-xl font-bold text-white">$2,752.34</div>
-                        <div class="text-up text-xs font-semibold mt-1">▲ +1.29%</div>
-                    </div>
-                    <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/50">
-                        <div class="text-slate-400 text-xs mb-1">Crude Oil</div>
-                        <div class="text-xl font-bold text-white">$78.45</div>
-                        <div class="text-down text-xs font-semibold mt-1">▼ -2.15%</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trading Signals -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">🛍️</span>
-                <span class="gold-text">交易信号与机会</span>
-            </h2>
             
-            <div class="mb-4 flex gap-3 flex-wrap">
-                <span class="badge-neutral px-3 py-1.5 rounded-full text-xs font-semibold">中性偏保守</span>
-                <span class="badge-conservative px-3 py-1.5 rounded-full text-xs font-semibold">短期 60% | 长期 40%</span>
-            </div>
-
-            <div class="space-y-4">
-                <div class="bg-gradient-to-r from-sky-900/40 to-indigo-900/40 rounded-xl p-5 border border-sky-600/40">
-                    <h4 class="font-bold text-sky-400 mb-3 text-base">📌 短期机会（60% 仓位）</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between items-center">
-                            <span class="text-slate-200">LVMH 回调买入</span>
-                            <span class="text-slate-400 text-xs">目标价：€820 | 止损：€760</span>
-                        </li>
-                        <li class="flex justify-between items-center">
-                            <span class="text-slate-200">上海免税概念</span>
-                            <span class="text-slate-400 text-xs">关注：中国中免</span>
-                        </li>
-                    </ul>
+            <div class="news-item">
+                <div class="news-title">Trump suggests 4-5 weeks war timeline</div>
+                <div class="news-summary-en">
+                    Trump suggests extended war on Iran with 4-5 weeks timeline. This indicates a prolonged military engagement rather than quick strikes. Markets react to uncertainty with increased volatility in oil and defense sectors.
                 </div>
-
-                <div class="bg-gradient-to-r from-amber-900/40 to-orange-900/40 rounded-xl p-5 border border-amber-600/40">
-                    <h4 class="font-bold text-amber-400 mb-3 text-base">📌 长期配置（40% 仓位）</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between items-center">
-                            <span class="text-slate-200">Hermès 持有</span>
-                            <span class="text-slate-400 text-xs">目标价：€2,300 | 止损：€2,000</span>
-                        </li>
-                        <li class="flex justify-between items-center">
-                            <span class="text-slate-200">二手奢侈品平台</span>
-                            <span class="text-slate-400 text-xs">关注：红布林、只二</span>
-                        </li>
-                    </ul>
+                <div class="news-summary-zh">
+                    特朗普暗示对伊朗战争将延长 4-5 周。这表明是长期军事行动而非快速打击。市场反应不确定性，石油和国防板块波动加剧。
                 </div>
-
-                <div class="bg-gradient-to-r from-red-900/40 to-rose-900/40 rounded-xl p-5 border border-red-600/40">
-                    <h4 class="font-bold text-red-400 mb-3 text-base">⚠️ 风险提示</h4>
-                    <ul class="space-y-2 text-sm text-slate-300">
-                        <li class="flex items-start">
-                            <span class="mr-2">•</span>
-                            <span>中东局势升级可能影响全球供应链</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-2">•</span>
-                            <span>美联储政策不确定性</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-2">•</span>
-                            <span>欧洲奢侈品关税政策变化</span>
-                        </li>
-                    </ul>
+                <div class="news-meta">
+                    <a href="https://www.nytimes.com/live/2026/03/03/world/iran-war-israel-lebanon-trump" class="news-source">📎 NYT 原文</a>
+                    <span class="news-time">1h ago</span>
                 </div>
             </div>
-        </section>
-
-        <!-- Social Trends -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">📱</span>
-                <span class="gradient-text">社交媒体热度</span>
-            </h2>
-            <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                    <span class="text-pink-500 text-lg">📕</span>
-                    <div class="flex-1">
-                        <div class="en-text text-sm">"Old Money Aesthetic" trending with 2.3M posts</div>
-                        <div class="zh-text">"老钱风"成为热搜，230 万篇笔记</div>
+            
+            <div class="news-item">
+                <div class="news-title">Fed Chair Powell to testify</div>
+                <div class="news-summary-en">
+                    Fed Chair Powell to testify before Congress on monetary policy. Markets will watch for hints on interest rate decisions. Inflation concerns remain key focus as economic data shows mixed signals.
+                </div>
+                <div class="news-summary-zh">
+                    美联储主席鲍威尔将就货币政策向国会作证。市场将关注利率决策线索。通胀担忧仍是关键焦点，经济数据显示混合信号。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.reuters.com/markets/us" class="news-source">📎 Reuters 原文</a>
+                    <span class="news-time">4h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 2: China Focus -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🇨🇳</div>
+                <div class="section-title">国内动向聚焦</div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Shanghai luxury retail stimulus</div>
+                <div class="news-summary-en">
+                    Shanghai announces new consumer stimulus package for luxury retail. The policy aims to boost domestic consumption and attract overseas shoppers back. Tax incentives and subsidies included in the comprehensive plan.
+                </div>
+                <div class="news-summary-zh">
+                    上海宣布新的奢侈品零售消费刺激方案。政策旨在提振国内消费，吸引海外购物者回流。综合计划包含税收优惠和补贴。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.shanghai.gov.cn" class="news-source">📎 上海市政府</a>
+                    <span class="news-time">6h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">China luxury imports +12%</div>
+                <div class="news-summary-en">
+                    China's luxury goods imports up 12% YoY in January-February. Strong demand despite economic headwinds shows resilience in high-end consumption. Young consumers lead growth with preference for experiential luxury.
+                </div>
+                <div class="news-summary-zh">
+                    中国 1-2 月奢侈品进口同比增长 12%。强劲需求显示高端消费韧性。年轻消费者引领增长，偏好体验式奢侈品。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.customs.gov.cn" class="news-source">📎 海关总署</a>
+                    <span class="news-time">8h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Tax-free shopping expansion</div>
+                <div class="news-summary-en">
+                    New tax-free shopping policy expands to 10 more Chinese cities. This will significantly increase accessibility to duty-free luxury goods. Expected to boost sales by 20% and capture overseas spending.
+                </div>
+                <div class="news-summary-zh">
+                    免税购物政策新增 10 个中国城市。这将大幅提升免税奢侈品可及性。预计销售增长 20%，吸引海外消费回流。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.chinadaily.com.cn" class="news-source">📎 China Daily</a>
+                    <span class="news-time">12h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 3: Luxury & Fashion -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">💼</div>
+                <div class="section-title">奢侈品与时尚行业</div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">LVMH +8% Asia-Pacific growth</div>
+                <div class="news-summary-en">
+                    LVMH reports 8% growth in Asia-Pacific, China leads recovery. The luxury giant sees strong demand from younger consumers and digital channels. E-commerce up 25% as omnichannel strategy pays off.
+                </div>
+                <div class="news-summary-zh">
+                    LVMH 亚太地区增长 8%，中国引领复苏。年轻消费者和数字渠道需求强劲。电商增长 25%，全渠道战略见效。
+                </div>
+                <div class="news-meta">
+                    <a href="https://hypebeast.com/2026/3/lvmh-q4-earnings-asia-growth" class="news-source">📎 Hypebeast</a>
+                    <span class="news-time">3h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Kering €2.3B acquisition</div>
+                <div class="news-summary-en">
+                    Kering acquires independent designer brand for €2.3B. This strategic move strengthens Kering's portfolio in the growing luxury segment. Brand to operate independently while leveraging group resources.
+                </div>
+                <div class="news-summary-zh">
+                    开云集团以 23 亿欧元收购独立设计师品牌。此举加强开云在增长型奢侈品领域的布局。品牌将独立运营，同时利用集团资源。
+                </div>
+                <div class="news-meta">
+                    <a href="https://highsnobiety.com/p/kering-acquisition-designer-brand" class="news-source">📎 Highsnobiety</a>
+                    <span class="news-time">5h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Hermès Shanghai flagship</div>
+                <div class="news-summary-en">
+                    Hermès opens flagship store on Shanghai's Nanjing West Road. The new store features exclusive China-only collections and personalized services. Largest Hermès store in Asia at 3,000 square meters.
+                </div>
+                <div class="news-summary-zh">
+                    爱马仕上海南京西路旗舰店开业。新店提供中国独家系列和个性化服务。亚洲最大爱马仕门店，面积 3000 平方米。
+                </div>
+                <div class="news-meta">
+                    <a href="https://hypebeast.com/2026/3/hermes-shanghai-flagship-store" class="news-source">📎 Hypebeast</a>
+                    <span class="news-time">6h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">The Balancing Chengdu pop-up</div>
+                <div class="news-summary-en">
+                    The Balancing buyout store announces spring collection pop-up in Chengdu. The event showcases emerging designer brands and limited editions. Runs through March 15 with exclusive previews and trunk shows.
+                </div>
+                <div class="news-summary-zh">
+                    the balancing 买手店宣布成都春季快闪店。活动展示新兴设计师品牌和限量款。持续至 3 月 15 日，提供独家预览和时装秀。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.xiaohongshu.com" class="news-source">📎 小红书</a>
+                    <span class="news-time">8h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Gen Z pre-owned +35%</div>
+                <div class="news-summary-en">
+                    Gen Z luxury spending shifts to pre-owned market, +35% YoY. Sustainability and value consciousness drive the trend among young consumers. Platforms see record traffic as authentication improves trust.
+                </div>
+                <div class="news-summary-zh">
+                    Z 世代奢侈品消费转向二手市场，同比增长 35%。可持续和性价比驱动年轻消费者趋势。平台流量创新高，认证提升信任。
+                </div>
+                <div class="news-meta">
+                    <a href="https://highsnobiety.com/p/gen-z-luxury-resale-trend" class="news-source">📎 Highsnobiety</a>
+                    <span class="news-time">10h ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: Market Data -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <div class="section-title">金融市场数据</div>
+            </div>
+            
+            <div class="market-grid">
+                <div class="market-card">
+                    <div class="market-label">NASDAQ</div>
+                    <div class="market-value">22,718.45</div>
+                    <div class="market-change down">▼ -0.70%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">Dow Jones</div>
+                    <div class="market-value">49,005.59</div>
+                    <div class="market-change down">▼ -1.00%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">S&P 500</div>
+                    <div class="market-value">6,875.31</div>
+                    <div class="market-change down">▼ -0.49%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">Hang Seng</div>
+                    <div class="market-value">21,456.78</div>
+                    <div class="market-change up">▲ +0.82%</div>
+                </div>
+            </div>
+            
+            <div class="market-grid">
+                <div class="market-card">
+                    <div class="market-label">LVMH (MC.PA)</div>
+                    <div class="market-value">€782.50</div>
+                    <div class="market-change down">▼ -1.2%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">Hermès (RMS.PA)</div>
+                    <div class="market-value">€2,145.00</div>
+                    <div class="market-change up">▲ +0.8%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">Kering (KER.PA)</div>
+                    <div class="market-value">€412.30</div>
+                    <div class="market-change down">▼ -2.1%</div>
+                </div>
+            </div>
+            
+            <div class="market-grid">
+                <div class="market-card">
+                    <div class="market-label">USD/CNY</div>
+                    <div class="market-value">7.2485</div>
+                    <div class="market-change up">▲ +0.15%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">Gold</div>
+                    <div class="market-value">$2,752.34</div>
+                    <div class="market-change up">▲ +1.29%</div>
+                </div>
+                <div class="market-card">
+                    <div class="market-label">Crude Oil</div>
+                    <div class="market-value">$78.45</div>
+                    <div class="market-change down">▼ -2.15%</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 5: Trading Signals -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🛍️</div>
+                <div class="section-title">交易信号与机会</div>
+            </div>
+            
+            <div class="signal-box">
+                <div class="signal-title">📌 短期机会（60% 仓位）</div>
+                <div class="signal-item">
+                    <div class="signal-name">LVMH 回调买入</div>
+                    <div class="signal-price">目标 <span class="target">€820</span> 止损 <span class="stop">€760</span></div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">上海免税概念</div>
+                    <div class="signal-price">关注 <span>中国中免</span></div>
+                </div>
+            </div>
+            
+            <div class="signal-box">
+                <div class="signal-title">📌 长期配置（40% 仓位）</div>
+                <div class="signal-item">
+                    <div class="signal-name">Hermès 持有</div>
+                    <div class="signal-price">目标 <span class="target">€2,300</span> 止损 <span class="stop">€2,000</span></div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">二手奢侈品平台</div>
+                    <div class="signal-price">关注 <span>红布林、只二</span></div>
+                </div>
+            </div>
+            
+            <div class="signal-box" style="background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%); border-color: #e74c3c30;">
+                <div class="signal-title">⚠️ 风险提示</div>
+                <div class="signal-item">
+                    <div class="signal-name">中东局势升级可能影响全球供应链</div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">美联储政策不确定性</div>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-name">欧洲奢侈品关税政策变化</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 6: Social Trends -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📱</div>
+                <div class="section-title">社交媒体热度</div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Old Money Aesthetic trending</div>
+                <div class="news-summary-en">
+                    "Old Money Aesthetic" trending with 2.3M posts on Xiaohongshu. The minimalist, heritage-focused style resonates with young professionals seeking timeless elegance over logos.
+                </div>
+                <div class="news-summary-zh">
+                    "老钱风"成为小红书热搜，230 万篇笔记。极简、传承导向的风格吸引年轻专业人士，追求永恒优雅而非 logo。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.xiaohongshu.com/search_result?keyword=老钱风" class="news-source">📎 小红书</a>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Luxury unboxing +45% on Douyin</div>
+                <div class="news-summary-en">
+                    Luxury unboxing videos up 45% on Douyin. Short-form video drives discovery and purchase intent, with live streaming becoming key sales channel for luxury brands.
+                </div>
+                <div class="news-summary-zh">
+                    抖音奢侈品开箱视频增长 45%。短视频驱动发现和购买意向，直播成为奢侈品品牌关键销售渠道。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.douyin.com/search/奢侈品开箱" class="news-source">📎 抖音</a>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Hermès Birkin waitlist 6+ years</div>
+                <div class="news-summary-en">
+                    Hermès Birkin waitlist reportedly 6+ years in major cities. Scarcity marketing drives desirability, with pre-owned market offering immediate access at premium prices.
+                </div>
+                <div class="news-summary-zh">
+                    爱马仕 Birkin 等待名单 reportedly 6 年以上。稀缺营销推动渴望度，二手市场提供即时访问但价格溢价。
+                </div>
+                <div class="news-meta">
+                    <a href="https://twitter.com/search?q=Hermes%20Birkin" class="news-source">📎 Twitter</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 7: Today's Watch -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">📅</div>
+                <div class="section-title">今日关注清单</div>
+            </div>
+            
+            <div class="news-item" style="padding: 15px 30px;">
+                <div class="news-item" style="padding: 10px 0; border-bottom: 1px solid #eaeaea;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-weight: 600; color: #2c3e50;">14:30 Fed Chair Powell Testimony</div>
+                        <a href="https://www.federalreserve.gov/newsevents/speech.htm" style="color: #667eea; text-decoration: none; font-size: 13px;">📎 直播链接</a>
                     </div>
                 </div>
-                <div class="flex items-start gap-3">
-                    <span class="text-black text-lg">🎵</span>
-                    <div class="flex-1">
-                        <div class="en-text text-sm">Luxury unboxing videos up 45% on Douyin</div>
-                        <div class="zh-text">抖音奢侈品开箱视频增长 45%</div>
+                <div class="news-item" style="padding: 10px 0; border-bottom: 1px solid #eaeaea;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-weight: 600; color: #2c3e50;">16:00 Hermès Shanghai Store Opening Event</div>
+                        <a href="https://www.hermes.com/cn/zh/" style="color: #667eea; text-decoration: none; font-size: 13px;">📎 活动链接</a>
                     </div>
                 </div>
-                <div class="flex items-start gap-3">
-                    <span class="text-blue-400 text-lg">🐦</span>
-                    <div class="flex-1">
-                        <div class="en-text text-sm">Hermès Birkin waitlist reportedly 6+ years</div>
-                        <div class="zh-text">爱马仕 Birkin 等待名单 reportedly 6 年以上</div>
+                <div class="news-item" style="padding: 10px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-weight: 600; color: #2c3e50;">20:00 US ADP Employment Data Release</div>
+                        <a href="https://www.adpemploymentreport.com/" style="color: #667eea; text-decoration: none; font-size: 13px;">📎 数据链接</a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Today's Watch -->
-        <section class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-lg font-semibold mb-4 flex items-center">
-                <span class="text-2xl mr-2">📅</span>
-                <span class="gradient-text">今日关注清单</span>
-            </h2>
-            <div class="space-y-2">
-                <div class="flex items-center gap-3 p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-                    <span class="text-sky-400 text-xs font-mono font-bold bg-sky-900/30 px-2 py-1 rounded">14:30</span>
-                    <span class="text-slate-200 text-sm font-medium">Fed Chair Powell Testimony</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-                    <span class="text-sky-400 text-xs font-mono font-bold bg-sky-900/30 px-2 py-1 rounded">16:00</span>
-                    <span class="text-slate-200 text-sm font-medium">Hermès Shanghai Store Opening Event</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 bg-slate-800/60 rounded-xl border border-slate-700/50">
-                    <span class="text-sky-400 text-xs font-mono font-bold bg-sky-900/30 px-2 py-1 rounded">20:00</span>
-                    <span class="text-slate-200 text-sm font-medium">US ADP Employment Data Release</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Divider -->
-        <div class="divider"></div>
-
+        </div>
+        
         <!-- Footer -->
-        <footer class="text-center text-slate-400 text-xs">
-            <p class="mb-3">🤖 由麦麦自动生成 · 数据仅供参考 · 投资需谨慎</p>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="https://github.com/openclaw/openclaw" class="text-sky-400 hover:text-sky-300 transition-colors">GitHub</a>
-                <span class="text-slate-600">·</span>
-                <a href="https://clawhub.ai" class="text-sky-400 hover:text-sky-300 transition-colors">ClawHub</a>
-                <span class="text-slate-600">·</span>
-                <button onclick="downloadSnapshot()" class="text-sky-400 hover:text-sky-300 transition-colors cursor-pointer">下载截图</button>
-            </div>
-        </footer>
+        <div class="footer">
+            <p>🤖 由麦麦自动生成 · 数据仅供参考 · 投资需谨慎</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/openclaw/openclaw">GitHub</a> · 
+                <a href="https://clawhub.ai">ClawHub</a>
+            </p>
+        </div>
     </div>
-
-    <!-- snapDOM for screenshots -->
-    <script src="https://unpkg.com/snapdom-js@1.0.4/dist/snapdom.min.js"></script>
-    <script>
-        async function downloadSnapshot() {
-            try {
-                const snap = await snapdom(document.body, {
-                    scale: 4,
-                    quality: 1,
-                    type: 'image/png'
-                });
-                const link = document.createElement('a');
-                link.download = 'openclaw-daily-brief-2026-03-04-ultra-hd.png';
-                link.href = snap.dataURL;
-                link.click();
-            } catch (error) {
-                alert('截图失败：' + error.message);
-            }
-        }
-    </script>
 </body>
 </html>

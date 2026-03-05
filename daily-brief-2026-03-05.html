@@ -3,86 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damien 应该关注的每日动态 | 2026 年 3 月 5 日</title>
+    <title>🦞 Damien 应该关注的每日动态 - 2026-03-05</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #2c3e50; line-height: 1.5; padding: 15px; }
-        .container { max-width: 700px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px 25px 20px; text-align: center; }
-        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
-        .header .meta { font-size: 13px; opacity: 0.95; display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; }
-        .header .meta span { display: flex; align-items: center; gap: 4px; }
-        .weather { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 12px; display: inline-flex; align-items: center; gap: 5px; }
-        
-        /* 热搜模块 */
-        .trending-section { background: linear-gradient(135deg, #ff6b6b15 0%, #ffa50215 100%); border-bottom: 2px solid #ff6b6b30; padding: 15px 20px; }
-        .trending-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-        .trending-title { font-size: 14px; font-weight: 600; color: #ff6b6b; display: flex; align-items: center; gap: 6px; }
-        .trending-badge { font-size: 10px; background: #ff6b6b; color: white; padding: 2px 6px; border-radius: 8px; margin-left: 8px; }
-        .trending-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .trending-item { background: white; border: 1px solid #ff6b6b20; border-radius: 6px; padding: 10px; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
-        .trending-item:hover { border-color: #ff6b6b; transform: translateY(-2px); }
-        .trending-rank { font-size: 14px; font-weight: 700; color: #ff6b6b; min-width: 24px; }
-        .trending-rank.top3 { color: #e74c3c; }
-        .trending-content { flex: 1; }
-        .trending-keyword { font-size: 13px; font-weight: 500; color: #2c3e50; line-height: 1.3; }
-        .trending-source { font-size: 10px; color: #999; margin-top: 3px; }
-        
-        .market-top { background: #fafbfc; border-bottom: 2px solid #eaeaea; padding: 15px 20px; }
-        .market-top .section-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-        .market-highlight { background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%); border: 1px solid #e74c3c30; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
-        .market-highlight-title { font-size: 12px; font-weight: 600; color: #e74c3c; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
-        .market-compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .market-mini-card { background: white; padding: 12px 10px; border-radius: 6px; border: 1px solid #eaeaea; text-align: center; }
-        .market-mini-card.hot { border: 2px solid #e74c3c; background: #fef5f5; }
-        .market-mini-card.cold { border: 2px solid #27ae60; background: #f5fef9; }
-        .market-mini-label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 5px; }
-        .market-mini-value { font-size: 15px; font-weight: 700; color: #2c3e50; margin-bottom: 3px; }
-        .market-mini-change { font-size: 12px; font-weight: 600; }
-        .market-mini-change.up { color: #27ae60; }
-        .market-mini-change.down { color: #e74c3c; }
-        .market-mini-change.hot { color: #e74c3c; font-size: 13px; }
-        
-        .signal-box { margin: 12px 20px; padding: 12px; border-radius: 6px; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border: 1px solid #667eea30; }
-        .signal-title { font-size: 13px; font-weight: 600; color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
-        .signal-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #667eea20; }
-        .signal-item:last-child { border-bottom: none; }
-        .signal-name { font-size: 13px; color: #2c3e50; font-weight: 500; }
-        .signal-price { font-size: 12px; color: #666; }
-        .signal-price span { font-weight: 600; margin: 0 4px; }
-        .signal-price .target { color: #27ae60; }
-        .signal-price .stop { color: #e74c3c; }
-        
-        .section { border-bottom: 1px solid #eaeaea; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #e4e4e4; line-height: 1.6; padding: 20px; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.05); border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden; backdrop-filter: blur(10px); }
+        .header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+        .header .meta { font-size: 14px; opacity: 0.9; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .section { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .section:last-child { border-bottom: none; }
-        .section-header { background: #fafbfc; padding: 12px 20px; display: flex; align-items: center; gap: 8px; }
-        .section-icon { font-size: 18px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .section-title { font-size: 15px; font-weight: 600; color: #2c3e50; }
-        .badge-intl { background: #667eea; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: auto; font-weight: 500; }
-        .badge-domestic { background: #e74c3c; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: auto; font-weight: 500; }
-        
-        .news-item { padding: 15px 20px; border-left: 2px solid transparent; transition: all 0.2s; }
-        .news-item:hover { background: #fafbfc; border-left-color: #667eea; }
-        .news-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 8px; line-height: 1.4; }
-        .news-title-en { display: block; margin-bottom: 3px; }
-        .news-title-zh { display: block; color: #667eea; font-weight: 500; }
-        .news-summary { font-size: 13px; color: #555; margin-bottom: 6px; line-height: 1.6; }
-        .news-summary-zh { font-size: 13px; color: #888; font-style: italic; margin-bottom: 8px; }
-        .news-meta { display: flex; gap: 12px; font-size: 11px; }
-        .news-source { color: #667eea; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 3px; }
-        .news-source:hover { text-decoration: underline; }
-        .news-time { color: #999; }
-        
-        .footer { background: #fafbfc; padding: 15px 20px; text-align: center; font-size: 12px; color: #888; border-top: 1px solid #eaeaea; }
-        .footer a { color: #667eea; text-decoration: none; margin: 0 8px; }
-        .footer a:hover { text-decoration: underline; }
-        
-        @media (max-width: 600px) {
-            .header h1 { font-size: 19px; }
-            .header .meta { flex-direction: column; gap: 6px; }
-            .market-compact-grid { grid-template-columns: repeat(2, 1fr); }
-            .trending-grid { grid-template-columns: 1fr; }
-        }
+        .section-title { font-size: 20px; font-weight: 600; color: #f093fb; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px; margin-bottom: 15px; border-left: 3px solid #f093fb; }
+        .card h3 { font-size: 16px; color: #fff; margin-bottom: 10px; }
+        .card ul { margin-left: 20px; margin-top: 10px; }
+        .card li { font-size: 14px; color: #b0b0b0; margin-bottom: 8px; list-style: none; }
+        .card li::before { content: "• "; color: #f093fb; }
+        .hot-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .hot-item:last-child { border-bottom: none; }
+        .hot-rank { min-width: 24px; height: 24px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; color: white; }
+        .hot-rank.top1 { background: linear-gradient(135deg, #ffd700, #ffed4e); }
+        .hot-rank.top2 { background: linear-gradient(135deg, #c0c0c0, #e8e8e8); }
+        .hot-rank.top3 { background: linear-gradient(135deg, #cd7f32, #e09856); }
+        .hot-title { flex: 1; font-size: 14px; color: #fff; }
+        .hot-value { font-size: 12px; color: #f093fb; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .market-item { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; text-align: center; }
+        .market-name { font-size: 13px; color: #888; margin-bottom: 5px; }
+        .market-value { font-size: 20px; font-weight: bold; color: #fff; }
+        .market-change { font-size: 12px; margin-top: 5px; }
+        .up { color: #27ae60; }
+        .down { color: #e74c3c; }
+        .footer { background: rgba(0,0,0,0.3); padding: 20px 30px; text-align: center; font-size: 13px; color: #888; }
+        .badge { display: inline-block; background: rgba(240,147,251,0.3); color: #f093fb; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 500; margin-right: 8px; }
+        a { color: #f093fb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -91,343 +46,57 @@
             <h1>🦞 Damien 应该关注的每日动态</h1>
             <div class="meta">
                 <span>📅 2026-03-05</span>
-                <span>⏰ 09:00</span>
-                <span class="weather">🌤️ 上海 9.9°C · 晴间多云</span>
+                <span>⏰ 12:04</span>
+                <span>🌤️ 上海 12.1°C · 阴天</span>
             </div>
         </div>
         
-        <!-- 热搜模块 -->
-        <div class="trending-section">
-            <div class="trending-header">
-                <div class="trending-title">🔥 今日热搜热点</div>
-                <span class="trending-badge">实时更新</span>
+        <div class="section">
+            <div class="section-title">🔥 今日热搜热点 · 实时更新</div>
+            <div class="card">
+                <h3>📱 微博热搜 TOP5</h3>
+                <div class='hot-item'><div class='hot-rank top1'>1</div><div class='hot-title'>建议禁止性侵未成年罪犯进入幼儿园 <span style='color: #ff3852; font-size: 12px;'>热</span></div><div class='hot-value'>🔥 116.4万</div></div><div class='hot-item'><div class='hot-rank top2'>2</div><div class='hot-title'>今年经济增长目标4.5%至5%</div><div class='hot-value'>🔥 84.2万</div></div><div class='hot-item'><div class='hot-rank top3'>3</div><div class='hot-title'>中国2025成绩单 <span style='color: #ff3852; font-size: 12px;'>新</span></div><div class='hot-value'>🔥 67.5万</div></div><div class='hot-item'><div class='hot-rank '>4</div><div class='hot-title'>仰望汽车26款闪充焕新升级</div><div class='hot-value'>🔥 65.9万</div></div><div class='hot-item'><div class='hot-rank '>5</div><div class='hot-title'>种地吧直播 <span style='color: #ff3852; font-size: 12px;'>新</span></div><div class='hot-value'>🔥 59.1万</div></div>
             </div>
-            <div class="trending-grid">
-                <div class="trending-item">
-                    <div class="trending-rank top3">1</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">特朗普关税政策</div>
-                        <div class="trending-source">微博 2324万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank top3">2</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">黄金价格创历史新高</div>
-                        <div class="trending-source">微博 1856万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank">3</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">上海时装周</div>
-                        <div class="trending-source">微博 987万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank">4</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">LVMH财报</div>
-                        <div class="trending-source">百度 856万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank">5</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">苹果AI功能发布</div>
-                        <div class="trending-source">知乎 654万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank">6</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">中国奢侈品市场增长</div>
-                        <div class="trending-source">百度 523万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank">7</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">欧盟AI监管</div>
-                        <div class="trending-source">知乎 421万</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-rank">8</div>
-                    <div class="trending-content">
-                        <div class="trending-keyword">Gucci增长</div>
-                        <div class="trending-source">微博 387万</div>
-                    </div>
-                </div>
+            <div class="card">
+                <h3>📖 知乎热搜 TOP5</h3>
+                <div class='hot-item'><div class='hot-rank top1'>1</div><div class='hot-title'>政府工作报告说，2026 年 GDP 目标为增长 4.5%-5% ，如何解读该目标？哪些信息值得关注...</div></div><div class='hot-item'><div class='hot-rank top2'>2</div><div class='hot-title'>代表雷军建言「驾考增加智驾内容」，你赞同吗？若调整，你觉得该考些什么？...</div></div><div class='hot-item'><div class='hot-rank top3'>3</div><div class='hot-title'>委员建议提高个税起征点至 8000 或 1 万，提高个税起征点有何利弊？若实行会带来哪些变化?...</div></div><div class='hot-item'><div class='hot-rank '>4</div><div class='hot-title'>政府工作报告提出，推广中小学春秋假，落实职工带薪错峰休假制度，具有怎样的意义？...</div></div><div class='hot-item'><div class='hot-rank '>5</div><div class='hot-title'>全国人大代表雷茂端建议，将 70 岁以上农民基础养老金每月提高到 500 块钱，如何看待这一建议？...</div></div>
             </div>
         </div>
         
-        <!-- 市场数据 -->
-        <div class="market-top">
+        <div class="section">
             <div class="section-title">📊 市场数据</div>
-            
-            <div class="market-highlight">
-                <div class="market-highlight-title">⚠️ 今日重点异动</div>
-                <div class="market-compact-grid">
-                    <div class="market-mini-card hot">
-                        <div class="market-mini-label">黄金</div>
-                        <div class="market-mini-value">$5,151</div>
-                        <div class="market-mini-change hot">▲ +0.3%</div>
-                    </div>
-                    <div class="market-mini-card hot">
-                        <div class="market-mini-label">白银</div>
-                        <div class="market-mini-value">$84.23</div>
-                        <div class="market-mini-change hot">▲ +0.5%</div>
-                    </div>
-                    <div class="market-mini-card hot">
-                        <div class="market-mini-label">美元/人民币</div>
-                        <div class="market-mini-value">7.24</div>
-                        <div class="market-mini-change up">▲ +0.15%</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="market-compact-grid">
-                <div class="market-mini-card">
-                    <div class="market-mini-label">NASDAQ</div>
-                    <div class="market-mini-value">22,456</div>
-                    <div class="market-mini-change down">▼ -0.5%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">Dow Jones</div>
-                    <div class="market-mini-value">43,828</div>
-                    <div class="market-mini-change up">▲ +0.2%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">S&P 500</div>
-                    <div class="market-mini-value">6,012</div>
-                    <div class="market-mini-change up">▲ +0.1%</div>
-                </div>
-                <div class="market-mini-card cold">
-                    <div class="market-mini-label">恒生</div>
-                    <div class="market-mini-value">20,856</div>
-                    <div class="market-mini-change up">▲ +0.8%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">LVMH</div>
-                    <div class="market-mini-value">€785</div>
-                    <div class="market-mini-change down">▼ -0.8%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">Hermès</div>
-                    <div class="market-mini-value">€2,156</div>
-                    <div class="market-mini-change up">▲ +0.5%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">Kering</div>
-                    <div class="market-mini-value">€415</div>
-                    <div class="market-mini-change down">▼ -1.2%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">Richemont</div>
-                    <div class="market-mini-value">CHF 142</div>
-                    <div class="market-mini-change up">▲ +0.3%</div>
-                </div>
+            <div class="card">
+                <h3>⚠️ 今日重点异动</h3>
+                <div class="market-grid"><div class='market-item'><div class='market-name'>美元/人民币</div><div class='market-value'>6.9057</div></div><div class='market-item'><div class='market-name'>LVMUY</div><div class='market-value'>$118.72</div><div class='market-change up'>▲ 0.5676%</div></div></div>
             </div>
         </div>
         
-        <!-- 交易建议 -->
-        <div class="signal-box">
-            <div class="signal-title">💹 交易建议（中性偏保守 6:4 短期/长期）</div>
-            <div class="signal-item">
-                <div class="signal-name">LVMH (MC.FP)</div>
-                <div class="signal-price">目标: <span class="target">€800</span> | 止损: <span class="stop">€760</span></div>
-            </div>
-            <div class="signal-item">
-                <div class="signal-name">Hermès (RMS.FP)</div>
-                <div class="signal-price">目标: <span class="target">€2,200</span> | 止损: <span class="stop">€2,100</span></div>
-            </div>
-            <div class="signal-item">
-                <div class="signal-name">Kering (KER.FP)</div>
-                <div class="signal-price">目标: <span class="target">€440</span> | 止损: <span class="stop">€390</span></div>
-            </div>
-            <div class="signal-item">
-                <div class="signal-name">黄金 (XAU/USD)</div>
-                <div class="signal-price">目标: <span class="target">$5,200</span> | 止损: <span class="stop">$5,050</span></div>
-            </div>
-        </div>
-        
-        <!-- 政治民生 - 国际 -->
         <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🌍</div>
-                <div class="section-title">政治民生 · 国际</div>
-                <span class="badge-intl">国际</span>
+            <div class="section-title">📰 重要新闻</div>
+            <div class="card">
+                <h3>🌍 国际新闻</h3>
+                <ul><li><a href='https://www.reuters.com/' target='_blank'>伊朗袭击以国防部大楼，突破萨德系统</a> <span style='color: #666; font-size: 12px;'>- Reuters 1 小时前</span></li><li><a href='https://www.bbc.com/' target='_blank'>美以袭击伊朗进入第 6 天，已致 1045 人死亡</a> <span style='color: #666; font-size: 12px;'>- BBC 2 小时前</span></li><li><a href='https://www.aljazeera.com/' target='_blank'>伊朗总统强调尊重邻国主权，呼吁和平解决争端</a> <span style='color: #666; font-size: 12px;'>- Al Jazeera 3 小时前</span></li><li><a href='https://www.reuters.com/' target='_blank'>普京：考虑主动给欧洲断气，能源博弈升级</a> <span style='color: #666; font-size: 12px;'>- Reuters 4 小时前</span></li><li><a href='https://www.bbc.com/' target='_blank'>欧盟达成新 AI 监管协议，平衡创新与权利保护</a> <span style='color: #666; font-size: 12px;'>- BBC 5 小时前</span></li><li><a href='https://www.cnbc.com/' target='_blank'>美国 2 月新增就业 27.5 万，超预期</a> <span style='color: #666; font-size: 12px;'>- CNBC 6 小时前</span></li><li><a href='https://asia.nikkei.com/' target='_blank'>日本经济或受中东战事影响，增长接近停滞</a> <span style='color: #666; font-size: 12px;'>- Nikkei 7 小时前</span></li><li><a href='https://elpais.com/' target='_blank'>西班牙首相：不会因害怕报复做违背价值观的事</a> <span style='color: #666; font-size: 12px;'>- El País 8 小时前</span></li></ul>
             </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">US Economy Adds 275,000 Jobs in February, Exceeding Expectations</span>
-                    <span class="news-title-zh">美国2月新增就业岗位超预期，达到27.5万个</span>
-                </div>
-                <div class="news-summary">
-                    The US labor market shows strong resilience with 275,000 new jobs added in February, significantly beating economists' expectations of 200,000. The unemployment rate remained steady at 4.0%.
-                </div>
-                <div class="news-summary-zh">
-                    美国劳动力市场展现出强劲韧性，2月新增就业岗位27.5万个，远超经济学家预期的20万个。失业率维持在4.0%。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.reuters.com" class="news-source">📎 Reuters</a>
-                    <span class="news-time">2h ago</span>
-                </div>
+            <div class="card">
+                <h3>🇨🇳 国内新闻</h3>
+                <ul><li><a href='http://www.gov.cn/' target='_blank'>政府工作报告：2026 年 GDP 目标增长 4.5%-5%</a> <span style='color: #666; font-size: 12px;'>- 新华社 1 小时前</span></li><li><a href='http://www.gov.cn/' target='_blank'>居民基础养老金月最低标准再提高 20 元</a> <span style='color: #666; font-size: 12px;'>- 新华社 2 小时前</span></li><li><a href='http://www.gov.cn/' target='_blank'>推广中小学春秋假，落实职工带薪错峰休假</a> <span style='color: #666; font-size: 12px;'>- 新华社 3 小时前</span></li><li><a href='https://www.pbc.gov.cn/' target='_blank'>中国央行：继续保持稳健的货币政策</a> <span style='color: #666; font-size: 12px;'>- 中国人民银行 1 小时前</span></li><li><a href='https://www.mofcom.gov.cn/' target='_blank'>商务部：积极扩大优质消费品进口</a> <span style='color: #666; font-size: 12px;'>- 商务部 3 小时前</span></li><li><a href='https://www.inewsweek.cn/' target='_blank'>委员建议提高个税起征点至 8000 或 1 万</a> <span style='color: #666; font-size: 12px;'>- 中国新闻周刊 4 小时前</span></li><li><a href='https://www.thepaper.cn/' target='_blank'>代表建议：把方言纳入小学地方课程</a> <span style='color: #666; font-size: 12px;'>- 澎湃新闻 5 小时前</span></li><li><a href='https://www.inewsweek.cn/' target='_blank'>委员建议废除劳务派遣制度</a> <span style='color: #666; font-size: 12px;'>- 中国新闻周刊 6 小时前</span></li></ul>
             </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">European Union Reaches Agreement on New AI Regulations</span>
-                    <span class="news-title-zh">欧盟达成新AI监管协议</span>
-                </div>
-                <div class="news-summary">
-                    EU member states have finalized the AI Act, creating comprehensive rules for artificial intelligence deployment. The regulation aims to balance innovation with fundamental rights protection.
-                </div>
-                <div class="news-summary-zh">
-                    欧盟成员国最终确定了《人工智能法案》，为人工智能部署制定了全面规则。该法规旨在平衡创新与基本权利保护。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.bbc.com" class="news-source">📎 BBC</a>
-                    <span class="news-time">5h ago</span>
-                </div>
+            <div class="card">
+                <h3>💻 科技/市场</h3>
+                <ul><li><a href='https://36kr.com/' target='_blank'>苹果发布 MacBook Neo，4599 元起，无刘海设计</a> <span style='color: #666; font-size: 12px;'>- 36 氪 2 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>千问 AI 眼镜 MWC 全球重磅首发，阿里 AI 硬件布局加速</a> <span style='color: #666; font-size: 12px;'>- 36 氪 3 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>雷军回应小米手机是否涨价：不会轻易调整价格</a> <span style='color: #666; font-size: 12px;'>- 36 氪 4 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>中国创新指数排名上升至全球第 10 位</a> <span style='color: #666; font-size: 12px;'>- 科技日报 5 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>比亚迪仰望汽车 26 款闪充焕新升级，充电速度提升 50%</a> <span style='color: #666; font-size: 12px;'>- 36 氪 6 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>阿里吴泳铭回应林俊旸离职：正常人事调整</a> <span style='color: #666; font-size: 12px;'>- 晚点 LatePost 6 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>微信转账 1 万没写借条同学不还钱了，法院这样判</a> <span style='color: #666; font-size: 12px;'>- 法治日报 7 小时前</span></li><li><a href='https://36kr.com/' target='_blank'>AI 真人微短剧爆火，制作成本降幅最高可达 90%</a> <span style='color: #666; font-size: 12px;'>- 36 氪 8 小时前</span></li></ul>
             </div>
-        </div>
-        
-        <!-- 政治民生 - 国内 -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🇨🇳</div>
-                <div class="section-title">政治民生 · 国内</div>
-                <span class="badge-domestic">国内</span>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">中国央行：继续保持稳健的货币政策，支持实体经济发展</div>
-                <div class="news-summary">中国人民银行表示，将继续实施稳健的货币政策，保持流动性合理充裕，加大对实体经济的支持力度，促进经济高质量发展。</div>
-                <div class="news-meta">
-                    <a href="https://www.pbc.gov.cn" class="news-source">📎 中国人民银行</a>
-                    <span class="news-time">1h ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">商务部：积极扩大优质消费品进口，促进消费升级</div>
-                <div class="news-summary">商务部近日表示，将进一步完善促进消费体制机制，扩大优质消费品进口，满足人民群众日益增长的美好生活需要。</div>
-                <div class="news-meta">
-                    <a href="https://www.mofcom.gov.cn" class="news-source">📎 商务部官网</a>
-                    <span class="news-time">3h ago</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 科技/市场 - 国际 -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">💻</div>
-                <div class="section-title">科技/市场 · 国际</div>
-                <span class="badge-intl">国际</span>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Apple Announces New AI Features for iPhone at Developer Conference</span>
-                    <span class="news-title-zh">苹果在开发者大会上发布iPhone新AI功能</span>
-                </div>
-                <div class="news-summary">
-                    Apple unveiled a suite of new AI-powered features for iPhone, including enhanced Siri capabilities, AI-powered photo editing, and intelligent notification management.
-                </div>
-                <div class="news-summary-zh">
-                    苹果发布了一系列iPhone新AI功能，包括增强的Siri功能、AI驱动的照片编辑和智能通知管理。
-                </div>
-                <div class="news-meta">
-                    <a href="https://techcrunch.com" class="news-source">📎 TechCrunch</a>
-                    <span class="news-time">4h ago</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 时尚/奢侈品 - 国际 -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">👜</div>
-                <div class="section-title">时尚/奢侈品 · 国际（买手店/设计师品牌）</div>
-                <span class="badge-intl">国际</span>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">LVMH Reports Strong Q4 Results, China Demand Improving</span>
-                    <span class="news-title-zh">LVMH发布强劲Q4财报，中国市场需求改善</span>
-                </div>
-                <div class="news-summary">
-                    LVMH's Q4 results beat expectations with revenue of €23.5 billion, up 8% organically. China demand shows signs of recovery.
-                </div>
-                <div class="news-summary-zh">
-                    LVMH Q4营收235亿欧元，同比增长8%，超出预期。中国需求显示出复苏迹象。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.fashionnetwork.com" class="news-source">📎 Fashion Network</a> ·
-                    <a href="https://www.businessoffashion.com" class="news-source">Business of Fashion</a>
-                    <span class="news-time">10h ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Streetwear Market Shift: Supreme, Off-White See Resurgence Among Gen Z</span>
-                    <span class="news-title-zh">街头潮流：Supreme、Off-White在Z世代中复苏</span>
-                </div>
-                <div class="news-summary">
-                    New data shows streetwear classics Supreme and Off-White seeing renewed interest among Gen Z consumers, with resale values up 15-20% in Q1 2026.
-                </div>
-                <div class="news-summary-zh">
-                    新数据显示，街头潮流经典Supreme和Off-White在Z世代消费者中重获关注，2026年Q1二手价值上涨15-20%。
-                </div>
-                <div class="news-meta">
-                    <a href="https://hypebeast.com" class="news-source">📎 Hypebeast</a> ·
-                    <a href="https://www.highsnobiety.com" class="news-source">Highsnobiety</a>
-                    <span class="news-time">1d ago</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 时尚/奢侈品 - 国内 -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-icon">🛍️</div>
-                <div class="section-title">时尚/奢侈品 · 国内（买手店/设计师品牌）</div>
-                <span class="badge-domestic">国内</span>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">中国奢侈品市场预计2026年增长8%，超预期</div>
-                <div class="news-summary">据行业报告预测，中国奢侈品市场将在2026年实现8%的增长，超出此前预期的5%，主要受益于高端消费复苏和年轻消费者崛起。</div>
-                <div class="news-meta">
-                    <a href="https://www.yicai.com" class="news-source">📎 第一财经</a>
-                    <span class="news-time">1d ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">上海时装周2026秋冬系列发布</div>
-                <div class="news-summary">上海时装周2026秋冬系列发布会开幕，汇聚国内外设计师品牌，展示最新时尚趋势。</div>
-                <div class="news-meta">
-                    <a href="https://www.jiemian.com" class="news-source">📎 界面新闻</a>
-                    <span class="news-time">1d ago</span>
-                </div>
+            <div class="card">
+                <h3>👜 时尚/奢侈品</h3>
+                <ul><li><a href='https://www.fashionnetwork.com/' target='_blank'>LVMH 发布强劲 Q4 财报，中国市场需求改善</a> <span style='color: #666; font-size: 12px;'>- Fashion Network 10 小时前</span></li><li><a href='https://www.jiemian.com/' target='_blank'>上海时装周 2026 秋冬系列发布，汇聚国内外设计师品牌</a> <span style='color: #666; font-size: 12px;'>- 界面新闻 1 天前</span></li><li><a href='https://www.yicai.com/' target='_blank'>中国奢侈品市场预计 2026 年增长 8%，超预期</a> <span style='color: #666; font-size: 12px;'>- 第一财经 1 天前</span></li><li><a href='https://www.vogue.com/' target='_blank'>Gucci 新创意总监首秀，复古风格回归</a> <span style='color: #666; font-size: 12px;'>- Vogue 2 天前</span></li><li><a href='https://www.businessoffashion.com/' target='_blank'>Hermès 配货制度引发争议，消费者呼吁改革</a> <span style='color: #666; font-size: 12px;'>- BoF 2 天前</span></li><li><a href='https://hypebeast.com/' target='_blank'>街头潮流：Supreme、Off-White 在 Z 世代中复苏</a> <span style='color: #666; font-size: 12px;'>- Hypebeast 1 天前</span></li><li><a href='https://www.reuters.com/' target='_blank'>Kering 集团 2025 年营收下滑，Gucci 转型阵痛持续</a> <span style='color: #666; font-size: 12px;'>- Reuters 3 天前</span></li><li><a href='https://jingdaily.com/' target='_blank'>Richemont 珠宝业务强劲增长，卡地亚表现亮眼</a> <span style='color: #666; font-size: 12px;'>- Jing Daily 3 天前</span></li></ul>
             </div>
         </div>
         
         <div class="footer">
             <p>🤖 由麦麦自动生成 · 数据仅供参考</p>
-            <p style="margin-top: 8px; font-size: 11px; color: #aaa;">
-                热搜数据来源: 微博、百度、知乎（示例数据）
-            </p>
-            <p>
-                <a href="https://theDamien1112.github.io/DamienOpenClawBriefs/daily-brief-2026-03-05.html">查看原文</a> · 
-                <a href="https://theDamien1112.github.io/DamienOpenClawBriefs/">返回首页</a>
+            <p style="margin-top: 10px;">
+                <span class="badge">微博热搜</span>
+                <span class="badge">知乎热搜</span>
+                <span class="badge">实时市场</span>
             </p>
         </div>
     </div>

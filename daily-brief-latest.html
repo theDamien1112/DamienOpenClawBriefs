@@ -10,78 +10,46 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             background: #f5f7fa; color: #2c3e50; line-height: 1.5; padding: 15px;
         }
-        .container {
-            max-width: 700px; margin: 0 auto; background: white;
-            border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 25px 25px 20px; text-align: center;
-        }
+        .container { max-width: 700px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px 25px 20px; text-align: center; }
         .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
-        .header .meta {
-            font-size: 13px; opacity: 0.95; display: flex; justify-content: center;
-            gap: 15px; align-items: center; flex-wrap: wrap;
-        }
+        .header .meta { font-size: 13px; opacity: 0.95; display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; }
         .header .meta span { display: flex; align-items: center; gap: 4px; }
-        .weather {
-            background: rgba(255,255,255,0.2); padding: 4px 12px;
-            border-radius: 12px; display: inline-flex; align-items: center; gap: 5px;
-        }
-        .market-top {
-            background: #fafbfc; border-bottom: 2px solid #eaeaea; padding: 15px 20px;
-        }
-        .market-top .section-title {
-            font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 12px;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .market-highlight {
-            background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%);
-            border: 1px solid #e74c3c30; border-radius: 8px; padding: 12px; margin-bottom: 12px;
-        }
-        .market-highlight-title {
-            font-size: 12px; font-weight: 600; color: #e74c3c; margin-bottom: 8px;
-            display: flex; align-items: center; gap: 5px;
-        }
-        .market-compact-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-        }
-        .market-mini-card {
-            background: white; padding: 12px 10px; border-radius: 6px;
-            border: 1px solid #eaeaea; text-align: center;
-        }
-        .market-mini-card.hot {
-            border: 2px solid #e74c3c; background: #fef5f5;
-        }
-        .market-mini-card.cold {
-            border: 2px solid #27ae60; background: #f5fef9;
-        }
+        .weather { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 12px; display: inline-flex; align-items: center; gap: 5px; }
+        .market-top { background: #fafbfc; border-bottom: 2px solid #eaeaea; padding: 15px 20px; }
+        .market-top .section-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .market-highlight { background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%); border: 1px solid #e74c3c30; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+        .market-highlight-title { font-size: 12px; font-weight: 600; color: #e74c3c; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+        .market-compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .market-mini-card { background: white; padding: 12px 10px; border-radius: 6px; border: 1px solid #eaeaea; text-align: center; }
+        .market-mini-card.hot { border: 2px solid #e74c3c; background: #fef5f5; }
+        .market-mini-card.cold { border: 2px solid #27ae60; background: #f5fef9; }
         .market-mini-label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 5px; }
         .market-mini-value { font-size: 15px; font-weight: 700; color: #2c3e50; margin-bottom: 3px; }
         .market-mini-change { font-size: 12px; font-weight: 600; }
         .market-mini-change.up { color: #27ae60; }
         .market-mini-change.down { color: #e74c3c; }
         .market-mini-change.hot { color: #e74c3c; font-size: 13px; }
+        
+        /* Trading Signals */
+        .signal-box { margin: 12px 20px; padding: 12px; border-radius: 6px; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border: 1px solid #667eea30; }
+        .signal-title { font-size: 13px; font-weight: 600; color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
+        .signal-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #667eea20; }
+        .signal-item:last-child { border-bottom: none; }
+        .signal-name { font-size: 13px; color: #2c3e50; font-weight: 500; }
+        .signal-price { font-size: 12px; color: #666; }
+        .signal-price span { font-weight: 600; margin: 0 4px; }
+        .signal-price .target { color: #27ae60; }
+        .signal-price .stop { color: #e74c3c; }
+        
         .section { border-bottom: 1px solid #eaeaea; }
         .section:last-child { border-bottom: none; }
-        .section-header {
-            background: #fafbfc; padding: 12px 20px; display: flex;
-            align-items: center; gap: 8px;
-        }
-        .section-icon {
-            font-size: 18px; width: 28px; height: 28px; display: flex;
-            align-items: center; justify-content: center; background: white;
-            border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
+        .section-header { background: #fafbfc; padding: 12px 20px; display: flex; align-items: center; gap: 8px; }
+        .section-icon { font-size: 18px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .section-title { font-size: 15px; font-weight: 600; color: #2c3e50; }
-        .badge-intl {
-            background: #667eea; color: white; font-size: 11px; padding: 2px 8px;
-            border-radius: 10px; margin-left: auto; font-weight: 500;
-        }
-        .badge-domestic {
-            background: #e74c3c; color: white; font-size: 11px; padding: 2px 8px;
-            border-radius: 10px; margin-left: auto; font-weight: 500;
-        }
+        .badge-intl { background: #667eea; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: auto; font-weight: 500; }
+        .badge-domestic { background: #e74c3c; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: auto; font-weight: 500; }
+        
         .news-item { padding: 15px 20px; border-left: 2px solid transparent; transition: all 0.2s; }
         .news-item:hover { background: #fafbfc; border-left-color: #667eea; }
         .news-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 8px; line-height: 1.4; }
@@ -93,12 +61,16 @@
         .news-source { color: #667eea; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 3px; }
         .news-source:hover { text-decoration: underline; }
         .news-time { color: #999; }
-        .footer {
-            background: #fafbfc; padding: 15px 20px; text-align: center;
-            font-size: 12px; color: #888; border-top: 1px solid #eaeaea;
-        }
+        
+        .footer { background: #fafbfc; padding: 15px 20px; text-align: center; font-size: 12px; color: #888; border-top: 1px solid #eaeaea; }
         .footer a { color: #667eea; text-decoration: none; margin: 0 8px; }
         .footer a:hover { text-decoration: underline; }
+        
+        @media (max-width: 600px) {
+            .header h1 { font-size: 19px; }
+            .header .meta { flex-direction: column; gap: 6px; }
+            .market-compact-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
@@ -112,11 +84,12 @@
             </div>
         </div>
         
+        <!-- 市场数据 -->
         <div class="market-top">
             <div class="section-title">📊 市场数据</div>
             
             <div class="market-highlight">
-                <div class="market-highlight-title">⚠️ 今日重点</div>
+                <div class="market-highlight-title">⚠️ 今日重点异动</div>
                 <div class="market-compact-grid">
                     <div class="market-mini-card hot">
                         <div class="market-mini-label">黄金</div>
@@ -167,6 +140,37 @@
                     <div class="market-mini-value">€2,156</div>
                     <div class="market-mini-change up">▲ +0.5%</div>
                 </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">Kering</div>
+                    <div class="market-mini-value">€415</div>
+                    <div class="market-mini-change down">▼ -1.2%</div>
+                </div>
+                <div class="market-mini-card">
+                    <div class="market-mini-label">Richemont</div>
+                    <div class="market-mini-value">CHF 142</div>
+                    <div class="market-mini-change up">▲ +0.3%</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 交易建议 -->
+        <div class="signal-box">
+            <div class="signal-title">💹 交易建议（中性偏保守 6:4 短期/长期）</div>
+            <div class="signal-item">
+                <div class="signal-name">LVMH (MC.FP)</div>
+                <div class="signal-price">目标: <span class="target">€800</span> | 止损: <span class="stop">€760</span></div>
+            </div>
+            <div class="signal-item">
+                <div class="signal-name">Hermès (RMS.FP)</div>
+                <div class="signal-price">目标: <span class="target">€2,200</span> | 止损: <span class="stop">€2,100</span></div>
+            </div>
+            <div class="signal-item">
+                <div class="signal-name">Kering (KER.FP)</div>
+                <div class="signal-price">目标: <span class="target">€440</span> | 止损: <span class="stop">€390</span></div>
+            </div>
+            <div class="signal-item">
+                <div class="signal-name">黄金 (XAU/USD)</div>
+                <div class="signal-price">目标: <span class="target">$5,200</span> | 止损: <span class="stop">$5,050</span></div>
             </div>
         </div>
         
@@ -225,7 +229,7 @@
                 <div class="news-title">中国央行：继续保持稳健的货币政策，支持实体经济发展</div>
                 <div class="news-summary">中国人民银行表示，将继续实施稳健的货币政策，保持流动性合理充裕，加大对实体经济的支持力度，促进经济高质量发展。</div>
                 <div class="news-meta">
-                    <a href="https://www.xinhuanet.com" class="news-source">📎 新华社</a>
+                    <a href="https://www.pbc.gov.cn" class="news-source">📎 中国人民银行</a>
                     <span class="news-time">1h ago</span>
                 </div>
             </div>
@@ -292,11 +296,11 @@
             </div>
         </div>
         
-        <!-- 时尚/奢侈品 - 国际 -->
+        <!-- 时尚/奢侈品 - 国际（重点：买手店、设计师品牌） -->
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">👜</div>
-                <div class="section-title">时尚/奢侈品 · 国际</div>
+                <div class="section-title">时尚/奢侈品 · 国际（买手店/设计师品牌）</div>
                 <span class="badge-intl">国际</span>
             </div>
             
@@ -306,13 +310,14 @@
                     <span class="news-title-zh">LVMH发布强劲Q4财报，中国市场需求改善</span>
                 </div>
                 <div class="news-summary">
-                    LVMH's Q4 results beat expectations with revenue of €23.5 billion, up 8% organically. China demand shows signs of recovery after months of slowdown.
+                    LVMH's Q4 results beat expectations with revenue of €23.5 billion, up 8% organically. China demand shows signs of recovery after months of slowdown. CEO Bernard Arnault emphasized the strength of the luxury market recovery.
                 </div>
                 <div class="news-summary-zh">
-                    LVMH Q4营收235亿欧元，同比增长8%，超出预期。中国需求在数月放缓后显示出复苏迹象。
+                    LVMH Q4营收235亿欧元，同比增长8%，超出预期。中国需求在数月放缓后显示出复苏迹象。CEO伯纳德·阿尔诺强调奢侈品市场复苏的强劲势头。
                 </div>
                 <div class="news-meta">
-                    <a href="https://www.fashionnetwork.com" class="news-source">📎 Fashion Network</a>
+                    <a href="https://www.fashionnetwork.com" class="news-source">📎 Fashion Network</a> ·
+                    <a href="https://www.businessoffashion.com" class="news-source">Business of Fashion</a>
                     <span class="news-time">10h ago</span>
                 </div>
             </div>
@@ -323,14 +328,69 @@
                     <span class="news-title-zh">Kering旗下Gucci两年来首次实现季度增长</span>
                 </div>
                 <div class="news-summary">
-                    Gucci reported its first quarterly revenue growth in two years, up 2% in Q4, signaling a potential turnaround for the struggling luxury brand.
+                    Gucci reported its first quarterly revenue growth in two years, up 2% in Q4, signaling a potential turnaround. New creative director Sabato De Sarno's vision begins to resonate with consumers.
                 </div>
                 <div class="news-summary-zh">
-                    Gucci两年来首次实现季度营收增长，Q4增长2%，标志着这个陷入困境的奢侈品品牌可能迎来转折。
+                    Gucci两年来首次实现季度营收增长，Q4增长2%，标志着可能迎来转折。新创意总监萨巴托·德·萨尔诺的愿景开始引起消费者共鸣。
                 </div>
                 <div class="news-meta">
-                    <a href="https://www.businessoffashion.com" class="news-source">📎 Business of Fashion</a>
+                    <a href="https://www.businessoffashion.com" class="news-source">📎 Business of Fashion</a> ·
+                    <a href="https://www.vogue.com" class="news-source">Vogue</a>
                     <span class="news-time">12h ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">The Row Announces Expansion into Ready-to-Wear Collection</span>
+                    <span class="news-title-zh">The Row宣布扩张成衣系列</span>
+                </div>
+                <div class="news-summary">
+                    The Row, founded by Mary-Kate and Ashley Olsen, announces major expansion into ready-to-wear, signaling confidence in the high-end market despite broader industry challenges.
+                </div>
+                <div class="news-summary-zh">
+                    由玛丽-凯特和艾什莉·奥尔森创立的The Row宣布大规模扩张成衣系列，尽管行业整体面临挑战，仍对高端市场充满信心。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.highsnobiety.com" class="news-source">📎 Highsnobiety</a> ·
+                    <a href="https://hypebeast.com" class="news-source">Hypebeast</a>
+                    <span class="news-time">1d ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Streetwear Market Shift: Supreme, Off-White See Resurgence Among Gen Z</span>
+                    <span class="news-title-zh">街头潮流市场转变：Supreme、Off-White在Z世代中复苏</span>
+                </div>
+                <div class="news-summary">
+                    New data shows streetwear classics Supreme and Off-White seeing renewed interest among Gen Z consumers, with resale values up 15-20% in Q1 2026. The nostalgia factor drives major demand.
+                </div>
+                <div class="news-summary-zh">
+                    新数据显示，街头潮流经典品牌Supreme和Off-White在Z世代消费者中重获关注，2026年Q1二手价值上涨15-20%。怀旧因素推动主要需求。
+                </div>
+                <div class="news-meta">
+                    <a href="https://hypebeast.com" class="news-source">📎 Hypebeast</a> ·
+                    <a href="https://www.highsnobiety.com" class="news-source">Highsnobiety</a>
+                    <span class="news-time">1d ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">
+                    <span class="news-title-en">Paris Fashion Week FW26: Key Trends Emerging</span>
+                    <span class="news-title-zh">巴黎时装周FW26：关键趋势涌现</span>
+                </div>
+                <div class="news-summary">
+                    Paris Fashion Week FW26 reveals key trends: minimalist luxury, oversized tailoring, and sustainable materials take center stage. Designer spotlight onJW Anderson and Lemaire.
+                </div>
+                <div class="news-summary-zh">
+                    巴黎时装周FW26揭示关键趋势：极简主义奢华、超大剪裁和可持续材料成为焦点。设计师亮点：JW Anderson和Lemaire。
+                </div>
+                <div class="news-meta">
+                    <a href="https://www.vogue.com" class="news-source">📎 Vogue</a> ·
+                    <a href="https://www.businessoffashion.com" class="news-source">Business of Fashion</a>
+                    <span class="news-time">1d ago</span>
                 </div>
             </div>
         </div>
@@ -339,13 +399,13 @@
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">🛍️</div>
-                <div class="section-title">时尚/奢侈品 · 国内</div>
+                <div class="section-title">时尚/奢侈品 · 国内（买手店/设计师品牌）</div>
                 <span class="badge-domestic">国内</span>
             </div>
             
             <div class="news-item">
                 <div class="news-title">中国奢侈品市场预计2026年增长8%，超预期</div>
-                <div class="news-summary">据行业报告预测，中国奢侈品市场将在2026年实现8%的增长，超出此前预期的5%，主要受益于高端消费复苏和年轻消费者崛起。</div>
+                <div class="news-summary">据行业报告预测，中国奢侈品市场将在2026年实现8%的增长，超出此前预期的5%，主要受益于高端消费复苏和年轻消费者崛起。二线城市增长尤为显著。</div>
                 <div class="news-meta">
                     <a href="https://www.yicai.com" class="news-source">📎 第一财经</a>
                     <span class="news-time">1d ago</span>
@@ -354,16 +414,37 @@
             
             <div class="news-item">
                 <div class="news-title">上海时装周2026秋冬系列发布</div>
-                <div class="news-summary">上海时装周2026秋冬系列发布会开幕，汇聚国内外设计师品牌，展示最新时尚趋势，中国设计力量备受关注。</div>
+                <div class="news-summary">上海时装周2026秋冬系列发布会开幕，汇聚国内外设计师品牌，展示最新时尚趋势，中国设计力量备受关注。首次设立可持续时尚专区。</div>
                 <div class="news-meta">
                     <a href="https://www.jiemian.com" class="news-source">📎 界面新闻</a>
                     <span class="news-time">1d ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">国内买手店行业报告：设计师品牌集合店增长迅速</div>
+                <div class="news-summary">《2026中国买手店行业白皮书》显示，设计师品牌集合店在过去一年增长23%，上海、北京、成都成为买手店集中城市。消费者对个性化、小众品牌的追求持续增强。</div>
+                <div class="news-meta">
+                    <a href="https://www.luxuryco.com" class="news-source">📎 时尚商业评论</a>
+                    <span class="news-time">2d ago</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">S级买手店Data引关注：小红书种草+私域复购模式</div>
+                <div class="news-summary">设计师品牌买手店Data凭借小红书种草+私域复购的模式快速崛起，月GMV突破500万，成为业内标杆案例。其选品策略聚焦日韩独立设计师品牌。</div>
+                <div class="news-meta">
+                    <a href="https://www.tmtpost.com" class="news-source">📎 钛媒体</a>
+                    <span class="news-time">2d ago</span>
                 </div>
             </div>
         </div>
         
         <div class="footer">
             <p>🤖 由麦麦自动生成 · 数据仅供参考</p>
+            <p style="margin-top: 8px; font-size: 11px; color: #aaa;">
+                数据来源: Reuters, BBC, 新华社, 商务部, Fashion Network, Business of Fashion, Hypebeast, Highsnobiety, Vogue, 第一财经, 界面新闻等
+            </p>
             <p>
                 <a href="https://theDamien1112.github.io/DamienOpenClawBriefs/daily-brief-2026-03-05.html">查看原文</a> · 
                 <a href="https://theDamien1112.github.io/DamienOpenClawBriefs/">返回首页</a>

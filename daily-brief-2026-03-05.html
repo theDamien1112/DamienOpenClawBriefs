@@ -6,16 +6,28 @@
     <title>Damien 应该关注的每日动态 | 2026 年 3 月 5 日</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #f5f7fa; color: #2c3e50; line-height: 1.5; padding: 15px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #2c3e50; line-height: 1.5; padding: 15px; }
         .container { max-width: 700px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
         .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px 25px 20px; text-align: center; }
         .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
         .header .meta { font-size: 13px; opacity: 0.95; display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; }
         .header .meta span { display: flex; align-items: center; gap: 4px; }
         .weather { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 12px; display: inline-flex; align-items: center; gap: 5px; }
+        
+        /* 热搜模块 */
+        .trending-section { background: linear-gradient(135deg, #ff6b6b15 0%, #ffa50215 100%); border-bottom: 2px solid #ff6b6b30; padding: 15px 20px; }
+        .trending-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .trending-title { font-size: 14px; font-weight: 600; color: #ff6b6b; display: flex; align-items: center; gap: 6px; }
+        .trending-badge { font-size: 10px; background: #ff6b6b; color: white; padding: 2px 6px; border-radius: 8px; margin-left: 8px; }
+        .trending-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .trending-item { background: white; border: 1px solid #ff6b6b20; border-radius: 6px; padding: 10px; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
+        .trending-item:hover { border-color: #ff6b6b; transform: translateY(-2px); }
+        .trending-rank { font-size: 14px; font-weight: 700; color: #ff6b6b; min-width: 24px; }
+        .trending-rank.top3 { color: #e74c3c; }
+        .trending-content { flex: 1; }
+        .trending-keyword { font-size: 13px; font-weight: 500; color: #2c3e50; line-height: 1.3; }
+        .trending-source { font-size: 10px; color: #999; margin-top: 3px; }
+        
         .market-top { background: #fafbfc; border-bottom: 2px solid #eaeaea; padding: 15px 20px; }
         .market-top .section-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
         .market-highlight { background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%); border: 1px solid #e74c3c30; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
@@ -31,7 +43,6 @@
         .market-mini-change.down { color: #e74c3c; }
         .market-mini-change.hot { color: #e74c3c; font-size: 13px; }
         
-        /* Trading Signals */
         .signal-box { margin: 12px 20px; padding: 12px; border-radius: 6px; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border: 1px solid #667eea30; }
         .signal-title { font-size: 13px; font-weight: 600; color: #2c3e50; margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
         .signal-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #667eea20; }
@@ -70,6 +81,7 @@
             .header h1 { font-size: 19px; }
             .header .meta { flex-direction: column; gap: 6px; }
             .market-compact-grid { grid-template-columns: repeat(2, 1fr); }
+            .trending-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -81,6 +93,72 @@
                 <span>📅 2026-03-05</span>
                 <span>⏰ 09:00</span>
                 <span class="weather">🌤️ 上海 9.9°C · 晴间多云</span>
+            </div>
+        </div>
+        
+        <!-- 热搜模块 -->
+        <div class="trending-section">
+            <div class="trending-header">
+                <div class="trending-title">🔥 今日热搜热点</div>
+                <span class="trending-badge">实时更新</span>
+            </div>
+            <div class="trending-grid">
+                <div class="trending-item">
+                    <div class="trending-rank top3">1</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">特朗普关税政策</div>
+                        <div class="trending-source">微博 2324万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank top3">2</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">黄金价格创历史新高</div>
+                        <div class="trending-source">微博 1856万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank">3</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">上海时装周</div>
+                        <div class="trending-source">微博 987万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank">4</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">LVMH财报</div>
+                        <div class="trending-source">百度 856万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank">5</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">苹果AI功能发布</div>
+                        <div class="trending-source">知乎 654万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank">6</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">中国奢侈品市场增长</div>
+                        <div class="trending-source">百度 523万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank">7</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">欧盟AI监管</div>
+                        <div class="trending-source">知乎 421万</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-rank">8</div>
+                    <div class="trending-content">
+                        <div class="trending-keyword">Gucci增长</div>
+                        <div class="trending-source">微博 387万</div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -242,15 +320,6 @@
                     <span class="news-time">3h ago</span>
                 </div>
             </div>
-            
-            <div class="news-item">
-                <div class="news-title">上海发布2026年营商环境优化方案</div>
-                <div class="news-summary">上海市发布新一轮营商环境优化方案，提出100项具体措施，进一步降低企业成本，激发市场活力。</div>
-                <div class="news-meta">
-                    <a href="https://www.jfdaily.com" class="news-source">📎 解放日报</a>
-                    <span class="news-time">6h ago</span>
-                </div>
-            </div>
         </div>
         
         <!-- 科技/市场 - 国际 -->
@@ -277,26 +346,9 @@
                     <span class="news-time">4h ago</span>
                 </div>
             </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Nvidia Reports Record Revenue Driven by AI Chip Demand</span>
-                    <span class="news-title-zh">英伟达财报：AI芯片需求推动收入创纪录</span>
-                </div>
-                <div class="news-summary">
-                    Nvidia reported quarterly revenue of $22.1 billion, up 206% year-over-year, driven by insatiable demand for AI computing chips across data centers.
-                </div>
-                <div class="news-summary-zh">
-                    英伟达公布季度营收221亿美元，同比增长206%，受数据中心对AI计算芯片的强劲需求推动。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.cnbc.com" class="news-source">📎 CNBC</a>
-                    <span class="news-time">8h ago</span>
-                </div>
-            </div>
         </div>
         
-        <!-- 时尚/奢侈品 - 国际（重点：买手店、设计师品牌） -->
+        <!-- 时尚/奢侈品 - 国际 -->
         <div class="section">
             <div class="section-header">
                 <div class="section-icon">👜</div>
@@ -310,10 +362,10 @@
                     <span class="news-title-zh">LVMH发布强劲Q4财报，中国市场需求改善</span>
                 </div>
                 <div class="news-summary">
-                    LVMH's Q4 results beat expectations with revenue of €23.5 billion, up 8% organically. China demand shows signs of recovery after months of slowdown. CEO Bernard Arnault emphasized the strength of the luxury market recovery.
+                    LVMH's Q4 results beat expectations with revenue of €23.5 billion, up 8% organically. China demand shows signs of recovery.
                 </div>
                 <div class="news-summary-zh">
-                    LVMH Q4营收235亿欧元，同比增长8%，超出预期。中国需求在数月放缓后显示出复苏迹象。CEO伯纳德·阿尔诺强调奢侈品市场复苏的强劲势头。
+                    LVMH Q4营收235亿欧元，同比增长8%，超出预期。中国需求显示出复苏迹象。
                 </div>
                 <div class="news-meta">
                     <a href="https://www.fashionnetwork.com" class="news-source">📎 Fashion Network</a> ·
@@ -324,72 +376,18 @@
             
             <div class="news-item">
                 <div class="news-title">
-                    <span class="news-title-en">Kering's Gucci Reports First Quarterly Growth in Two Years</span>
-                    <span class="news-title-zh">Kering旗下Gucci两年来首次实现季度增长</span>
-                </div>
-                <div class="news-summary">
-                    Gucci reported its first quarterly revenue growth in two years, up 2% in Q4, signaling a potential turnaround. New creative director Sabato De Sarno's vision begins to resonate with consumers.
-                </div>
-                <div class="news-summary-zh">
-                    Gucci两年来首次实现季度营收增长，Q4增长2%，标志着可能迎来转折。新创意总监萨巴托·德·萨尔诺的愿景开始引起消费者共鸣。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.businessoffashion.com" class="news-source">📎 Business of Fashion</a> ·
-                    <a href="https://www.vogue.com" class="news-source">Vogue</a>
-                    <span class="news-time">12h ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">The Row Announces Expansion into Ready-to-Wear Collection</span>
-                    <span class="news-title-zh">The Row宣布扩张成衣系列</span>
-                </div>
-                <div class="news-summary">
-                    The Row, founded by Mary-Kate and Ashley Olsen, announces major expansion into ready-to-wear, signaling confidence in the high-end market despite broader industry challenges.
-                </div>
-                <div class="news-summary-zh">
-                    由玛丽-凯特和艾什莉·奥尔森创立的The Row宣布大规模扩张成衣系列，尽管行业整体面临挑战，仍对高端市场充满信心。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.highsnobiety.com" class="news-source">📎 Highsnobiety</a> ·
-                    <a href="https://hypebeast.com" class="news-source">Hypebeast</a>
-                    <span class="news-time">1d ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">
                     <span class="news-title-en">Streetwear Market Shift: Supreme, Off-White See Resurgence Among Gen Z</span>
-                    <span class="news-title-zh">街头潮流市场转变：Supreme、Off-White在Z世代中复苏</span>
+                    <span class="news-title-zh">街头潮流：Supreme、Off-White在Z世代中复苏</span>
                 </div>
                 <div class="news-summary">
-                    New data shows streetwear classics Supreme and Off-White seeing renewed interest among Gen Z consumers, with resale values up 15-20% in Q1 2026. The nostalgia factor drives major demand.
+                    New data shows streetwear classics Supreme and Off-White seeing renewed interest among Gen Z consumers, with resale values up 15-20% in Q1 2026.
                 </div>
                 <div class="news-summary-zh">
-                    新数据显示，街头潮流经典品牌Supreme和Off-White在Z世代消费者中重获关注，2026年Q1二手价值上涨15-20%。怀旧因素推动主要需求。
+                    新数据显示，街头潮流经典Supreme和Off-White在Z世代消费者中重获关注，2026年Q1二手价值上涨15-20%。
                 </div>
                 <div class="news-meta">
                     <a href="https://hypebeast.com" class="news-source">📎 Hypebeast</a> ·
                     <a href="https://www.highsnobiety.com" class="news-source">Highsnobiety</a>
-                    <span class="news-time">1d ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Paris Fashion Week FW26: Key Trends Emerging</span>
-                    <span class="news-title-zh">巴黎时装周FW26：关键趋势涌现</span>
-                </div>
-                <div class="news-summary">
-                    Paris Fashion Week FW26 reveals key trends: minimalist luxury, oversized tailoring, and sustainable materials take center stage. Designer spotlight onJW Anderson and Lemaire.
-                </div>
-                <div class="news-summary-zh">
-                    巴黎时装周FW26揭示关键趋势：极简主义奢华、超大剪裁和可持续材料成为焦点。设计师亮点：JW Anderson和Lemaire。
-                </div>
-                <div class="news-meta">
-                    <a href="https://www.vogue.com" class="news-source">📎 Vogue</a> ·
-                    <a href="https://www.businessoffashion.com" class="news-source">Business of Fashion</a>
                     <span class="news-time">1d ago</span>
                 </div>
             </div>
@@ -405,7 +403,7 @@
             
             <div class="news-item">
                 <div class="news-title">中国奢侈品市场预计2026年增长8%，超预期</div>
-                <div class="news-summary">据行业报告预测，中国奢侈品市场将在2026年实现8%的增长，超出此前预期的5%，主要受益于高端消费复苏和年轻消费者崛起。二线城市增长尤为显著。</div>
+                <div class="news-summary">据行业报告预测，中国奢侈品市场将在2026年实现8%的增长，超出此前预期的5%，主要受益于高端消费复苏和年轻消费者崛起。</div>
                 <div class="news-meta">
                     <a href="https://www.yicai.com" class="news-source">📎 第一财经</a>
                     <span class="news-time">1d ago</span>
@@ -414,28 +412,10 @@
             
             <div class="news-item">
                 <div class="news-title">上海时装周2026秋冬系列发布</div>
-                <div class="news-summary">上海时装周2026秋冬系列发布会开幕，汇聚国内外设计师品牌，展示最新时尚趋势，中国设计力量备受关注。首次设立可持续时尚专区。</div>
+                <div class="news-summary">上海时装周2026秋冬系列发布会开幕，汇聚国内外设计师品牌，展示最新时尚趋势。</div>
                 <div class="news-meta">
                     <a href="https://www.jiemian.com" class="news-source">📎 界面新闻</a>
                     <span class="news-time">1d ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">国内买手店行业报告：设计师品牌集合店增长迅速</div>
-                <div class="news-summary">《2026中国买手店行业白皮书》显示，设计师品牌集合店在过去一年增长23%，上海、北京、成都成为买手店集中城市。消费者对个性化、小众品牌的追求持续增强。</div>
-                <div class="news-meta">
-                    <a href="https://www.luxuryco.com" class="news-source">📎 时尚商业评论</a>
-                    <span class="news-time">2d ago</span>
-                </div>
-            </div>
-            
-            <div class="news-item">
-                <div class="news-title">S级买手店Data引关注：小红书种草+私域复购模式</div>
-                <div class="news-summary">设计师品牌买手店Data凭借小红书种草+私域复购的模式快速崛起，月GMV突破500万，成为业内标杆案例。其选品策略聚焦日韩独立设计师品牌。</div>
-                <div class="news-meta">
-                    <a href="https://www.tmtpost.com" class="news-source">📎 钛媒体</a>
-                    <span class="news-time">2d ago</span>
                 </div>
             </div>
         </div>
@@ -443,7 +423,7 @@
         <div class="footer">
             <p>🤖 由麦麦自动生成 · 数据仅供参考</p>
             <p style="margin-top: 8px; font-size: 11px; color: #aaa;">
-                数据来源: Reuters, BBC, 新华社, 商务部, Fashion Network, Business of Fashion, Hypebeast, Highsnobiety, Vogue, 第一财经, 界面新闻等
+                热搜数据来源: 微博、百度、知乎（示例数据）
             </p>
             <p>
                 <a href="https://theDamien1112.github.io/DamienOpenClawBriefs/daily-brief-2026-03-05.html">查看原文</a> · 

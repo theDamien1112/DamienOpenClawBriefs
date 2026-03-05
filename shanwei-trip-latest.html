@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damien 的汕尾美食之旅 | 2026 年 3 月 8-9 日 v4 优化版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50; line-height: 1.6; padding: 15px; min-height: 100vh;
+        }
+        .container {
+            max-width: 900px; margin: 0 auto; background: white;
+            border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white; padding: 30px 25px; text-align: center;
+        }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+        .header .meta { font-size: 13px; opacity: 0.95; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .update-banner {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px 25px;
+            border-left: 4px solid #667eea;
+        }
+        .update-banner h2 {
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .update-banner ul {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+        .update-banner li {
+            margin-bottom: 5px;
+        }
+        .info-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 18px 25px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px;
+        }
+        .info-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+        .section { padding: 22px 25px; border-bottom: 1px solid #eaeaea; }
+        .section:last-child { border-bottom: none; }
+        .section-title {
+            font-size: 18px; font-weight: 600; color: #667eea;
+            margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
+        }
+        .hotel-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px; padding: 18px; margin-bottom: 18px;
+            border-left: 4px solid #667eea;
+        }
+        .hotel-name { font-size: 17px; font-weight: 600; color: #2c3e50; margin-bottom: 8px; }
+        .hotel-info { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .restaurant-card {
+            background: #fafbfc; border-radius: 10px; padding: 16px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+        .restaurant-card:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .restaurant-card.hotpot { border-left-color: #e74c3c; background: #fef5f5; }
+        .restaurant-card.seafood { border-left-color: #3498db; background: #f0f8ff; }
+        .restaurant-card.snack { border-left-color: #f39c12; background: #fff8f0; }
+        .restaurant-card.breakfast { border-left-color: #27ae60; background: #f0fff4; }
+        .restaurant-name {
+            font-size: 16px; font-weight: 600; color: #2c3e50;
+            margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .restaurant-rating {
+            background: #ff9500; color: white; font-size: 11px;
+            padding: 2px 6px; border-radius: 10px; font-weight: 600;
+        }
+        .restaurant-info { font-size: 12px; color: #555; margin-bottom: 6px; }
+        .restaurant-info strong { color: #667eea; }
+        .signature-dish {
+            background: white; padding: 10px; border-radius: 6px;
+            margin-top: 8px; font-size: 12px;
+        }
+        .dish-tag {
+            display: inline-block; background: #ffeaa7; padding: 2px 6px;
+            border-radius: 3px; margin: 2px; font-size: 11px;
+        }
+        .category-badge {
+            display: inline-block; padding: 3px 10px; border-radius: 12px;
+            font-size: 11px; font-weight: 600; margin-bottom: 8px;
+        }
+        .category-badge.hotpot { background: #ffebee; color: #e74c3c; }
+        .category-badge.seafood { background: #e3f2fd; color: #3498db; }
+        .category-badge.snack { background: #fff3e0; color: #f39c12; }
+        .category-badge.breakfast { background: #e8f5e9; color: #27ae60; }
+        .category-badge.local { background: #ede7f6; color: #673ab7; }
+        .timeline { position: relative; padding-left: 25px; }
+        .timeline-item {
+            position: relative; padding-bottom: 20px;
+            border-left: 2px solid #667eea; padding-left: 18px;
+        }
+        .timeline-item:last-child { border-left: none; }
+        .timeline-time {
+            font-size: 12px; font-weight: 600; color: #667eea;
+            margin-bottom: 4px;
+        }
+        .timeline-content { font-size: 13px; color: #555; }
+        .tip-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 10px; padding: 18px; margin: 18px 0;
+        }
+        .tip-title { font-size: 15px; font-weight: 600; color: #e17055; margin-bottom: 8px; }
+        .tip-content { font-size: 13px; color: #555; }
+        .local-recommend {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: 10px; padding: 18px; margin: 18px 0;
+            border: 2px solid #667eea;
+        }
+        .local-recommend .tip-title { color: #673ab7; }
+        .map-link {
+            display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 10px 20px; border-radius: 20px;
+            text-decoration: none; font-weight: 600; margin: 8px 5px;
+            transition: transform 0.2s; font-size: 12px;
+        }
+        .map-link:hover { transform: scale(1.05); }
+        .train-badge {
+            display: inline-block; background: #e74c3c; color: white;
+            padding: 3px 10px; border-radius: 4px; font-size: 11px;
+            font-weight: 600; margin: 0 5px;
+        }
+        .footer {
+            background: #fafbfc; padding: 20px 25px; text-align: center;
+            font-size: 12px; color: #888; border-top: 1px solid #eaeaea;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 20px; }
+            .section { padding: 18px; }
+            .restaurant-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🍜 Damien 的汕尾美食之旅 v4 优化版</h1>
+            <div class="meta">
+                <span>📅 2026 年 3 月 8-9 日</span>
+                <span>📍 广东汕尾</span>
+                <span>🚄 高铁往返</span>
+            </div>
+        </div>
+        
+        <!-- 优化说明 -->
+        <div class="update-banner">
+            <h2>✨ v4 优化要点（根据小红书&本地人推荐）</h2>
+            <ul>
+                <li><strong>早餐优化：</strong>新增杯杯鲜（本地人最爱）、有福沙茶面</li>
+                <li><strong>牛肉火锅：</strong>新增诏鑫号牛腩火锅（二马路店，本地人推荐）</li>
+                <li><strong>海鲜优化：</strong>新增一道生腌（网红店）、海珍迎囍皇宮</li>
+                <li><strong>夜宵优化：</strong>二马路夜市增加鲜之味蒸饺、熹围炉酒肆</li>
+                <li><strong>景点优化：</strong>红海湾 + 风车岛组合更合理</li>
+            </ul>
+        </div>
+        
+        <!-- Info Bar -->
+        <div class="info-bar">
+            <div class="info-item">🚄 去程：<strong>G6356</strong> 12:21 到汕尾站</div>
+            <div class="info-item">🚄 返程：<strong>D663</strong> 17:27 离开</div>
+            <div class="info-item">🏨 住宿：<strong>希尔顿花园酒店</strong></div>
+        </div>
+        
+        <!-- 本地人推荐 TOP 榜 -->
+        <div class="section">
+            <h2 class="section-title">🏆 小红书&本地人推荐 TOP 榜</h2>
+            
+            <div class="local-recommend">
+                <div class="tip-title">📍 本地人最爱餐厅（2026 最新）</div>
+                <div style="font-size: 13px; color: #555; margin-top: 10px;">
+                    <strong>早餐类：</strong>杯杯鲜（豆浆 + 油条）、有福沙茶面、潮汕肠粉王<br>
+                    <strong>牛肉火锅：</strong>诏鑫号牛腩火锅（二马路店）、德记牛腩火锅、第一味牛腩火锅<br>
+                    <strong>海鲜/生腌：</strong>一道生腌、海珍迎囍皇宮、明叔海鲜大排档<br>
+                    <strong>夜宵小食：</strong>鲜之味蒸饺、熹围炉酒肆、二马路小吃街<br>
+                    <strong>景点：</strong>红海湾、风车岛、海上古堡、二马路美食街
+                </div>
+            </div>
+        </div>
+        
+        <!-- 推荐餐厅 -->
+        <div class="section">
+            <h2 class="section-title">🍽️ 麦麦精选餐厅（v4 优化版）</h2>
+            
+            <div class="restaurant-grid">
+                <!-- 早餐类 -->
+                <div class="restaurant-card breakfast">
+                    <span class="category-badge breakfast">🌅 早餐</span>
+                    <div class="restaurant-name">
+                        <span>杯杯鲜</span>
+                        <span class="restaurant-rating">⭐ 4.9</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区成业路</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>15-25 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">现磨豆浆</span>
+                        <span class="dish-tag">油条</span>
+                        <span class="dish-tag">肠粉</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>汕尾老字号早餐店，豆浆新鲜现磨，油条酥脆，本地人从小吃到大。
+                    </div>
+                </div>
+                
+                <div class="restaurant-card breakfast">
+                    <span class="category-badge breakfast">🌅 早餐</span>
+                    <div class="restaurant-name">
+                        <span>有福沙茶面·海鲜捞面</span>
+                        <span class="restaurant-rating">⭐ 4.8</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区（近二马路）</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>20-30 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">沙茶面</span>
+                        <span class="dish-tag">海鲜捞面</span>
+                        <span class="dish-tag">爆浆榴莲三明治</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>沙茶酱浓郁，海鲜新鲜，榴莲三明治是网红爆款。
+                    </div>
+                </div>
+                
+                <!-- 牛肉火锅类 -->
+                <div class="restaurant-card hotpot">
+                    <span class="category-badge hotpot">🥘 牛肉火锅</span>
+                    <div class="restaurant-name">
+                        <span>诏鑫号牛腩火锅 (二马路店)</span>
+                        <span class="restaurant-rating">⭐ 4.8</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区二马路</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>80-100 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">牛腩</span>
+                        <span class="dish-tag">嫩肉</span>
+                        <span class="dish-tag">吊龙</span>
+                        <span class="dish-tag">手打牛肉丸</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>二马路老字号，牛腩软烂入味，汤底浓郁，本地人聚餐首选。
+                    </div>
+                </div>
+                
+                <div class="restaurant-card hotpot">
+                    <span class="category-badge hotpot">🥘 牛肉火锅</span>
+                    <div class="restaurant-name">
+                        <span>德记牛腩火锅</span>
+                        <span class="restaurant-rating">⭐ 4.7</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>70-90 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">牛腩</span>
+                        <span class="dish-tag">牛杂</span>
+                        <span class="dish-tag">湿炒牛河</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>15 元一碗牛杂面非常实惠，湿炒牛河镬气十足。
+                    </div>
+                </div>
+                
+                <!-- 海鲜类 -->
+                <div class="restaurant-card seafood">
+                    <span class="category-badge seafood">🦐 生腌海鲜</span>
+                    <div class="restaurant-name">
+                        <span>一道生腌</span>
+                        <span class="restaurant-rating">⭐ 4.8</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>80-120 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">生腌虾</span>
+                        <span class="dish-tag">生腌蟹</span>
+                        <span class="dish-tag">生腌血蛤</span>
+                        <span class="dish-tag">鱼生</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>网红生腌店，食材新鲜，调味独特，"毒药"名不虚传。
+                    </div>
+                </div>
+                
+                <div class="restaurant-card seafood">
+                    <span class="category-badge seafood">🦀 海鲜大排档</span>
+                    <div class="restaurant-name">
+                        <span>明叔海鲜大排档</span>
+                        <span class="restaurant-rating">⭐ 4.7</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区二马路附近</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>100-150 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">清蒸石斑</span>
+                        <span class="dish-tag">椒盐濑尿虾</span>
+                        <span class="dish-tag">炒花甲</span>
+                        <span class="dish-tag">海胆炒饭</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>老字号大排档，海鲜新鲜，价格实惠，镬气足。
+                    </div>
+                </div>
+                
+                <!-- 夜宵类 -->
+                <div class="restaurant-card snack">
+                    <span class="category-badge snack">🌙 夜宵</span>
+                    <div class="restaurant-name">
+                        <span>鲜之味蒸饺</span>
+                        <span class="restaurant-rating">⭐ 4.7</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区成业路</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>20-30 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">蒸饺</span>
+                        <span class="dish-tag">牛腩面</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>夜宵好去处，蒸饺皮薄馅多，牛腩面汤浓肉烂。
+                    </div>
+                </div>
+                
+                <div class="restaurant-card snack">
+                    <span class="category-badge snack">🌙 夜宵</span>
+                    <div class="restaurant-name">
+                        <span>熹围炉酒肆</span>
+                        <span class="restaurant-rating">⭐ 4.6</span>
+                    </div>
+                    <div class="restaurant-info"><strong>📍 位置：</strong>汕尾城区</div>
+                    <div class="restaurant-info"><strong>💰 人均：</strong>60-100 元</div>
+                    <div class="signature-dish">
+                        <strong>🍽️ 招牌必点：</strong>
+                        <span class="dish-tag">烧烤</span>
+                        <span class="dish-tag">小酌</span>
+                    </div>
+                    <div class="restaurant-info" style="margin-top: 8px;">
+                        <strong>📝 本地人点评：</strong>氛围好，适合小酌，烧烤味道不错。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 优化后行程 -->
+        <div class="section">
+            <h2 class="section-title">📅 优化后行程（v4）</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">🗓️ Day 1 - 3 月 8 日（周日）牛肉火锅 + 二马路夜宵</div>
+                    <div class="timeline-content">
+                        <strong>12:21</strong> 到达汕尾站（G6356）<br>
+                        <strong>13:00</strong> 打车到酒店办理入住（希尔顿花园酒店）<br>
+                        <strong>14:00</strong> 午餐：<strong>诏鑫号牛腩火锅（二马路店）</strong> ⭐ 本地人首选<br>
+                        <strong>16:00</strong> 景点：<strong>凤山祖庙</strong>（步行可达）<br>
+                        <strong>18:30</strong> 晚餐：<strong>明叔海鲜大排档</strong> ⭐ 老字号<br>
+                        <strong>21:00</strong> 夜宵：<strong>二马路夜市</strong>（鲜之味蒸饺 + 熹围炉酒肆小酌）
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">🗓️ Day 2 - 3 月 9 日（周一）红海湾 + 早餐打卡</div>
+                    <div class="timeline-content">
+                        <strong>08:30</strong> 早餐：<strong>杯杯鲜</strong> ⭐ 本地人最爱（豆浆 + 油条）<br>
+                        <strong>09:30</strong> 景点：<strong>红海湾 + 风车岛</strong>（打车 30 分钟，拍照打卡）<br>
+                        <strong>12:30</strong> 午餐：<strong>一道生腌</strong> ⭐ 网红生腌店<br>
+                        <strong>14:30</strong> 购物：<strong>信利城市广场</strong>（买手信）<br>
+                        <strong>15:30</strong> 返回酒店取行李<br>
+                        <strong>16:00</strong> 打车前往汕尾站<br>
+                        <strong>17:27</strong> 乘坐 D663 返程
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- v3 vs v4 对比 -->
+        <div class="section">
+            <h2 class="section-title">📊 v3 vs v4 优化对比</h2>
+            
+            <div class="tip-box">
+                <div class="tip-title">✨ 主要改进</div>
+                <div class="tip-content">
+                    <strong>早餐优化：</strong>杯杯鲜（本地人最爱）替换普通肠粉店<br>
+                    <strong>牛肉火锅：</strong>诏鑫号（二马路店）替换八合里，更地道<br>
+                    <strong>生腌海鲜：</strong>新增一道生腌（网红店），体验"潮汕毒药"<br>
+                    <strong>夜宵优化：</strong>二马路夜市增加鲜之味蒸饺、熹围炉酒肆<br>
+                    <strong>景点优化：</strong>红海湾 + 风车岛组合，拍照更出片
+                </div>
+            </div>
+        </div>
+        
+        <!-- 温馨提示 -->
+        <div class="section">
+            <h2 class="section-title">💡 温馨提示</h2>
+            
+            <div class="tip-box">
+                <div class="tip-title">🍽️ 美食提示</div>
+                <div class="tip-content">
+                    <strong>牛肉火锅：</strong>诏鑫号饭点需排队，建议 13:30 前到达；五花趾限量需早去<br>
+                    <strong>生腌海鲜：</strong>一道生腌肠胃弱者慎点，建议搭配白粥；首次尝试建议少量<br>
+                    <strong>早餐：</strong>杯杯鲜豆浆每日新鲜现磨，建议 9 点前到达避免售罄<br>
+                    <strong>夜宵：</strong>二马路夜市 21:00 后最热闹，建议预留 2 小时
+                </div>
+            </div>
+            
+            <div class="tip-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <div class="tip-title" style="color: #27ae60;">🚗 交通提示</div>
+                <div class="tip-content">
+                    <strong>高铁站→酒店：</strong>打车约 20 分钟，约 30-40 元<br>
+                    <strong>酒店→红海湾：</strong>打车约 30 分钟，约 50-60 元（建议往返包车）<br>
+                    <strong>市区内：</strong>景点间距离近，步行/共享单车即可
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>🍜 Damien 的汕尾美食之旅 v4 优化版 | 2026 年 3 月 8-9 日</p>
+            <p style="margin-top: 8px;">📊 数据来源：小红书、Trip.com、抖音 | 更新时间：2026-03-05 20:15 (Asia/Shanghai)</p>
+            <p style="margin-top: 8px;">✨ 根据本地人推荐&小红书网红店优化</p>
+        </div>
+    </div>
+</body>
+</html>

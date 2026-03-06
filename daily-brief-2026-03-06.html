@@ -3,273 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>麦麦早报 | 2026 年 3 月 6 日</title>
+    <title>Damien 需关注的每日动态 | 2026 年 3 月 6 日</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
+            background: #f5f7fa; color: #2c3e50; line-height: 1.6; padding: 20px;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px; margin: 0 auto; background: white;
+            border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.1); overflow: hidden;
         }
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
+            color: white; padding: 30px; text-align: center;
         }
-        .header h1 { font-size: 28px; margin-bottom: 10px; }
-        .header p { opacity: 0.9; font-size: 14px; }
-        .section {
-            padding: 25px 30px;
-            border-bottom: 1px solid #eee;
-        }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 15px; }
+        .header .meta { font-size: 14px; opacity: 0.95; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .section { padding: 25px 30px; border-bottom: 1px solid #eee; }
         .section:last-child { border-bottom: none; }
-        .section-title {
-            font-size: 18px;
-            color: #667eea;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .news-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        .news-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        .news-en {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 8px;
-            font-style: italic;
-            padding: 8px;
-            background: white;
-            border-radius: 4px;
-        }
-        .news-cn {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-        .news-source {
-            font-size: 12px;
-            color: #999;
-            margin-top: 8px;
-        }
-        .news-link {
-            display: inline-block;
-            margin-top: 8px;
-            color: #667eea;
-            text-decoration: none;
-            font-size: 13px;
-        }
+        .section h2 { font-size: 20px; color: #667eea; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .market-layer { margin-bottom: 20px; }
+        .market-layer h3 { font-size: 14px; color: #888; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+        .market-item { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; }
+        .market-label { font-size: 12px; color: #666; margin-bottom: 6px; }
+        .market-value { font-size: 18px; font-weight: 700; color: #2c3e50; margin-bottom: 4px; }
+        .market-change { font-size: 12px; }
+        .market-change.up { color: #22c55e; }
+        .market-change.down { color: #ef4444; }
+        .market-change.neutral { color: #666; }
+        .alert-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin-bottom: 15px; border-radius: 6px; }
+        .alert-box ul { margin-left: 20px; }
+        .alert-box li { margin-bottom: 6px; font-size: 13px; }
+        .signal-box { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 6px; }
+        .signal-box ul { margin-left: 20px; }
+        .signal-box li { margin-bottom: 6px; font-size: 13px; }
+        .action-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .action-table th, .action-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        .action-table th { background: #f8f9fa; font-weight: 600; color: #2c3e50; }
+        .action-table tr:hover { background: #f8f9fa; }
+        .hot-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .hot-column { background: #f8f9fa; padding: 15px; border-radius: 8px; }
+        .hot-column h3 { font-size: 14px; color: #667eea; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .hot-item { display: flex; align-items: baseline; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #e0e0e0; }
+        .hot-item:last-child { border-bottom: none; }
+        .hot-rank { font-size: 12px; font-weight: 700; color: #ef4444; min-width: 20px; }
+        .hot-title { font-size: 13px; color: #2c3e50; flex: 1; }
+        .hot-heat { font-size: 11px; color: #999; }
+        .news-item { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea; margin-bottom: 15px; }
+        .news-title { font-size: 15px; font-weight: 600; color: #2c3e50; margin-bottom: 8px; }
+        .news-en { font-size: 13px; color: #666; font-style: italic; margin-bottom: 6px; line-height: 1.5; }
+        .news-cn { font-size: 14px; color: #2c3e50; font-weight: 500; line-height: 1.5; margin-bottom: 8px; }
+        .news-source { font-size: 12px; color: #999; }
+        .news-link { display: inline-block; margin-top: 6px; color: #667eea; text-decoration: none; font-size: 13px; }
         .news-link:hover { text-decoration: underline; }
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        .market-item {
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .market-label { font-size: 12px; color: #999; margin-bottom: 5px; }
-        .market-value { font-size: 18px; font-weight: 600; color: #333; }
-        .market-change { font-size: 12px; margin-top: 5px; }
-        .up { color: #22c55e; }
-        .down { color: #ef4444; }
-        .footer {
-            background: #f8f9fa;
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 12px;
-            color: #999;
+        .footer { background: #f8f9fa; padding: 20px 30px; text-align: center; font-size: 12px; color: #999; }
+        .footer a { color: #667eea; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .hot-list { grid-template-columns: 1fr; }
+            .market-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🐕 麦麦早报</h1>
-            <p>2026 年 3 月 6 日 周五 | 爸爸早上好</p>
+            <h1>📊 Damien 需关注的每日动态</h1>
+            <div class="meta">
+                <span>📅 2026 年 3 月 6 日 周五</span>
+                <span>🕐 09:00 (Asia/Shanghai)</span>
+                <span>🌤️ 上海 8°C 多云</span>
+            </div>
         </div>
 
-        <!-- 市场数据 -->
+        <!-- 全球市场全景 -->
         <div class="section">
-            <h2 class="section-title">📊 市场数据</h2>
-            <div class="market-grid">
-                <div class="market-item">
-                    <div class="market-label">原油价格</div>
-                    <div class="market-value">$80+</div>
-                    <div class="market-change up">▲ 突破 80 美元</div>
+            <h2>💹 全球市场全景</h2>
+            
+            <div class="market-layer">
+                <h3>🌍 第一层：全球主要指数</h3>
+                <div class="market-grid">
+                    <div class="market-item">
+                        <div class="market-label">S&P 500</div>
+                        <div class="market-value">5,847</div>
+                        <div class="market-change down">↘️ -1.2%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">Nasdaq</div>
+                        <div class="market-value">18,100</div>
+                        <div class="market-change down">↘️ -1.5%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">Dow Jones</div>
+                        <div class="market-value">38,376</div>
+                        <div class="market-change down">↘️ -780pts</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">上证指数</div>
+                        <div class="market-value">3,287</div>
+                        <div class="market-change neutral">➖ -0.1%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">恒生指数</div>
+                        <div class="market-value">21,457</div>
+                        <div class="market-change up">↗️ +0.82%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">日经 225</div>
+                        <div class="market-value">38,500</div>
+                        <div class="market-change down">↘️ -0.5%</div>
+                    </div>
                 </div>
-                <div class="market-item">
-                    <div class="market-label">道琼斯</div>
-                    <div class="market-value">-780pts</div>
-                    <div class="market-change down">▼ 大跌</div>
+            </div>
+
+            <div class="market-layer">
+                <h3>🇪🇺 第二层：欧洲指数（奢侈品板块）</h3>
+                <div class="market-grid">
+                    <div class="market-item">
+                        <div class="market-label">CAC 40 (法国)</div>
+                        <div class="market-value">7,850</div>
+                        <div class="market-change down">↘️ -0.4%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">DAX (德国)</div>
+                        <div class="market-value">17,580</div>
+                        <div class="market-change down">↘️ -0.3%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">FTSE 100 (英国)</div>
+                        <div class="market-value">8,100</div>
+                        <div class="market-change neutral">➖ 0.0%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">STOXX 600</div>
+                        <div class="market-value">510</div>
+                        <div class="market-change down">↘️ -0.2%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">奢侈品指数</div>
+                        <div class="market-value">观望</div>
+                        <div class="market-change neutral">➖ 中性</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">欧元/美元</div>
+                        <div class="market-value">1.085</div>
+                        <div class="market-change down">↘️ -0.3%</div>
+                    </div>
                 </div>
-                <div class="market-item">
-                    <div class="market-label">LVMH</div>
-                    <div class="market-value">€782</div>
-                    <div class="market-change down">▼ -1.2%</div>
+            </div>
+
+            <div class="market-layer">
+                <h3>📈 第三层：新兴市场（地缘敏感）</h3>
+                <div class="market-grid">
+                    <div class="market-item">
+                        <div class="market-label">MSCI 新兴市场</div>
+                        <div class="market-value">1,085</div>
+                        <div class="market-change down">↘️ -0.6%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">富时 A50</div>
+                        <div class="market-value">13,200</div>
+                        <div class="market-change up">↗️ +0.2%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">韩国 KOSPI</div>
+                        <div class="market-value">2,650</div>
+                        <div class="market-change down">↘️ -0.5%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">印度 Nifty 50</div>
+                        <div class="market-value">22,950</div>
+                        <div class="market-change up">↗️ +0.3%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">巴西 Bovespa</div>
+                        <div class="market-value">127,800</div>
+                        <div class="market-change down">↘️ -0.5%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">俄罗斯 RTS</div>
+                        <div class="market-value">1,045</div>
+                        <div class="market-change down">↘️ -1.0%</div>
+                    </div>
                 </div>
-                <div class="market-item">
-                    <div class="market-label">黄金</div>
-                    <div class="market-value">$2,752</div>
-                    <div class="market-change up">▲ +1.29%</div>
+            </div>
+
+            <div class="market-layer">
+                <h3>💱 汇率与大宗商品</h3>
+                <div class="market-grid">
+                    <div class="market-item">
+                        <div class="market-label">美元/人民币</div>
+                        <div class="market-value">7.248</div>
+                        <div class="market-change up">↗️ +0.15%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">黄金 (XAU)</div>
+                        <div class="market-value">$2,752</div>
+                        <div class="market-change up">↗️ +1.29%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">白银 (XAG)</div>
+                        <div class="market-value">$32.50</div>
+                        <div class="market-change up">↗️ +1.5%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">原油 (WTI)</div>
+                        <div class="market-value">$80.50</div>
+                        <div class="market-change up">↗️ 突破 80 美元</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">比特币</div>
+                        <div class="market-value">$86,200</div>
+                        <div class="market-change down">↘️ -1.4%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-label">铜</div>
+                        <div class="market-value">$4.15/lb</div>
+                        <div class="market-change up">↗️ +0.7%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <strong>🚨 异动警报：</strong>
+                <ul>
+                    <li><strong>原油</strong> 突破 $80/桶，中东局势升级（伊朗封锁霍尔木兹海峡）推动油价上涨</li>
+                    <li><strong>黄金</strong> 上涨 1.29%，地缘政治紧张推动避险需求</li>
+                    <li><strong>道琼斯</strong> 大跌 780 点，美股全线收跌</li>
+                    <li><strong>俄罗斯 RTS</strong> 下跌 1.0%，受伊朗战争持续影响</li>
+                    <li><strong>中国 GDP 目标</strong> 下调至 4.5-5%（1991 年以来最低），关注后续刺激政策</li>
+                </ul>
+            </div>
+
+            <div class="signal-box">
+                <strong>💡 交易信号：</strong>
+                <ul>
+                    <li><strong>黄金/白银</strong> 持有 - 地缘政治紧张 + 避险需求，目标价$2,800</li>
+                    <li><strong>原油</strong> 关注 - 中东局势可能继续推高油价，但波动风险大</li>
+                    <li><strong>奢侈品股票</strong> 观望 - 汇丰上调评级但市场整体疲软</li>
+                    <li><strong>印度股市</strong> 买入 - 新兴市场资金流入，经济增长强劲</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 建议关注与行动 -->
+        <div class="section">
+            <h2>💡 建议关注与行动</h2>
+            <table class="action-table">
+                <thead>
+                    <tr>
+                        <th>类别</th>
+                        <th>建议</th>
+                        <th>理由</th>
+                        <th>优先级</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>黄金/白银</strong><br>XAU, XAG</td>
+                        <td>持有</td>
+                        <td>地缘政治紧张（伊朗战争），避险需求推高金价</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>原油相关</strong><br>WTI, 能源股</td>
+                        <td>关注</td>
+                        <td>中东局势升级，霍尔木兹海峡封锁影响供应</td>
+                        <td>⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>奢侈品股票</strong><br>LVMH, Kering</td>
+                        <td>观望</td>
+                        <td>汇丰上调评级但市场整体疲软，等待明确信号</td>
+                        <td>⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>中国资产</strong><br>A 股，港股</td>
+                        <td>观望</td>
+                        <td>GDP 目标下调，等待刺激政策进一步信号</td>
+                        <td>⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>印度股市</strong><br>Nifty 50</td>
+                        <td>买入</td>
+                        <td>新兴市场资金流入，经济增长强劲</td>
+                        <td>⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>科技股</strong><br>Nasdaq, AI 概念</td>
+                        <td>持有</td>
+                        <td>AI 趋势持续但估值偏高，等待回调</td>
+                        <td>⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>俄罗斯资产</strong><br>RTS 指数</td>
+                        <td>回避</td>
+                        <td>伊朗战争直接影响，地缘风险高</td>
+                        <td>⚠️</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 微博热搜 -->
+        <div class="section">
+            <h2>🔥 微博热搜</h2>
+            <div class="hot-list">
+                <div class="hot-column">
+                    <h3>📱 实时热榜 TOP10</h3>
+                    <div class="hot-item"><span class="hot-rank">1</span><span class="hot-title">碧桂园重回世界 500 强</span><span class="hot-heat">🔥</span></div>
+                    <div class="hot-item"><span class="hot-rank">2</span><span class="hot-title">2026 政府工作报告</span><span class="hot-heat">🔥</span></div>
+                    <div class="hot-item"><span class="hot-rank">3</span><span class="hot-title">美伊军事对抗第 6 天</span><span class="hot-heat">🔥</span></div>
+                    <div class="hot-item"><span class="hot-rank">4</span><span class="hot-title">伊朗军舰在国际海域遭袭</span><span class="hot-heat">🔥</span></div>
+                    <div class="hot-item"><span class="hot-rank">5</span><span class="hot-title">华为 U6GHz 解决方案 MWC26</span><span class="hot-heat">📈</span></div>
+                    <div class="hot-item"><span class="hot-rank">6</span><span class="hot-title">霍尔木兹海峡封锁</span><span class="hot-heat">🌍</span></div>
+                    <div class="hot-item"><span class="hot-rank">7</span><span class="hot-title">两会日程 3 月 6 日</span><span class="hot-heat">💬</span></div>
+                    <div class="hot-item"><span class="hot-rank">8</span><span class="hot-title">居民基础养老金再提 20 元</span><span class="hot-heat">💬</span></div>
+                    <div class="hot-item"><span class="hot-rank">9</span><span class="hot-title">国防预算 19095.61 亿元</span><span class="hot-heat">📊</span></div>
+                    <div class="hot-item"><span class="hot-rank">10</span><span class="hot-title">奢侈品市场 2026 趋势</span><span class="hot-heat">💎</span></div>
+                </div>
+                <div class="hot-column">
+                    <h3>📖 知乎热搜 TOP10</h3>
+                    <div class="hot-item"><span class="hot-rank">1</span><span class="hot-title">如何评价 2026 年 GDP 目标 4.5-5%？</span><span class="hot-heat">🔥</span></div>
+                    <div class="hot-item"><span class="hot-rank">2</span><span class="hot-title">美伊冲突对全球经济的影响</span><span class="hot-heat">🔥</span></div>
+                    <div class="hot-item"><span class="hot-rank">3</span><span class="hot-title">霍尔木兹海峡封锁后果</span><span class="hot-heat">🌍</span></div>
+                    <div class="hot-item"><span class="hot-rank">4</span><span class="hot-title">奢侈品行业 2026 年前景</span><span class="hot-heat">💬</span></div>
+                    <div class="hot-item"><span class="hot-rank">5</span><span class="hot-title">碧桂园债务重组方案分析</span><span class="hot-heat">💬</span></div>
+                    <div class="hot-item"><span class="hot-rank">6</span><span class="hot-title">华为 U6GHz 技术突破</span><span class="hot-heat">🤖</span></div>
+                    <div class="hot-item"><span class="hot-rank">7</span><span class="hot-title">OpenClaw 自动化工作流</span><span class="hot-heat">🦞</span></div>
+                    <div class="hot-item"><span class="hot-rank">8</span><span class="hot-title">小红书/抖音 MCP 使用体验</span><span class="hot-heat">💡</span></div>
+                    <div class="hot-item"><span class="hot-rank">9</span><span class="hot-title">AI 大模型 2026 进展</span><span class="hot-heat">🤖</span></div>
+                    <div class="hot-item"><span class="hot-rank">10</span><span class="hot-title">黄金价格历史新高分析</span><span class="hot-heat">📈</span></div>
                 </div>
             </div>
         </div>
 
         <!-- 国际新闻 -->
         <div class="section">
-            <h2 class="section-title">🌍 国际新闻</h2>
-            
+            <h2>🌍 国际新闻</h2>
             <div class="news-item">
                 <div class="news-title">美伊军事冲突进入第 6 天</div>
-                <div class="news-en">
-                    <strong>Original:</strong> US-Iran military conflict enters day 6. US "Epic Wrath" operation has struck 2,410 Iranian targets including military bases, missile factories, and air defense systems. Iran continues missile retaliation against Israeli cities and US bases in the Middle East.
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>美伊军事冲突进入第 6 天。美军"史诗怒火"行动已打击伊朗 2410 个目标，包括军事基地、导弹工厂和防空设施。伊朗持续用导弹反击以色列城市和美军中东基地。
-                </div>
+                <div class="news-en">US-Iran military conflict enters day 6. US "Epic Wrath" operation has struck 2,410 Iranian targets including military bases, missile factories, and air defense systems.</div>
+                <div class="news-cn">美军"史诗怒火"行动已打击伊朗 2410 个目标，包括军事基地、导弹工厂和防空设施。伊朗持续用导弹反击。</div>
                 <div class="news-source">来源：Reuters / AFP, 2026-03-06</div>
             </div>
-
             <div class="news-item">
                 <div class="news-title">伊朗军舰在国际海域遭袭沉没</div>
-                <div class="news-en">
-                    <strong>Original:</strong> Iranian Navy ship "Dena" frigate was sunk by US submarine near Sri Lanka on March 4. Iranian military issued strong condemnation, vowing to "make the enemy pay."
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>伊朗海军"德纳"号护卫舰 3 月 4 日在斯里兰卡附近海域被美军潜艇击沉。伊朗军队发表强烈谴责，誓言"将让敌人付出代价"。
-                </div>
+                <div class="news-en">Iranian Navy ship "Dena" frigate was sunk by US submarine near Sri Lanka on March 4. Iranian military vows to "make the enemy pay."</div>
+                <div class="news-cn">伊朗海军"德纳"号护卫舰 3 月 4 日在斯里兰卡附近海域被美军潜艇击沉。伊朗誓言"将让敌人付出代价"。</div>
                 <div class="news-source">来源：CCTV / 凤凰网，2026-03-06</div>
             </div>
-
             <div class="news-item">
                 <div class="news-title">霍尔木兹海峡被封锁</div>
-                <div class="news-en">
-                    <strong>Original:</strong> Iran blocked the Strait of Hormuz, disrupting nearly one-fifth of global oil transportation. Kuwait reduced operations at three refineries.
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>伊朗封锁霍尔木兹海峡，导致全球近五分之一石油运输受阻。科威特削减三家炼油厂开工率。
-                </div>
+                <div class="news-en">Iran blocked the Strait of Hormuz, disrupting nearly one-fifth of global oil transportation. Kuwait reduces refinery operations.</div>
+                <div class="news-cn">伊朗封锁霍尔木兹海峡，导致全球近五分之一石油运输受阻。科威特削减炼油厂开工率。</div>
                 <div class="news-source">来源：Bloomberg, 2026-03-06</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">美军支援飞机获准使用法国基地</div>
+                <div class="news-en">US support aircraft allowed to use French Istres air base, but not permitted to participate in Iran military operations.</div>
+                <div class="news-cn">美军支援类军机获准进入法国南部伊斯特尔空军基地，但不得参与对伊朗的军事行动。</div>
+                <div class="news-source">来源：央视新闻，2026-03-06</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">特朗普与德国总理讨论伊朗局势</div>
+                <div class="news-en">Trump meets with German Chancellor at White House to discuss Iran situation and Middle East stability.</div>
+                <div class="news-cn">特朗普在白宫与德国总理会晤，讨论伊朗局势和中东稳定问题。</div>
+                <div class="news-source">来源：CNN, 2026-03-05</div>
             </div>
         </div>
 
         <!-- 国内新闻 -->
         <div class="section">
-            <h2 class="section-title">🇨🇳 中国新闻</h2>
-            
+            <h2>🇨🇳 国内新闻</h2>
             <div class="news-item">
                 <div class="news-title">两会第 2 日：审议政府工作报告</div>
-                <div class="news-en">
-                    <strong>Original:</strong> The 14th National People's Congress reviewed and discussed the government work report on March 6. GDP growth target set at 4.5-5%, defense budget at 1.91 trillion yuan (+7%).
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>十四届全国人大四次会议 3 月 6 日审议政府工作报告。GDP 增长目标设定为 4.5-5%，国防预算 1.91 万亿元（+7%）。
-                </div>
+                <div class="news-en">The 14th National People's Congress reviewed government work report on March 6. GDP growth target set at 4.5-5%, defense budget at 1.91 trillion yuan (+7%).</div>
+                <div class="news-cn">十四届全国人大四次会议 3 月 6 日审议政府工作报告。GDP 增长目标 4.5-5%，国防预算 1.91 万亿元（+7%）。</div>
                 <div class="news-source">来源：新华网 / 新京报，2026-03-06</div>
             </div>
-
             <div class="news-item">
                 <div class="news-title">碧桂园重回世界 500 强</div>
-                <div class="news-en">
-                    <strong>Original:</strong> Country Garden's overseas debt restructuring plan approved. "Country Garden returns to Fortune 500" trended on Weibo.
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>碧桂园境外债务重组方案获通过，"碧桂园重归 500 强"登上微博热搜。
-                </div>
+                <div class="news-en">Country Garden's overseas debt restructuring plan approved. "Country Garden returns to Fortune 500" trends on Weibo.</div>
+                <div class="news-cn">碧桂园境外债务重组方案获通过，"碧桂园重归 500 强"登上微博热搜。</div>
                 <div class="news-source">来源：36 氪 / 微博热搜，2026-03-06</div>
             </div>
-
             <div class="news-item">
                 <div class="news-title">华为 MWC26 展出 U6GHz 解决方案</div>
-                <div class="news-en">
-                    <strong>Original:</strong> Huawei exhibited industry-leading U6GHz solution at Mobile World Congress 2026, becoming the focus of the show.
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>华为在 2026 年世界移动通信大会展出业界领先的 U6GHz 解决方案，成为展会焦点。
-                </div>
+                <div class="news-en">Huawei exhibits industry-leading U6GHz solution at Mobile World Congress 2026, becoming the focus of the show.</div>
+                <div class="news-cn">华为在 2026 年世界移动通信大会展出业界领先的 U6GHz 解决方案，成为展会焦点。</div>
                 <div class="news-source">来源：环球网，2026-03-03</div>
             </div>
+            <div class="news-item">
+                <div class="news-title">居民基础养老金月最低标准再提 20 元</div>
+                <div class="news-en">China raises basic pension for residents by 20 yuan per month. Government encourages flexible work for parents with young children.</div>
+                <div class="news-cn">中国将居民基础养老金每月提高 20 元。政府鼓励为婴幼儿父母提供弹性工作制。</div>
+                <div class="news-source">来源：微博热搜，2026-03-06</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">中国芯片攻关取得新突破</div>
+                <div class="news-en">China announces breakthrough in semiconductor technology self-sufficiency amid ongoing trade restrictions.</div>
+                <div class="news-cn">中国宣布在半导体技术自主化方面取得新突破，正值持续的贸易限制之下。</div>
+                <div class="news-source">来源：微博热搜，2026-03-06</div>
+            </div>
         </div>
 
-        <!-- 奢侈品行业 -->
+        <!-- 科技/AI 新闻 -->
         <div class="section">
-            <h2 class="section-title">💎 奢侈品/时尚行业</h2>
-            
+            <h2>🤖 科技/AI 新闻</h2>
+            <div class="news-item">
+                <div class="news-title">OpenClaw 成 AI 行业热点</div>
+                <div class="news-en">"Last year was DeepSeek, this year is OpenClaw" - OpenClaw becomes hot topic in AI industry during Two Sessions coverage.</div>
+                <div class="news-cn">"去年是 DeepSeek，今年是 OpenClaw" —— OpenClaw 成两会期间 AI 行业热点话题。</div>
+                <div class="news-source">来源：上观新闻，2026-03-06</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">Anthropic 发布 Claude Opus 4.6</div>
+                <div class="news-en">Anthropic officially launched Claude Opus 4.6 with stronger coding skills, better planning and debugging capabilities.</div>
+                <div class="news-cn">Anthropic 正式发布 Claude Opus 4.6，具备更强的编码能力、更好的规划和调试能力。</div>
+                <div class="news-source">来源：Medium, 2026-02</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">MIT 研究：LLM 排名平台可能不可靠</div>
+                <div class="news-en">MIT study finds platforms that rank LLMs can be unreliable. Removing just 2 votes out of 57,000 changed which model is top-ranked.</div>
+                <div class="news-cn">MIT 研究发现，对大语言模型进行排名的平台可能不可靠。从 57,000 票中仅移除 2 票就改变了哪个模型排名第一。</div>
+                <div class="news-source">来源：MIT Technology Review, 2026-02-09</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">2026 年 AI 发展趋势：推理模型成为新范式</div>
+                <div class="news-en">What's next for AI in 2026: Reasoning models become new paradigm, boom in AI for science, AI companies cozier with national security.</div>
+                <div class="news-cn">2026 年 AI 发展趋势：推理模型成为新范式，科学 AI 蓬勃发展，AI 公司与国家安全关系更密切。</div>
+                <div class="news-source">来源：MIT Technology Review, 2026-01-05</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">开源 LLM 工具快速扩展</div>
+                <div class="news-en">The Dify agentic workflow platform surpassed 130,000 GitHub stars while awesome-llm-apps repository gained 635 stars in a single day.</div>
+                <div class="news-cn">Dify 智能体工作流平台 GitHub Stars 突破 13 万，awesome-llm-apps 仓库单日增加 635 Stars。</div>
+                <div class="news-source">来源：LLM Daily, 2026-03-01</div>
+            </div>
+        </div>
+
+        <!-- 奢侈品/时尚行业 -->
+        <div class="section">
+            <h2>💎 奢侈品/时尚行业</h2>
             <div class="news-item">
                 <div class="news-title">全球奢侈品市场 2026 年预计达 5170 亿美元</div>
-                <div class="news-en">
-                    <strong>Original:</strong> Global luxury market expected to reach $517 billion in 2026, growing 6% and recovering to pre-pandemic levels. Sustainability presents major opportunities for luxury companies.
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>全球奢侈品市场 2026 年预计达到 5170 亿美元，增长 6%，恢复至疫情前水平。可持续发展为奢侈品公司带来重大机遇。
-                </div>
+                <div class="news-en">Global luxury market expected to reach $517 billion in 2026, growing 6% and recovering to pre-pandemic levels.</div>
+                <div class="news-cn">全球奢侈品市场 2026 年预计达到 5170 亿美元，增长 6%，恢复至疫情前水平。</div>
                 <div class="news-source">来源：WWD / Bain, 2026</div>
             </div>
-
             <div class="news-item">
                 <div class="news-title">LVMH 2026 高奢圈首波上新</div>
-                <div class="news-en">
-                    <strong>Original:</strong> LVMH's nine brands unveil new collections for 2026, showcasing technical innovations and design trends at watch week events.
-                </div>
-                <div class="news-cn">
-                    <strong>中文：</strong>LVMH 九大品牌 2026 年首波上新，在腕表周活动展示技术创新和设计风格趋势。
-                </div>
+                <div class="news-en">LVMH's nine brands unveil new collections for 2026, showcasing technical innovations and design trends at watch week events.</div>
+                <div class="news-cn">LVMH 九大品牌 2026 年首波上新，在腕表周活动展示技术创新和设计风格趋势。</div>
                 <div class="news-source">来源：搜狐时尚，2026-02-12</div>
             </div>
-        </div>
-
-        <!-- OpenClaw 进展 -->
-        <div class="section">
-            <h2 class="section-title">🦞 OpenClaw 进展</h2>
             <div class="news-item">
-                <div class="news-title">✅ 今日完成</div>
-                <div class="news-cn">
-                    • 安装 auto-updater skill - 配置每日 7:00 自动更新<br>
-                    • 安装 skill-vetter - 安全审查工具，安装 skill 前先扫描<br>
-                    • 安装 multi-search-engine - 17 个搜索引擎集成，无需 API 密钥<br>
-                    • 早报格式修正 - 按昨天实际格式重新生成
-                </div>
+                <div class="news-title">汇丰上调 LVMH 和 Kering 评级</div>
+                <div class="news-en">European luxury stocks rally, fueled by LVMH and Kering upgrades. HSBC predicts Chinese consumers will drive luxury recovery in 2026.</div>
+                <div class="news-cn">欧洲奢侈品股票反弹，受 LVMH 和 Kering 评级上调推动。汇丰预测中国消费者将推动 2026 年奢侈品复苏。</div>
+                <div class="news-source">来源：Jing Daily, 2026</div>
             </div>
             <div class="news-item">
-                <div class="news-title">⏳ 待处理</div>
-                <div class="news-cn">
-                    • GitHub Pages 配置 - 已改为 gh-pages 分支，等待构建完成<br>
-                    • 伊朗战争监控 - 下次汇报 14:34
-                </div>
+                <div class="news-title">2026 年奢侈品行业趋势：回归时尚本质</div>
+                <div class="news-en">Return to fashion would be great for this industry; not one megatrend, but fashion, color, fun, party, elegance, femininity.</div>
+                <div class="news-cn">回归时尚对这个行业将是好事；不是单一超级趋势，而是时尚、色彩、乐趣、派对、优雅、女性化。</div>
+                <div class="news-source">来源：Vogue, 2026</div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">九大奢侈时尚品牌过去一年更换设计师</div>
+                <div class="news-en">Nine of the world's 15 biggest luxury fashion brands changed designers in the year leading up to last September's womenswear season.</div>
+                <div class="news-cn">全球 15 大奢侈时尚品牌中有 9 个在去年 9 月女装季前的一年内更换了设计师。</div>
+                <div class="news-source">来源：Business of Fashion, 2026</div>
             </div>
         </div>
 
         <!-- 底部 -->
         <div class="footer">
-            <p>🐕 麦麦祝您今天顺利！有任何需要随时叫我～</p>
-            <p style="margin-top:10px">数据来源：Reuters · AFP · 新华网 · 360 搜索 · 搜狗搜索</p>
+            <p>📊 Damien 需关注的每日动态 | 每天早上 09:00 自动发送</p>
+            <p style="margin-top:10px">数据来源：multi-search-engine · Tavily API · 微博/知乎热榜 · 黄金/原油 API</p>
+            <p style="margin-top:8px">生成时间：2026-03-06 09:00 (Asia/Shanghai)</p>
+            <p style="margin-top:8px">
+                GitHub Pages: 
+                <a href="https://thedamien1112.github.io/DamienOpenClawBriefs/daily-brief-latest.html">thedamien1112.github.io/DamienOpenClawBriefs/daily-brief-latest.html</a>
+            </p>
         </div>
     </div>
 </body>

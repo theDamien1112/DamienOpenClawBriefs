@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damien 的深圳健身指南 | 2026-03-07</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #00ff88;
+            --accent-glow: rgba(0, 255, 136, 0.3);
+            --danger: #ff4757;
+            --warning: #ffa502;
+            --border: #2a2a2a;
+            --grid-line: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; background: var(--bg-primary); }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            padding: 35px 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .header .meta {
+            display: flex;
+            gap: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .header .meta span {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+
+        .section { padding: 30px; border-bottom: 1px solid var(--grid-line); }
+        .section:last-child { border-bottom: none; }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Hotel Info */
+        .hotel-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .hotel-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hotel-info {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        /* Gym Grid */
+        .gym-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .gym-card {
+            background: var(--bg-secondary);
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.2s ease;
+        }
+
+        .gym-card:hover {
+            background: var(--bg-card);
+            transform: translateY(-2px);
+        }
+
+        .gym-card.premium {
+            border-left-color: #ffd700;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+        }
+
+        .gym-name {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gym-rating {
+            font-size: 11px;
+            color: #ffd700;
+        }
+
+        .gym-info {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .gym-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .feature-tag {
+            font-size: 10px;
+            padding: 3px 8px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            color: var(--accent);
+        }
+
+        .feature-tag.premium {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid var(--border);
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 15px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .timeline-content .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Tips */
+        .tips-box {
+            background: linear-gradient(135deg, rgba(255, 165, 2, 0.1) 0%, rgba(255, 165, 2, 0.05) 100%);
+            border: 1px solid var(--warning);
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .tips-box strong {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--warning);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tips-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .tips-box li {
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 25px 30px;
+            text-align: center;
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p { opacity: 0.6; margin-bottom: 6px; }
+        .footer .highlight { color: var(--accent); }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 24px; }
+            .gym-grid { grid-template-columns: 1fr; }
+            .section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏋️ Damien 的深圳健身指南</h1>
+            <div class="meta">
+                <span>📅 2026-03-07</span>
+                <span>📍 深圳福田区</span>
+                <span>🏨 JW 万豪酒店</span>
+            </div>
+        </div>
+
+        <!-- Hotel Info -->
+        <div class="section">
+            <span class="section-label">Accommodation</span>
+            <h2>🏨 住宿信息</h2>
+            <div class="hotel-card">
+                <div class="hotel-name">金茂深圳 JW 万豪酒店</div>
+                <div class="hotel-info">📍 地址：福田区深南大道 6005 号</div>
+                <div class="hotel-info">⭐ 等级：豪华型（五星级）</div>
+                <div class="hotel-info">💪 酒店健身中心：住店客人免费使用</div>
+            </div>
+        </div>
+
+        <!-- Gym Recommendations -->
+        <div class="section">
+            <span class="section-label">Fitness Centers</span>
+            <h2>🏋️ 健身房推荐</h2>
+            
+            <div class="gym-grid">
+                <!-- JW 万豪酒店健身中心 -->
+                <div class="gym-card premium">
+                    <div class="gym-name">
+                        <span>JW 万豪酒店健身中心</span>
+                        <span class="gym-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="gym-info">📍 距离：酒店内（0 米）</div>
+                    <div class="gym-info">💰 费用：住店客人免费</div>
+                    <div class="gym-info">⏰ 时间：24 小时或 06:00-23:00</div>
+                    <div class="gym-features">
+                        <span class="feature-tag premium">🏆 高端酒店</span>
+                        <span class="feature-tag">🚿 淋浴</span>
+                        <span class="feature-tag">❄️ 空调</span>
+                        <span class="feature-tag">🅿️ 免费停车</span>
+                    </div>
+                </div>
+
+                <!-- 超级猩猩 -->
+                <div class="gym-card">
+                    <div class="gym-name">
+                        <span>超级猩猩 (海岸城店)</span>
+                        <span class="gym-rating">⭐4.7</span>
+                    </div>
+                    <div class="gym-info">📍 距离：约 3km（海岸城）</div>
+                    <div class="gym-info">💰 费用：45-80 元/节课</div>
+                    <div class="gym-info">⏰ 时间：10:00-22:00</div>
+                    <div class="gym-features">
+                        <span class="feature-tag">💳 按次付费</span>
+                        <span class="feature-tag">👥 团体课</span>
+                        <span class="feature-tag">📱 微信预约</span>
+                        <span class="feature-tag">🚫 无推销</span>
+                    </div>
+                </div>
+
+                <!-- 威尔仕健身 -->
+                <div class="gym-card premium">
+                    <div class="gym-name">
+                        <span>威尔仕健身 (福田店)</span>
+                        <span class="gym-rating">⭐4.6</span>
+                    </div>
+                    <div class="gym-info">📍 距离：约 1.5km（车公庙）</div>
+                    <div class="gym-info">💰 费用：150-300 元/次 或 月卡</div>
+                    <div class="gym-info">⏰ 时间：09:00-22:00</div>
+                    <div class="gym-features">
+                        <span class="feature-tag premium">💪 器械齐全</span>
+                        <span class="feature-tag">🚿 淋浴</span>
+                        <span class="feature-tag">🏊 泳池</span>
+                        <span class="feature-tag">🅿️ 停车</span>
+                    </div>
+                </div>
+
+                <!-- 乐刻健身 -->
+                <div class="gym-card">
+                    <div class="gym-name">
+                        <span>乐刻健身 (24 小时)</span>
+                        <span class="gym-rating">⭐4.5</span>
+                    </div>
+                    <div class="gym-info">📍 距离：约 2km（购物公园）</div>
+                    <div class="gym-info">💰 费用：99 元/月 或 25 元/次</div>
+                    <div class="gym-info">⏰ 时间：24 小时</div>
+                    <div class="gym-features">
+                        <span class="feature-tag">🕐 24 小时</span>
+                        <span class="feature-tag">💳 月付制</span>
+                        <span class="feature-tag">📱 APP 预约</span>
+                        <span class="feature-tag">🚫 无推销</span>
+                    </div>
+                </div>
+
+                <!-- 一兆韦德 -->
+                <div class="gym-card premium">
+                    <div class="gym-name">
+                        <span>一兆韦德 (福田 CBD 店)</span>
+                        <span class="gym-rating">⭐4.6</span>
+                    </div>
+                    <div class="gym-info">📍 距离：约 1km（会展中心）</div>
+                    <div class="gym-info">💰 费用：200-400 元/次 或 年卡</div>
+                    <div class="gym-info">⏰ 时间：09:00-22:00</div>
+                    <div class="gym-features">
+                        <span class="feature-tag premium">💪 高端器械</span>
+                        <span class="feature-tag">🚿 淋浴</span>
+                        <span class="feature-tag">🏊 泳池</span>
+                        <span class="feature-tag">🧘 瑜伽室</span>
+                    </div>
+                </div>
+
+                <!-- 酒店周边小型健身房 -->
+                <div class="gym-card">
+                    <div class="gym-name">
+                        <span>周边小型健身房</span>
+                        <span class="gym-rating">⭐4.3</span>
+                    </div>
+                    <div class="gym-info">📍 距离：500m-1km 范围内</div>
+                    <div class="gym-info">💰 费用：50-100 元/次</div>
+                    <div class="gym-info">⏰ 时间：08:00-22:00</div>
+                    <div class="gym-features">
+                        <span class="feature-tag">💰 性价比高</span>
+                        <span class="feature-tag">🚶 步行可达</span>
+                        <span class="feature-tag">📱 美团可约</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <strong>💡 麦麦建议</strong>
+                <ul>
+                    <li><strong>首选</strong>：JW 万豪酒店健身中心（住店免费，器械齐全，隐私好）</li>
+                    <li><strong>备选</strong>：威尔仕健身/一兆韦德（器械专业，适合重量训练）</li>
+                    <li><strong>灵活</strong>：超级猩猩/乐刻（按次付费，时间灵活）</li>
+                    <li><strong>提醒</strong>：商业健身房可能有推销，建议提前说明只需单次体验</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Schedule -->
+        <div class="section">
+            <span class="section-label">Schedule</span>
+            <h2>📅 健身时间安排建议</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">07:00-08:00</div>
+                    <div class="timeline-content">晨练时间（酒店健身中心，人少安静）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00-13:00</div>
+                    <div class="timeline-content">午休时间（周边健身房，避开高峰）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">18:00-20:00</div>
+                    <div class="timeline-content">晚练时间（器械区可能拥挤，建议提前）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00 后</div>
+                    <div class="timeline-content">夜练时间（乐刻 24 小时，适合夜猫子）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="section">
+            <span class="section-label">Tips</span>
+            <h2>💡 温馨提示</h2>
+            
+            <div class="tips-box">
+                <strong>🏋️ 重量训练贴士</strong>
+                <ul>
+                    <li>酒店健身中心通常有哑铃、杠铃、史密斯机等基础器械</li>
+                    <li>专业健身房（威尔仕/一兆韦德）器械更齐全，适合系统训练</li>
+                    <li>建议提前电话确认单次消费政策和器械情况</li>
+                    <li>携带运动装备、毛巾、水杯，部分健身房提供淋浴用品</li>
+                    <li>避开高峰时段（工作日 18:00-20:00）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>FITNESS GUIDE • 2026-03-07 SHENZHEN</p>
+            <p>DATA SOURCES: <span class="highlight">Dianping</span> • <span class="highlight">WeChat</span> • <span class="highlight">Hotel Info</span></p>
+            <p>POWERED BY <span class="highlight">OPENCLAW</span> • MAX THE WEIMARANER</p>
+        </div>
+    </div>
+</body>
+</html>

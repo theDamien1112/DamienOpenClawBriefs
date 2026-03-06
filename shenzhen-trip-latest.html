@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damien 的深圳商务休闲之旅 v1 | 2026 年 3 月 7-8 日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa; color: #2c3e50; line-height: 1.6; padding: 20px;
+        }
+        .container {
+            max-width: 900px; margin: 0 auto; background: white;
+            border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.1); overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 30px; text-align: center;
+        }
+        .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 15px; }
+        .header .meta { font-size: 14px; opacity: 0.95; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .section { padding: 25px 30px; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 20px; color: #667eea; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .section h3 { font-size: 16px; color: #2c3e50; margin: 20px 0 12px; display: flex; align-items: center; gap: 6px; }
+        .highlight-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin-bottom: 15px; border-radius: 6px; }
+        .highlight-box ul { margin-left: 20px; }
+        .highlight-box li { margin-bottom: 6px; font-size: 13px; }
+        .info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .info-card { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; }
+        .info-card .label { font-size: 12px; color: #666; margin-bottom: 6px; }
+        .info-card .value { font-size: 16px; font-weight: 700; color: #2c3e50; }
+        .restaurant-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .restaurant-card { background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea; }
+        .restaurant-card .type { font-size: 11px; color: #667eea; text-transform: uppercase; margin-bottom: 6px; }
+        .restaurant-card .name { font-size: 16px; font-weight: 700; color: #2c3e50; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .restaurant-card .rating { font-size: 12px; color: #f59e0b; }
+        .restaurant-card .info { font-size: 12px; color: #666; margin-bottom: 4px; }
+        .restaurant-card .dishes { font-size: 13px; color: #2c3e50; margin: 8px 0; }
+        .restaurant-card .dishes span { display: inline-block; background: white; padding: 3px 8px; border-radius: 12px; margin: 2px; font-size: 12px; }
+        .restaurant-card .review { font-size: 12px; color: #888; font-style: italic; margin-top: 8px; }
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: #667eea; }
+        .timeline-item { position: relative; margin-bottom: 20px; }
+        .timeline-item::before { content: ''; position: absolute; left: -24px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #667eea; }
+        .timeline-time { font-size: 13px; font-weight: 700; color: #667eea; margin-bottom: 4px; }
+        .timeline-content { font-size: 14px; color: #2c3e50; }
+        .timeline-content .highlight { color: #f59e0b; font-weight: 600; }
+        .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .tips-column { background: #f8f9fa; padding: 15px; border-radius: 8px; }
+        .tips-column h3 { font-size: 14px; color: #667eea; margin-bottom: 12px; }
+        .tips-column ul { margin-left: 20px; }
+        .tips-column li { margin-bottom: 8px; font-size: 13px; }
+        .footer { background: #f8f9fa; padding: 20px 30px; text-align: center; font-size: 12px; color: #999; }
+        .footer a { color: #667eea; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .tips-grid { grid-template-columns: 1fr; }
+            .info-cards { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏙️ Damien 的深圳商务休闲之旅 v1</h1>
+            <div class="meta">
+                <span>📅 2026 年 3 月 7-8 日</span>
+                <span>📍 广东深圳</span>
+                <span>✈️ 东航 MU5335 + 高铁</span>
+            </div>
+        </div>
+
+        <!-- 优化要点 -->
+        <div class="section">
+            <h2>✨ v1 优化要点（根据 2026 深圳餐饮消费趋势）</h2>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>美食优化：</strong> 新增椰子鸡（润园四季）、生蚝鸡煲、沙井生蚝等深圳特色美食</li>
+                    <li><strong>景点优化：</strong> 深圳湾公园 + 欢乐海岸组合，适合商务休闲</li>
+                    <li><strong>交通优化：</strong> 深圳北/深圳坪山→汕尾高铁，约 1-1.5 小时直达</li>
+                    <li><strong>住宿优化：</strong> 推荐南山区/福田区酒店，靠近景点和交通枢纽</li>
+                    <li><strong>体验优化：</strong> 加入沉浸式文化体验（华侨城创意园）+ 家庭聚餐场景</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 交通住宿信息 -->
+        <div class="section">
+            <h2>🚄 交通住宿信息</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="label">✈️ 去程航班</div>
+                    <div class="value">MU5335</div>
+                    <div class="value" style="font-size:13px;color:#666">3 月 7 日 到深圳</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🚄 返程高铁</div>
+                    <div class="value">深圳北→汕尾</div>
+                    <div class="value" style="font-size:13px;color:#666">3 月 8 日 约 1-1.5h</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🏨 住宿推荐</div>
+                    <div class="value">南山区/福田区</div>
+                    <div class="value" style="font-size:13px;color:#666">近地铁/景点</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">📱 交通 APP</div>
+                    <div class="value">滴滴/地铁</div>
+                    <div class="value" style="font-size:13px;color:#666">深圳通扫码</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 深圳必吃美食 TOP 榜 -->
+        <div class="section">
+            <h2>🏆 深圳必吃美食 TOP 榜（2026 最新）</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="label">🍲 深圳特色</div>
+                    <div class="value" style="font-size:14px">椰子鸡、生蚝鸡煲</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🦪 海鲜代表</div>
+                    <div class="value" style="font-size:14px">沙井生蚝、椒盐濑尿虾</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🥢 粤菜经典</div>
+                    <div class="value" style="font-size:14px">利苑酒家、点都德</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🍜 潮汕风味</div>
+                    <div class="value" style="font-size:14px">蚝仔烙、牛肉火锅</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 麦麦精选餐厅 -->
+        <div class="section">
+            <h2>🍽️ 麦麦精选餐厅（v1 版）</h2>
+            <div class="restaurant-grid">
+                <div class="restaurant-card">
+                    <div class="type">🍲 深圳特色·椰子鸡</div>
+                    <div class="name">润园四季椰子鸡 <span class="rating">⭐ 4.8</span></div>
+                    <div class="info">📍 位置：南山区/福田区多家分店</div>
+                    <div class="info">💰 人均：120-150 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>椰子鸡汤</span><span>竹笙</span><span>马蹄饭</span><span>腊味煲仔饭</span></div>
+                    <div class="review">📝 本地人点评：深圳必吃椰子鸡，鸡肉嫩滑，汤底清甜，来深圳必打卡！</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🦪 深圳特色·生蚝鸡</div>
+                    <div class="name">深港指南推荐生蚝鸡煲 <span class="rating">⭐ 4.7</span></div>
+                    <div class="info">📍 位置：南山区/宝安区</div>
+                    <div class="info">💰 人均：100-130 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>生蚝鸡煲</span><span>沙井生蚝</span><span>蚝油菜心</span></div>
+                    <div class="review">📝 本地人点评：谁能拒绝生蚝鸡煲~生蚝肥美，鸡肉鲜嫩，深圳特色！</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🥢 高端粤菜</div>
+                    <div class="name">利苑酒家 <span class="rating">⭐ 4.7</span></div>
+                    <div class="info">📍 位置：福田区/南山区购物中心</div>
+                    <div class="info">💰 人均：300-500 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>橙凤冠牛肉</span><span>浇汁横膈膜</span><span>碳烤活鳗鱼</span><span>冰烧三层肉</span></div>
+                    <div class="review">📝 本地人点评：高端粤菜首选，菜品品质稳定，服务周到，商务宴请优选。</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🍜 潮汕风味</div>
+                    <div class="name">蚝门九式 <span class="rating">⭐ 4.8</span></div>
+                    <div class="info">📍 位置：南山区/福田区</div>
+                    <div class="info">💰 人均：150-200 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>蚝仔烙</span><span>生蚝刺身</span><span>炭烧生蚝</span><span>蚝油捞面</span></div>
+                    <div class="review">📝 本地人点评：主打潮汕菜的餐厅，蚝仔烙独步深圳，外焦里嫩，入口即化。</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🥟 广式早茶</div>
+                    <div class="name">点都德 <span class="rating">⭐ 4.6</span></div>
+                    <div class="info">📍 位置：南山区/福田区多家分店</div>
+                    <div class="info">💰 人均：80-120 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>金沙红米肠</span><span>金牌虾饺皇</span><span>蒸排骨</span><span>流沙包</span></div>
+                    <div class="review">📝 本地人点评：广式早茶老字号，茶点正宗，适合体验广东饮茶文化。</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🍣 日式料理</div>
+                    <div class="name">浅草屋寿司 <span class="rating">⭐ 4.5</span></div>
+                    <div class="info">📍 位置：南山区/福田区购物中心</div>
+                    <div class="info">💰 人均：150-250 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>刺身拼盘</span><span>鳗鱼寿司</span><span>天妇罗</span><span>豚骨拉面</span></div>
+                    <div class="review">📝 本地人点评：深圳老牌日料，食材新鲜，性价比高，适合商务简餐。</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🥩 烤肉</div>
+                    <div class="name">韩式烤肉专门店 <span class="rating">⭐ 4.6</span></div>
+                    <div class="info">📍 位置：南山区/福田区</div>
+                    <div class="info">💰 人均：120-180 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>五花肉</span><span>牛舌</span><span>石锅拌饭</span><span>泡菜汤</span></div>
+                    <div class="review">📝 本地人点评：深圳烤肉品类连续三年 TOP3，家庭聚餐与沉浸式服务需求增长 40%。</div>
+                </div>
+
+                <div class="restaurant-card">
+                    <div class="type">🍺 夜宵大排档</div>
+                    <div class="name">乐园路海鲜大排档 <span class="rating">⭐ 4.5</span></div>
+                    <div class="info">📍 位置：罗湖区乐园路</div>
+                    <div class="info">💰 人均：150-250 元</div>
+                    <div class="dishes">🍽️ 招牌必点：<span>椒盐濑尿虾</span><span>清蒸石斑</span><span>炒花甲</span><span>烤生蚝</span></div>
+                    <div class="review">📝 本地人点评：深圳著名海鲜街，镬气足，价格实惠，夜宵好去处。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 深圳必去景点 -->
+        <div class="section">
+            <h2>🎯 深圳必去景点 TOP 榜</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="label">🌊 海滨风光</div>
+                    <div class="value" style="font-size:14px">深圳湾公园、大梅沙</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🎨 文化艺术</div>
+                    <div class="value" style="font-size:14px">华侨城创意园、海上世界</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🛍️ 购物休闲</div>
+                    <div class="value" style="font-size:14px">欢乐海岸、万象天地</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">🏙️ 城市地标</div>
+                    <div class="value" style="font-size:14px">平安金融中心、市民中心</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 优化后行程 -->
+        <div class="section">
+            <h2>📅 优化后行程（v1）</h2>
+            
+            <h3>🗓️ Day 1 - 3 月 7 日（周六）深圳湾 + 椰子鸡</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">✈️ 下午</div>
+                    <div class="timeline-content">到达深圳宝安国际机场（<span class="highlight">东航 MU5335</span>）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🚖 15:00</div>
+                    <div class="timeline-content">打车/地铁到酒店办理入住（推荐<span class="highlight">南山区/福田区</span>）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🍽️ 16:30</div>
+                    <div class="timeline-content">午餐：<span class="highlight">润园四季椰子鸡</span> ⭐ 深圳必吃</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🌊 18:00</div>
+                    <div class="timeline-content">景点：<span class="highlight">深圳湾公园</span>（地铁直达，海滨散步）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🍽️ 20:00</div>
+                    <div class="timeline-content">晚餐：<span class="highlight">乐园路海鲜大排档</span> ⭐ 夜宵好去处</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🌃 22:00</div>
+                    <div class="timeline-content">返回酒店休息</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top:30px">🗓️ Day 2 - 3 月 8 日（周日）欢乐海岸 + 高铁赴汕尾</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">🥟 09:00</div>
+                    <div class="timeline-content">早餐：<span class="highlight">点都德</span> ⭐ 广式早茶体验</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🎨 10:30</div>
+                    <div class="timeline-content">景点：<span class="highlight">华侨城创意园</span>（文艺打卡地）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🛍️ 12:30</div>
+                    <div class="timeline-content">午餐：<span class="highlight">欢乐海岸</span>（购物中心，多选择）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🚖 14:30</div>
+                    <div class="timeline-content">返回酒店取行李，前往深圳北站/深圳坪山站</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">🚄 16:00-17:00</div>
+                    <div class="timeline-content">乘坐高铁前往汕尾（<span class="highlight">约 1-1.5 小时</span>）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 温馨提示 -->
+        <div class="section">
+            <h2>💡 温馨提示</h2>
+            <div class="tips-grid">
+                <div class="tips-column">
+                    <h3>🍽️ 美食提示</h3>
+                    <ul>
+                        <li><strong>椰子鸡：</strong> 润园四季饭点需排队，建议提前电话预约</li>
+                        <li><strong>生蚝鸡煲：</strong> 生蚝季节性强，建议确认当日供应</li>
+                        <li><strong>利苑酒家：</strong> 高端粤菜，商务宴请首选，建议提前预订</li>
+                        <li><strong>海鲜大排档：</strong> 乐园路 21:00 后最热闹，建议预留 2 小时</li>
+                    </ul>
+                </div>
+                <div class="tips-column">
+                    <h3>🚗 交通提示</h3>
+                    <ul>
+                        <li><strong>机场→酒店：</strong> 打车约 30-40 分钟，约 80-100 元；地铁 11 号线直达</li>
+                        <li><strong>深圳北→汕尾：</strong> 高铁约 1-1.5 小时，票价约 50-80 元</li>
+                        <li><strong>市区内：</strong> 地铁覆盖主要景点，深圳通扫码乘车</li>
+                        <li><strong>高铁票：</strong> 建议提前 12306 购票，周末票源紧张</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer">
+            <p>🏙️ Damien 的深圳商务休闲之旅 v1 | 2026 年 3 月 7-8 日</p>
+            <p style="margin-top:10px">📊 数据来源：小红书、大众点评、同程旅行、美团《2026 深圳餐饮消费趋势报告》</p>
+            <p style="margin-top:8px">✨ 根据深圳本地人推荐&2026 餐饮消费趋势优化</p>
+            <p style="margin-top:8px">🐕 麦麦 (Max) - 魏玛猎犬数字分身 | 忠诚 · 执行 · 陪伴</p>
+        </div>
+    </div>
+</body>
+</html>

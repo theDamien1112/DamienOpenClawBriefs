@@ -3,373 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damien 应该关注的每日动态 | 2026 年 3 月 6 日</title>
+    <title>麦麦早报 | 2026 年 3 月 6 日</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #f5f7fa; color: #2c3e50; line-height: 1.5; padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
         }
         .container {
-            max-width: 700px; margin: 0 auto; background: white;
-            border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 25px 25px 20px; text-align: center;
+            color: white;
+            padding: 30px;
+            text-align: center;
         }
-        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
-        .header .meta {
-            font-size: 13px; opacity: 0.95; display: flex; justify-content: center;
-            gap: 15px; align-items: center; flex-wrap: wrap;
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header p { opacity: 0.9; font-size: 14px; }
+        .section {
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee;
         }
-        .header .meta span { display: flex; align-items: center; gap: 4px; }
-        .weather {
-            background: rgba(255,255,255,0.2); padding: 4px 12px;
-            border-radius: 12px; display: inline-flex; align-items: center; gap: 5px;
-        }
-        .market-top {
-            background: #fafbfc; border-bottom: 2px solid #eaeaea; padding: 15px 20px;
-        }
-        .market-top .section-title {
-            font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 12px;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .market-highlight {
-            background: linear-gradient(135deg, #e74c3c15 0%, #c0392b15 100%);
-            border: 1px solid #e74c3c30; border-radius: 8px; padding: 12px; margin-bottom: 12px;
-        }
-        .market-highlight-title {
-            font-size: 12px; font-weight: 600; color: #e74c3c; margin-bottom: 8px;
-            display: flex; align-items: center; gap: 5px;
-        }
-        .market-compact-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-        }
-        .market-mini-card {
-            background: white; padding: 12px 10px; border-radius: 6px;
-            border: 1px solid #eaeaea; text-align: center;
-        }
-        .market-mini-card.hot {
-            border: 2px solid #e74c3c; background: #fef5f5;
-        }
-        .market-mini-card.cold {
-            border: 2px solid #27ae60; background: #f5fef9;
-        }
-        .market-mini-label { font-size: 11px; color: #888; text-transform: uppercase; margin-bottom: 5px; }
-        .market-mini-value { font-size: 15px; font-weight: 700; color: #2c3e50; margin-bottom: 3px; }
-        .market-mini-change { font-size: 12px; font-weight: 600; }
-        .market-mini-change.up { color: #27ae60; }
-        .market-mini-change.down { color: #e74c3c; }
-        .market-mini-change.hot { color: #e74c3c; font-size: 13px; }
-        .hot-search {
-            background: #fff8f0; border-top: 1px solid #ffe4c4; border-bottom: 1px solid #ffe4c4;
-            padding: 15px 20px;
-        }
-        .hot-search .section-title {
-            font-size: 14px; font-weight: 600; color: #e67e22; margin-bottom: 12px;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .hot-list { display: flex; flex-direction: column; gap: 8px; }
-        .hot-item {
-            display: flex; align-items: flex-start; gap: 10px;
-            padding: 8px 0; border-bottom: 1px dashed #ffe4c4;
-        }
-        .hot-item:last-child { border-bottom: none; }
-        .hot-rank {
-            font-size: 11px; font-weight: 700; color: #e67e22;
-            background: #fff3e0; padding: 2px 6px; border-radius: 4px;
-            min-width: 20px; text-align: center;
-        }
-        .hot-content { flex: 1; }
-        .hot-title { font-size: 13px; color: #2c3e50; font-weight: 500; }
-        .hot-source { font-size: 11px; color: #999; margin-top: 2px; }
-        .section { border-bottom: 1px solid #eaeaea; }
         .section:last-child { border-bottom: none; }
-        .section-header {
-            background: #fafbfc; padding: 12px 20px; display: flex;
-            align-items: center; gap: 8px;
+        .section-title {
+            font-size: 18px;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .section-icon {
-            font-size: 18px; width: 28px; height: 28px; display: flex;
-            align-items: center; justify-content: center; background: white;
-            border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .news-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
         }
-        .section-title { font-size: 15px; font-weight: 600; color: #2c3e50; }
-        .badge-intl {
-            background: #667eea; color: white; font-size: 11px; padding: 2px 8px;
-            border-radius: 10px; margin-left: auto; font-weight: 500;
+        .news-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
         }
-        .badge-domestic {
-            background: #e74c3c; color: white; font-size: 11px; padding: 2px 8px;
-            border-radius: 10px; margin-left: auto; font-weight: 500;
+        .news-en {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            font-style: italic;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
         }
-        .news-item { padding: 15px 20px; border-left: 2px solid transparent; transition: all 0.2s; }
-        .news-item:hover { background: #fafbfc; border-left-color: #667eea; }
-        .news-title { font-size: 14px; font-weight: 600; color: #2c3e50; margin-bottom: 8px; line-height: 1.4; }
-        .news-title-en { display: block; margin-bottom: 3px; }
-        .news-title-zh { display: block; color: #667eea; font-weight: 500; }
-        .news-summary { font-size: 13px; color: #555; margin-bottom: 6px; line-height: 1.6; }
-        .news-summary-zh { font-size: 13px; color: #888; font-style: italic; margin-bottom: 8px; }
-        .news-meta { display: flex; gap: 12px; font-size: 11px; }
-        .news-source { color: #667eea; text-decoration: none; font-weight: 500; }
-        .news-source:hover { text-decoration: underline; }
-        .news-time { color: #999; }
-        .signal-box {
-            margin: 12px 20px; padding: 12px; border-radius: 6px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border: 1px solid #667eea30;
+        .news-cn {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            font-weight: 500;
         }
-        .signal-title { font-size: 13px; font-weight: 600; color: #2c3e50; margin-bottom: 10px; }
-        .signal-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #667eea20; }
-        .signal-item:last-child { border-bottom: none; }
-        .signal-name { font-size: 13px; color: #2c3e50; font-weight: 500; }
-        .signal-price { font-size: 12px; color: #666; }
-        .signal-price span { font-weight: 600; margin: 0 4px; }
-        .signal-price .target { color: #27ae60; }
-        .signal-price .stop { color: #e74c3c; }
+        .news-source {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
+        .news-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .news-link:hover { text-decoration: underline; }
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .market-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .market-label { font-size: 12px; color: #999; margin-bottom: 5px; }
+        .market-value { font-size: 18px; font-weight: 600; color: #333; }
+        .market-change { font-size: 12px; margin-top: 5px; }
+        .up { color: #22c55e; }
+        .down { color: #ef4444; }
         .footer {
-            background: #fafbfc; padding: 15px 20px; text-align: center;
-            font-size: 12px; color: #888; border-top: 1px solid #eaeaea;
-        }
-        .footer a { color: #667eea; text-decoration: none; margin: 0 8px; }
-        .footer a:hover { text-decoration: underline; }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 19px; }
-            .header .meta { flex-direction: column; gap: 6px; }
-            .market-compact-grid { grid-template-columns: repeat(2, 1fr); }
-            .section-header { padding: 10px 15px; }
-            .news-item { padding: 12px 15px; }
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🦞 Damien 应该关注的每日动态</h1>
-            <div class="meta">
-                <span>📅 2026-03-06</span>
-                <span>⏰ 09:00</span>
-                <span class="weather">🌤️ 上海 8°C 多云</span>
-            </div>
-        </div>
-        
-        <div class="market-top">
-            <div class="section-title">📊 市场数据</div>
-            <div class="market-highlight">
-                <div class="market-highlight-title">⚠️ 今日异动</div>
-                <div class="market-compact-grid">
-                    <div class="market-mini-card hot">
-                        <div class="market-mini-label">原油</div>
-                        <div class="market-mini-value">$80+</div>
-                        <div class="market-mini-change hot">▲ 突破 80 美元</div>
-                    </div>
-                    <div class="market-mini-card hot">
-                        <div class="market-mini-label">道指</div>
-                        <div class="market-mini-value">-780pts</div>
-                        <div class="market-mini-change hot">▼ 大跌</div>
-                    </div>
-                    <div class="market-mini-card hot">
-                        <div class="market-mini-label">霍尔木兹</div>
-                        <div class="market-mini-value">封锁</div>
-                        <div class="market-mini-change hot">⚠️ 中断</div>
-                    </div>
-                </div>
-            </div>
-            <div class="market-compact-grid">
-                <div class="market-mini-card">
-                    <div class="market-mini-label">LVMH</div>
-                    <div class="market-mini-value">€782</div>
-                    <div class="market-mini-change down">▼ -1.2%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">Kering</div>
-                    <div class="market-mini-value">€412</div>
-                    <div class="market-mini-change down">▼ -2.1%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">Hermès</div>
-                    <div class="market-mini-value">€2,145</div>
-                    <div class="market-mini-change up">▲ +0.8%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">恒生</div>
-                    <div class="market-mini-value">21,457</div>
-                    <div class="market-mini-change up">▲ +0.82%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">USD/CNY</div>
-                    <div class="market-mini-value">7.248</div>
-                    <div class="market-mini-change up">▲ +0.15%</div>
-                </div>
-                <div class="market-mini-card">
-                    <div class="market-mini-label">黄金</div>
-                    <div class="market-mini-value">$2,752</div>
-                    <div class="market-mini-change up">▲ +1.29%</div>
-                </div>
-            </div>
+            <h1>🐕 麦麦早报</h1>
+            <p>2026 年 3 月 6 日 周五 | 爸爸早上好</p>
         </div>
 
-        <div class="hot-search">
-            <div class="section-title">🔥 今日热搜</div>
-            <div class="hot-list">
-                <div class="hot-item">
-                    <span class="hot-rank">1</span>
-                    <div class="hot-content">
-                        <div class="hot-title">碧桂园重回世界 500 强</div>
-                        <div class="hot-source">微博热搜 · 境外债务重组方案通过</div>
-                    </div>
-                </div>
-                <div class="hot-item">
-                    <span class="hot-rank">2</span>
-                    <div class="hot-content">
-                        <div class="hot-title">2026 两会政府工作报告</div>
-                        <div class="hot-source">百度热搜 · GDP 目标 4.5-5%</div>
-                    </div>
-                </div>
-                <div class="hot-item">
-                    <span class="hot-rank">3</span>
-                    <div class="hot-content">
-                        <div class="hot-title">美伊军事对抗第 6 天</div>
-                        <div class="hot-source">抖音热点 · 霍尔木兹海峡封锁</div>
-                    </div>
-                </div>
-                <div class="hot-item">
-                    <span class="hot-rank">4</span>
-                    <div class="hot-content">
-                        <div class="hot-title">伊朗军舰在国际海域遭袭</div>
-                        <div class="hot-source">微博热搜 · 美军潜艇袭击</div>
-                    </div>
-                </div>
-                <div class="hot-item">
-                    <span class="hot-rank">5</span>
-                    <div class="hot-content">
-                        <div class="hot-title">华为 U6GHz 解决方案 MWC26</div>
-                        <div class="hot-source">百度热搜 · 世界移动通信大会</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <!-- 市场数据 -->
         <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🌍</span>
-                <span class="section-title">国际新闻</span>
-                <span class="badge-intl">INTERNATIONAL</span>
+            <h2 class="section-title">📊 市场数据</h2>
+            <div class="market-grid">
+                <div class="market-item">
+                    <div class="market-label">原油价格</div>
+                    <div class="market-value">$80+</div>
+                    <div class="market-change up">▲ 突破 80 美元</div>
+                </div>
+                <div class="market-item">
+                    <div class="market-label">道琼斯</div>
+                    <div class="market-value">-780pts</div>
+                    <div class="market-change down">▼ 大跌</div>
+                </div>
+                <div class="market-item">
+                    <div class="market-label">LVMH</div>
+                    <div class="market-value">€782</div>
+                    <div class="market-change down">▼ -1.2%</div>
+                </div>
+                <div class="market-item">
+                    <div class="market-label">黄金</div>
+                    <div class="market-value">$2,752</div>
+                    <div class="market-change up">▲ +1.29%</div>
+                </div>
             </div>
+        </div>
+
+        <!-- 国际新闻 -->
+        <div class="section">
+            <h2 class="section-title">🌍 国际新闻</h2>
             
             <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">US-Iran Military Conflict Enters Day 6</span>
-                    <span class="news-title-zh">美伊军事冲突进入第 6 天</span>
+                <div class="news-title">美伊军事冲突进入第 6 天</div>
+                <div class="news-en">
+                    <strong>Original:</strong> US-Iran military conflict enters day 6. US "Epic Wrath" operation has struck 2,410 Iranian targets including military bases, missile factories, and air defense systems. Iran continues missile retaliation against Israeli cities and US bases in the Middle East.
                 </div>
-                <div class="news-summary">美军"史诗怒火"行动累计打击伊朗 2410 个目标，包括军事基地、导弹工厂和防空设施。伊朗持续用导弹反击，攻击以色列城市和美军中东基地。</div>
-                <div class="news-summary-zh">伊朗封锁霍尔木兹海峡，导致全球近五分之一石油运输受阻。科威特削减三家炼油厂开工率。</div>
-                <div class="news-meta">
-                    <span class="news-source">Reuters / AFP</span>
-                    <span class="news-time">4 小时前</span>
+                <div class="news-cn">
+                    <strong>中文：</strong>美伊军事冲突进入第 6 天。美军"史诗怒火"行动已打击伊朗 2410 个目标，包括军事基地、导弹工厂和防空设施。伊朗持续用导弹反击以色列城市和美军中东基地。
                 </div>
+                <div class="news-source">来源：Reuters / AFP, 2026-03-06</div>
             </div>
 
             <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Iranian Navy Ship Sunk in International Waters</span>
-                    <span class="news-title-zh">伊朗海军舰艇在国际海域遭袭沉没</span>
+                <div class="news-title">伊朗军舰在国际海域遭袭沉没</div>
+                <div class="news-en">
+                    <strong>Original:</strong> Iranian Navy ship "Dena" frigate was sunk by US submarine near Sri Lanka on March 4. Iranian military issued strong condemnation, vowing to "make the enemy pay."
                 </div>
-                <div class="news-summary">3 月 4 日，伊朗海军"德纳"号护卫舰在斯里兰卡附近海域被美军潜艇袭击。伊朗军队发表声明强烈谴责，誓言"将让敌人付出代价"。</div>
-                <div class="news-summary-zh">斯里兰卡确认将为附近海域伊朗军舰提供协助。</div>
-                <div class="news-meta">
-                    <span class="news-source">CCTV / 凤凰网</span>
-                    <span class="news-time">7 小时前</span>
+                <div class="news-cn">
+                    <strong>中文：</strong>伊朗海军"德纳"号护卫舰 3 月 4 日在斯里兰卡附近海域被美军潜艇击沉。伊朗军队发表强烈谴责，誓言"将让敌人付出代价"。
                 </div>
+                <div class="news-source">来源：CCTV / 凤凰网，2026-03-06</div>
             </div>
 
             <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">US Support Aircraft Allowed to Use French Base</span>
-                    <span class="news-title-zh">美军支援飞机获准使用法国基地</span>
+                <div class="news-title">霍尔木兹海峡被封锁</div>
+                <div class="news-en">
+                    <strong>Original:</strong> Iran blocked the Strait of Hormuz, disrupting nearly one-fifth of global oil transportation. Kuwait reduced operations at three refineries.
                 </div>
-                <div class="news-summary">法国方面 5 日消息，美军支援类军机已获准进入法国南部伊斯特尔空军基地，但前提条件是不得参与对伊朗的军事行动。</div>
-                <div class="news-meta">
-                    <span class="news-source">央视新闻</span>
-                    <span class="news-time">9 小时前</span>
+                <div class="news-cn">
+                    <strong>中文：</strong>伊朗封锁霍尔木兹海峡，导致全球近五分之一石油运输受阻。科威特削减三家炼油厂开工率。
                 </div>
+                <div class="news-source">来源：Bloomberg, 2026-03-06</div>
             </div>
         </div>
 
+        <!-- 国内新闻 -->
         <div class="section">
-            <div class="section-header">
-                <span class="section-icon">🇨🇳</span>
-                <span class="section-title">国内新闻</span>
-                <span class="badge-domestic">DOMESTIC</span>
+            <h2 class="section-title">🇨🇳 中国新闻</h2>
+            
+            <div class="news-item">
+                <div class="news-title">两会第 2 日：审议政府工作报告</div>
+                <div class="news-en">
+                    <strong>Original:</strong> The 14th National People's Congress reviewed and discussed the government work report on March 6. GDP growth target set at 4.5-5%, defense budget at 1.91 trillion yuan (+7%).
+                </div>
+                <div class="news-cn">
+                    <strong>中文：</strong>十四届全国人大四次会议 3 月 6 日审议政府工作报告。GDP 增长目标设定为 4.5-5%，国防预算 1.91 万亿元（+7%）。
+                </div>
+                <div class="news-source">来源：新华网 / 新京报，2026-03-06</div>
             </div>
 
             <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Two Sessions Day 2: Review Government Work Report</span>
-                    <span class="news-title-zh">两会第 2 日：审议政府工作报告</span>
+                <div class="news-title">碧桂园重回世界 500 强</div>
+                <div class="news-en">
+                    <strong>Original:</strong> Country Garden's overseas debt restructuring plan approved. "Country Garden returns to Fortune 500" trended on Weibo.
                 </div>
-                <div class="news-summary">3 月 6 日，十四届全国人大四次会议各代表团审议和讨论政府工作报告，审查和讨论"十五五"规划纲要草案。经济主题记者会下午举行。</div>
-                <div class="news-summary-zh">政府工作报告提出 2026 年 GDP 目标 4.5-5%，国防预算 19095.61 亿元（+7%），居民基础养老金月最低标准再提 20 元。</div>
-                <div class="news-meta">
-                    <span class="news-source">新华网 / 新京报</span>
-                    <span class="news-time">10 小时前</span>
+                <div class="news-cn">
+                    <strong>中文：</strong>碧桂园境外债务重组方案获通过，"碧桂园重归 500 强"登上微博热搜。
                 </div>
+                <div class="news-source">来源：36 氪 / 微博热搜，2026-03-06</div>
             </div>
 
             <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Country Garden Returns to Fortune 500</span>
-                    <span class="news-title-zh">碧桂园重回世界 500 强</span>
+                <div class="news-title">华为 MWC26 展出 U6GHz 解决方案</div>
+                <div class="news-en">
+                    <strong>Original:</strong> Huawei exhibited industry-leading U6GHz solution at Mobile World Congress 2026, becoming the focus of the show.
                 </div>
-                <div class="news-summary">碧桂园境外债务重组方案获通过，"碧桂园重归 500 强"词条登上微博热搜。以 H16 碧园 5 为例，2031 年 9 月起分 9 期逐步兑付。</div>
-                <div class="news-meta">
-                    <span class="news-source">36 氪 / 微博热搜</span>
-                    <span class="news-time">6 小时前</span>
+                <div class="news-cn">
+                    <strong>中文：</strong>华为在 2026 年世界移动通信大会展出业界领先的 U6GHz 解决方案，成为展会焦点。
                 </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="news-title-en">Huawei Exhibits U6GHz Solution at MWC26</span>
-                    <span class="news-title-zh">华为 MWC26 展出 U6GHz 解决方案</span>
-                </div>
-                <div class="news-summary">3 月 3 日，在 2026 年世界移动通信大会 (MWC26) 上，华为首次展出业界领先的 U6GHz(Upper 6GHz) 解决方案，成为展会焦点。</div>
-                <div class="news-meta">
-                    <span class="news-source">环球网</span>
-                    <span class="news-time">3 天前</span>
-                </div>
+                <div class="news-source">来源：环球网，2026-03-03</div>
             </div>
         </div>
 
+        <!-- 奢侈品行业 -->
         <div class="section">
-            <div class="section-header">
-                <span class="section-icon">💡</span>
-                <span class="section-title">交易信号</span>
+            <h2 class="section-title">💎 奢侈品/时尚行业</h2>
+            
+            <div class="news-item">
+                <div class="news-title">全球奢侈品市场 2026 年预计达 5170 亿美元</div>
+                <div class="news-en">
+                    <strong>Original:</strong> Global luxury market expected to reach $517 billion in 2026, growing 6% and recovering to pre-pandemic levels. Sustainability presents major opportunities for luxury companies.
+                </div>
+                <div class="news-cn">
+                    <strong>中文：</strong>全球奢侈品市场 2026 年预计达到 5170 亿美元，增长 6%，恢复至疫情前水平。可持续发展为奢侈品公司带来重大机遇。
+                </div>
+                <div class="news-source">来源：WWD / Bain, 2026</div>
             </div>
-            <div class="signal-box">
-                <div class="signal-title">📈 短期/长期配置建议 (6:4)</div>
-                <div class="signal-item">
-                    <span class="signal-name">黄金 (Gold)</span>
-                    <span class="signal-price">目标 <span class="target">$2,800</span> 止损 <span class="stop">$2,700</span></span>
+
+            <div class="news-item">
+                <div class="news-title">LVMH 2026 高奢圈首波上新</div>
+                <div class="news-en">
+                    <strong>Original:</strong> LVMH's nine brands unveil new collections for 2026, showcasing technical innovations and design trends at watch week events.
                 </div>
-                <div class="signal-item">
-                    <span class="signal-name">原油 (Crude)</span>
-                    <span class="signal-price">目标 <span class="target">$85</span> 止损 <span class="stop">$75</span></span>
+                <div class="news-cn">
+                    <strong>中文：</strong>LVMH 九大品牌 2026 年首波上新，在腕表周活动展示技术创新和设计风格趋势。
                 </div>
-                <div class="signal-item">
-                    <span class="signal-name">LVMH</span>
-                    <span class="signal-price">目标 <span class="target">€820</span> 止损 <span class="stop">€750</span></span>
+                <div class="news-source">来源：搜狐时尚，2026-02-12</div>
+            </div>
+        </div>
+
+        <!-- OpenClaw 进展 -->
+        <div class="section">
+            <h2 class="section-title">🦞 OpenClaw 进展</h2>
+            <div class="news-item">
+                <div class="news-title">✅ 今日完成</div>
+                <div class="news-cn">
+                    • 安装 auto-updater skill - 配置每日 7:00 自动更新<br>
+                    • 安装 skill-vetter - 安全审查工具，安装 skill 前先扫描<br>
+                    • 安装 multi-search-engine - 17 个搜索引擎集成，无需 API 密钥<br>
+                    • 早报格式修正 - 按昨天实际格式重新生成
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-title">⏳ 待处理</div>
+                <div class="news-cn">
+                    • GitHub Pages 配置 - 已改为 gh-pages 分支，等待构建完成<br>
+                    • 伊朗战争监控 - 下次汇报 14:34
                 </div>
             </div>
         </div>
 
+        <!-- 底部 -->
         <div class="footer">
-            <div>数据来源：Reuters · AFP · 新华网 · 央视新闻 · 360 搜索 · 搜狗搜索</div>
-            <div style="margin-top:8px">
-                <a href="https://github.com/theDamien1112/DamienOpenClawBriefs">GitHub</a> · 
-                <a href="https://thedamien1112.github.io/DamienOpenClawBriefs/daily-brief-latest.html">最新早报</a>
-            </div>
+            <p>🐕 麦麦祝您今天顺利！有任何需要随时叫我～</p>
+            <p style="margin-top:10px">数据来源：Reuters · AFP · 新华网 · 360 搜索 · 搜狗搜索</p>
         </div>
     </div>
 </body>

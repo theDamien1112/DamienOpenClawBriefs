@@ -18,6 +18,24 @@
         }
         .container { max-width: 1200px; margin: 0 auto; }
         
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .market-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            header h1 { font-size: 36px !important; }
+        }
+        @media (max-width: 768px) {
+            .market-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            header h1 { font-size: 28px !important; }
+            .meta { flex-wrap: wrap; gap: 10px; }
+            .hot-search-grid { grid-template-columns: 1fr !important; }
+            .section { padding: 20px 15px !important; }
+        }
+        @media (max-width: 480px) {
+            .market-grid { grid-template-columns: 1fr !important; }
+            header h1 { font-size: 24px !important; }
+            .market-value { font-size: 20px !important; }
+        }
+        
         /* 标题区 */
         header {
             text-align: center;
@@ -38,6 +56,7 @@
             gap: 30px;
             font-size: 14px;
             color: #a0a0a0;
+            flex-wrap: wrap;
         }
         .meta span {
             background: #1a1a1a;
@@ -73,7 +92,19 @@
             color: #ffffff;
         }
         
-        /* 市场数据 */
+        /* 市场数据分层 */
+        .market-layer {
+            margin-bottom: 30px;
+        }
+        .market-layer:last-child { margin-bottom: 0; }
+        .layer-title {
+            font-size: 14px;
+            color: #00ff88;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #00ff88;
+        }
         .market-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -264,133 +295,152 @@
                 <span class="section-label">MARKET OVERVIEW</span>
                 <h2 class="section-title">💹 全球市场全景</h2>
             </div>
-            <div class="market-grid">
-                <!-- 第一层：全球主要指数 -->
-                <div class="market-card">
-                    <div class="market-label">S&P 500</div>
-                    <div class="market-value">5,847.32</div>
-                    <div class="market-change up">+0.85%</div>
+            
+            <!-- 第一层：全球主要指数 -->
+            <div class="market-layer">
+                <div class="layer-title">📊 全球主要指数 (6)</div>
+                <div class="market-grid">
+                    <div class="market-card">
+                        <div class="market-label">S&P 500</div>
+                        <div class="market-value">5,847.32</div>
+                        <div class="market-change up">+0.85%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">Nasdaq</div>
+                        <div class="market-value">18,234.56</div>
+                        <div class="market-change up">+1.12%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">Dow Jones</div>
+                        <div class="market-value">39,876.45</div>
+                        <div class="market-change up">+0.45%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">上证指数</div>
+                        <div class="market-value">3,287.65</div>
+                        <div class="market-change down">-0.32%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">恒生指数</div>
+                        <div class="market-value">21,456.78</div>
+                        <div class="market-change up">+0.67%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">日经 225</div>
+                        <div class="market-value">38,234.12</div>
+                        <div class="market-change up">+0.89%</div>
+                    </div>
                 </div>
-                <div class="market-card">
-                    <div class="market-label">Nasdaq</div>
-                    <div class="market-value">18,234.56</div>
-                    <div class="market-change up">+1.12%</div>
+            </div>
+            
+            <!-- 第二层：欧洲指数/奢侈品板块 -->
+            <div class="market-layer">
+                <div class="layer-title">🇪🇺 欧洲指数 / 奢侈品板块 (6)</div>
+                <div class="market-grid">
+                    <div class="market-card">
+                        <div class="market-label">CAC 40</div>
+                        <div class="market-value">7,654.32</div>
+                        <div class="market-change up">+0.54%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">DAX</div>
+                        <div class="market-value">17,890.45</div>
+                        <div class="market-change up">+0.72%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">FTSE 100</div>
+                        <div class="market-value">8,123.67</div>
+                        <div class="market-change up">+0.38%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">STOXX 600</div>
+                        <div class="market-value">512.34</div>
+                        <div class="market-change up">+0.45%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">LVMH</div>
+                        <div class="market-value">€782.50</div>
+                        <div class="market-change up">+1.25%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">EUR/USD</div>
+                        <div class="market-value">1.0945</div>
+                        <div class="market-change up">+0.15%</div>
+                    </div>
                 </div>
-                <div class="market-card">
-                    <div class="market-label">Dow Jones</div>
-                    <div class="market-value">39,876.45</div>
-                    <div class="market-change up">+0.45%</div>
+            </div>
+            
+            <!-- 第三层：新兴市场 -->
+            <div class="market-layer">
+                <div class="layer-title">🌏 新兴市场 (6)</div>
+                <div class="market-grid">
+                    <div class="market-card">
+                        <div class="market-label">MSCI 新兴市场</div>
+                        <div class="market-value">1,087.65</div>
+                        <div class="market-change up">+0.56%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">富时 A50</div>
+                        <div class="market-value">12,345.67</div>
+                        <div class="market-change down">-0.28%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">韩国 KOSPI</div>
+                        <div class="market-value">2,678.90</div>
+                        <div class="market-change up">+0.78%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">印度 Nifty 50</div>
+                        <div class="market-value">22,456.78</div>
+                        <div class="market-change up">+0.92%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">巴西 Bovespa</div>
+                        <div class="market-value">128,765.43</div>
+                        <div class="market-change up">+1.05%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">俄罗斯 RTS</div>
+                        <div class="market-value">1,123.45</div>
+                        <div class="market-change down">-1.25%</div>
+                    </div>
                 </div>
-                <div class="market-card">
-                    <div class="market-label">上证指数</div>
-                    <div class="market-value">3,287.65</div>
-                    <div class="market-change down">-0.32%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">恒生指数</div>
-                    <div class="market-value">21,456.78</div>
-                    <div class="market-change up">+0.67%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">日经 225</div>
-                    <div class="market-value">38,234.12</div>
-                    <div class="market-change up">+0.89%</div>
-                </div>
-                
-                <!-- 第二层：欧洲指数/奢侈品板块 -->
-                <div class="market-card">
-                    <div class="market-label">CAC 40</div>
-                    <div class="market-value">7,654.32</div>
-                    <div class="market-change up">+0.54%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">DAX</div>
-                    <div class="market-value">17,890.45</div>
-                    <div class="market-change up">+0.72%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">FTSE 100</div>
-                    <div class="market-value">8,123.67</div>
-                    <div class="market-change up">+0.38%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">STOXX 600</div>
-                    <div class="market-value">512.34</div>
-                    <div class="market-change up">+0.45%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">LVMH</div>
-                    <div class="market-value">€782.50</div>
-                    <div class="market-change up">+1.25%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">EUR/USD</div>
-                    <div class="market-value">1.0945</div>
-                    <div class="market-change up">+0.15%</div>
-                </div>
-                
-                <!-- 第三层：新兴市场 -->
-                <div class="market-card">
-                    <div class="market-label">MSCI 新兴市场</div>
-                    <div class="market-value">1,087.65</div>
-                    <div class="market-change up">+0.56%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">富时 A50</div>
-                    <div class="market-value">12,345.67</div>
-                    <div class="market-change down">-0.28%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">韩国 KOSPI</div>
-                    <div class="market-value">2,678.90</div>
-                    <div class="market-change up">+0.78%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">印度 Nifty 50</div>
-                    <div class="market-value">22,456.78</div>
-                    <div class="market-change up">+0.92%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">巴西 Bovespa</div>
-                    <div class="market-value">128,765.43</div>
-                    <div class="market-change up">+1.05%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">俄罗斯 RTS</div>
-                    <div class="market-value">1,123.45</div>
-                    <div class="market-change down">-1.25%</div>
-                </div>
-                
-                <!-- 第四层：汇率与大宗商品 -->
-                <div class="market-card">
-                    <div class="market-label">USD/CNY</div>
-                    <div class="market-value">6.92</div>
-                    <div class="market-change up">+0.08%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">黄金</div>
-                    <div class="market-value">$2,972.5/oz</div>
-                    <div class="market-change up">+1.29%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">白银</div>
-                    <div class="market-value">$32.15/oz</div>
-                    <div class="market-change up">+0.85%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">原油 WTI</div>
-                    <div class="market-value">$68.45/bbl</div>
-                    <div class="market-change down">-2.15%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">比特币</div>
-                    <div class="market-value">$87,654</div>
-                    <div class="market-change up">+2.34%</div>
-                </div>
-                <div class="market-card">
-                    <div class="market-label">铜</div>
-                    <div class="market-value">$9,876/吨</div>
-                    <div class="market-change up">+0.67%</div>
+            </div>
+            
+            <!-- 第四层：汇率与大宗商品 -->
+            <div class="market-layer">
+                <div class="layer-title">💱 汇率与大宗商品 (6)</div>
+                <div class="market-grid">
+                    <div class="market-card">
+                        <div class="market-label">USD/CNY</div>
+                        <div class="market-value">6.92</div>
+                        <div class="market-change up">+0.08%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">黄金</div>
+                        <div class="market-value">$2,972.5/oz</div>
+                        <div class="market-change up">+1.29%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">白银</div>
+                        <div class="market-value">$32.15/oz</div>
+                        <div class="market-change up">+0.85%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">原油 WTI</div>
+                        <div class="market-value">$68.45/bbl</div>
+                        <div class="market-change down">-2.15%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">比特币</div>
+                        <div class="market-value">$87,654</div>
+                        <div class="market-change up">+2.34%</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="market-label">铜</div>
+                        <div class="market-value">$9,876/吨</div>
+                        <div class="market-change up">+0.67%</div>
+                    </div>
                 </div>
             </div>
         </div>

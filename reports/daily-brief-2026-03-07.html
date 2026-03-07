@@ -13,55 +13,59 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #0a0a0a;
             color: #ffffff;
-            line-height: 1.6;
-            padding: 20px;
+            line-height: 1.5;
+            padding: 15px;
+            font-size: 13px;
         }
         .container { max-width: 1200px; margin: 0 auto; }
         
         /* 响应式设计 */
         @media (max-width: 1024px) {
             .market-grid { grid-template-columns: repeat(3, 1fr) !important; }
-            header h1 { font-size: 36px !important; }
+            header h1 { font-size: 32px !important; }
         }
         @media (max-width: 768px) {
             .market-grid { grid-template-columns: repeat(3, 1fr) !important; }
-            header h1 { font-size: 28px !important; }
-            .meta { flex-wrap: wrap; gap: 10px; }
+            header h1 { font-size: 24px !important; }
+            .meta { flex-wrap: wrap; gap: 8px; }
             .hot-search-grid { grid-template-columns: 1fr !important; }
-            .section { padding: 20px 15px !important; }
+            .section { padding: 15px 12px !important; }
+            body { font-size: 12px; }
         }
         @media (max-width: 480px) {
             .market-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            header h1 { font-size: 24px !important; }
-            .market-value { font-size: 20px !important; }
+            header h1 { font-size: 20px !important; }
+            .market-value { font-size: 18px !important; }
+            body { font-size: 11px; }
         }
         
         /* 标题区 */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 25px 15px;
             border-bottom: 1px solid #1a1a1a;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
         .meta {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            font-size: 14px;
+            gap: 20px;
+            font-size: 12px;
             color: #a0a0a0;
             flex-wrap: wrap;
         }
         .meta span {
             background: #1a1a1a;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 6px 16px;
+            border-radius: 16px;
         }
         
         /* Section 通用 */
@@ -69,40 +73,40 @@
             background: #111111;
             border: 1px solid #1a1a1a;
             border-radius: 0;
-            padding: 30px;
+            padding: 20px;
             margin-bottom: 1px;
         }
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #1a1a1a;
         }
         .section-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         .section-title {
-            font-size: 20px;
+            font-size: 17px;
             font-weight: 600;
             color: #ffffff;
         }
         
         /* 市场数据分层 */
         .market-layer {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .market-layer:last-child { margin-bottom: 0; }
         .layer-title {
-            font-size: 14px;
+            font-size: 12px;
             color: #00ff88;
             font-weight: 600;
-            margin-bottom: 15px;
-            padding-left: 10px;
+            margin-bottom: 12px;
+            padding-left: 8px;
             border-left: 3px solid #00ff88;
         }
         .market-grid {
@@ -114,24 +118,24 @@
         }
         .market-card {
             background: #111111;
-            padding: 20px;
+            padding: 14px 10px;
             text-align: center;
         }
         .market-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #a0a0a0;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .market-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
             color: #ffffff;
         }
         .market-change {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            margin-top: 5px;
+            font-size: 12px;
+            margin-top: 4px;
         }
         .up { color: #00ff88; }
         .down { color: #ff4757; }
@@ -140,33 +144,37 @@
         .alert-box {
             background: rgba(255, 165, 2, 0.1);
             border-left: 3px solid #ffa502;
-            padding: 15px 20px;
-            margin-bottom: 15px;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            font-size: 13px;
         }
         .alert-title {
             color: #ffa502;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            font-size: 13px;
         }
         
         /* 交易信号 */
         .signal-box {
             background: rgba(0, 255, 136, 0.05);
             border-left: 3px solid #00ff88;
-            padding: 15px 20px;
-            margin-bottom: 15px;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            font-size: 13px;
         }
         .signal-title {
             color: #00ff88;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            font-size: 13px;
         }
         
         /* 热搜 */
         .hot-search-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
         }
         .hot-search-list {
             list-style: none;
@@ -174,23 +182,23 @@
         .hot-search-item {
             display: flex;
             align-items: center;
-            padding: 12px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #1a1a1a;
         }
         .hot-search-rank {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             color: #00ff88;
-            width: 40px;
+            width: 35px;
         }
         .hot-search-content {
             flex: 1;
-            font-size: 14px;
+            font-size: 13px;
         }
         .hot-search-heat {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
+            font-size: 11px;
             color: #666;
         }
         
@@ -199,38 +207,40 @@
             list-style: none;
         }
         .news-item {
-            padding: 20px 0;
+            padding: 14px 0;
             border-bottom: 1px solid #1a1a1a;
         }
         .news-item:last-child { border-bottom: none; }
         .news-title-en {
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 8px;
-            font-size: 16px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 1.4;
         }
         .news-title-zh {
             color: #00ff88;
-            font-size: 14px;
-            margin-bottom: 10px;
-            padding-left: 15px;
+            font-size: 13px;
+            margin-bottom: 8px;
+            padding-left: 12px;
             border-left: 2px solid #00ff88;
         }
         .news-content {
-            font-size: 14px;
+            font-size: 13px;
             color: #b0b0b0;
-            margin-bottom: 10px;
-            line-height: 1.8;
+            margin-bottom: 8px;
+            line-height: 1.6;
         }
         .news-content-zh {
             color: #95a5a6;
             font-style: italic;
-            padding-left: 15px;
+            padding-left: 12px;
             border-left: 2px solid #00ff88;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 13px;
         }
         .news-meta {
-            font-size: 12px;
+            font-size: 11px;
             color: #666;
         }
         .news-source {
@@ -241,11 +251,11 @@
         .action-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 14px;
+            font-size: 13px;
         }
         .action-table th,
         .action-table td {
-            padding: 15px;
+            padding: 10px;
             text-align: left;
             border-bottom: 1px solid #1a1a1a;
         }
@@ -253,22 +263,22 @@
             color: #a0a0a0;
             font-weight: 500;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 1px;
         }
         .priority {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: #666;
-            font-size: 12px;
+            font-size: 11px;
             border-top: 1px solid #1a1a1a;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         footer a {
             color: #00ff88;
